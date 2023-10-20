@@ -628,6 +628,14 @@ a {
   padding: 9px 0;
 }
 
+.brand .logo img {
+  height: 70px;
+}
+
+.login-btn:hover {
+  background-color: #fff !important;
+}
+
 .plus {
   width: 10px;
   height: 10px;
@@ -747,27 +755,6 @@ a {
   z-index: 111;
   visibility: hidden;
   transition: all 0.3s ease;
-}
-
-.notice {
-  background-color: var(--secondary);
-  color: #fff;
-  margin-top: 100px;
-  padding: 50px;
-  border-radius: 10px;
-  line-height: 1.4;
-}
-.notice h4 {
-  margin-bottom: 30px;
-  margin-top: 30px;
-  background-color: #fff;
-  color: var(--primary);
-  padding: 5px 20px;
-  border-radius: 20px;
-  transition: color 0.3s ease;
-}
-.notice p {
-  font-weight: 300;
 }
 
 /* Responsive CSS */

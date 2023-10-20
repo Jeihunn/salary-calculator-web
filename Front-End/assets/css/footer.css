@@ -26,7 +26,7 @@ footer::after{
   background: #AFAFB6;
 }
 footer .content{
-  max-width: 1250px;
+  max-width: 1320px;
   margin: auto;
   padding: 30px 40px 40px 40px;
 }
@@ -35,6 +35,12 @@ footer .content .top{
   align-items: center;
   justify-content: space-between;
   margin-bottom: 50px;
+}
+footer .logo-details .footer-logo{
+  height: 60px;
+}
+footer .logo-details .logo_name span{
+  color: #F06429 !important;
 }
 .content .top .logo-details{
   color: #fff;
