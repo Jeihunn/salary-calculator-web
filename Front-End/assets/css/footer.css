@@ -12,7 +12,7 @@
   background: #EEECEB;
 } */
 footer{
-   position: fixed;
+   position: relative;
   background: #140B5C;
   width: 100%;
   bottom: 0;
@@ -251,7 +251,7 @@ footer .bottom-details .bottom_text{
 }
 @media (max-width: 520px){
   footer::before{
-    top: 20%;
+    top: 23%;
   }
   footer .content .top{
     flex-direction: column;
