@@ -668,7 +668,7 @@ a {
 .main-menu nav ul .menu-item .submenu {
   position: absolute;
   box-shadow: var(--box-shadow);
-  width: 200px;
+  width: 208px;
   padding: 0;
   background-color: #fff;
   text-align: left;
