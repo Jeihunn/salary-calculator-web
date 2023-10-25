@@ -10,6 +10,7 @@
       href="./assets/img/salary-calc-logo1.png"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <!-- ===== Font Awesome v5.15.2 ===== -->
     <link
@@ -18,7 +19,9 @@
     />
     <!-- ===== Bootstrap CSS v5.3.2 ===== -->
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    
     <!-- ===== MY CSS ===== -->
+    <link rel="stylesheet" href="./assets/css/login.css">
     <link rel="stylesheet" href="./assets/css/footer.css" />
     <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
@@ -34,7 +37,7 @@
         <div class="row align-items-center">
           <div class="col-3">
             <div class="brand">
-              <a href="#" class="logo">
+              <a href="index.html" class="logo">
                 <img
                   src="./assets/img/salary-calc-icon.png"
                   alt="salary-calc-logo"
@@ -100,7 +103,95 @@
 
     <!-- ===== Main ===== -->
     <main>
+    
+      
+      <div class="container d-flex justify-content-center align-items-center">
+        <div class="login-box my-5">
+          <div class="forms">
+              <div class="form login m-auto">
+                  <span class="title">Daxil ol</span>
+  
+                  <form action="#">
+                      <div class="input-field">
+                          <input type="text" placeholder="E-poçt daxil edin" required>
+                          <i class="uil uil-envelope icon"></i>
+                      </div>
+                      <div class="input-field">
+                          <input type="password" class="password" placeholder="Şifrənizi daxil edin" required>
+                          <i class="uil uil-lock icon"></i>
+                          <i class="uil uil-eye-slash showHidePw"></i>
+                      </div>
+  
+                      <div class="checkbox-text">
+                          <div class="checkbox-content">
+                              <input type="checkbox" id="logCheck">
+                              <label for="logCheck" class="text">Yadda saxla</label>
+                          </div>
+                          
+                          <a href="#" class="text">Şifrəni unutmusuz?</a>
+                      </div>
+  
+                      <div class="input-field button">
+                          <input type="button" value="Daxil ol">
+                      </div>
+                  </form>
+  
+                  <div class="login-signup">
+                      <span class="text">Hesabınız yoxdur??
+                          <a href="register.html" class="text signup-link">Qeydiyyatdan keçin</a>
+                      </span>
+                  </div>
+              </div>
+  
+              <!-- Registration Form -->
+              <!-- <div class="form signup">
+                  <span class="title">Registration</span>
+  
+                  <form action="#">
+                      <div class="input-field">
+                          <input type="text" placeholder="Enter your name" required>
+                          <i class="uil uil-user"></i>
+                      </div>
+                      <div class="input-field">
+                          <input type="text" placeholder="Enter your email" required>
+                          <i class="uil uil-envelope icon"></i>
+                      </div>
+                      <div class="input-field">
+                          <input type="password" class="password" placeholder="Create a password" required>
+                          <i class="uil uil-lock icon"></i>
+                      </div>
+                      <div class="input-field">
+                          <input type="password" class="password" placeholder="Confirm a password" required>
+                          <i class="uil uil-lock icon"></i>
+                          <i class="uil uil-eye-slash showHidePw"></i>
+                      </div>
+  
+                      <div class="checkbox-text">
+                          <div class="checkbox-content">
+                              <input type="checkbox" id="termCon">
+                              <label for="termCon" class="text">I accepted all terms and conditions</label>
+                          </div>
+                      </div>
+  
+                      <div class="input-field button">
+                          <input type="button" value="Signup">
+                      </div>
+                  </form>
+  
+                  <div class="login-signup">
+                      <span class="text">Already a member?
+                          <a href="#" class="text login-link">Login Now</a>
+                      </span>
+                  </div>
+              </div> -->
+          </div>
+      </div>
+      </div>
+          
         
+      
+           
+   
     </main>
     <!-- ===== END Main ===== -->
 
@@ -160,7 +251,7 @@
       </div>
     </footer>
     <!-- ===== END Footer ===== -->
-
+    <script src="./assets/js/login-register.js"></script> 
     <!-- ===== Bootstrap JS v5.3.2 ===== -->
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <!-- ===== MY JS ===== -->
