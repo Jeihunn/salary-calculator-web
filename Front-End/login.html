@@ -10,22 +10,26 @@
       href="./assets/img/salary-calc-logo1.png"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <!-- ===== Font Awesome v5.15.2 ===== -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
     />
+    <!-- ===== Iconscout v4.0.0 ===== -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
     <!-- ===== Bootstrap CSS v5.3.2 ===== -->
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
-    
     <!-- ===== MY CSS ===== -->
-    <link rel="stylesheet" href="./assets/css/login.css">
     <link rel="stylesheet" href="./assets/css/footer.css" />
     <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+
     <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" href="./assets/css/login-register.css" />
 
     <title>Giriş | SalaryCalc</title>
   </head>
@@ -56,7 +60,9 @@
                   <li class="menu-item menu-has-child-item">
                     <a href="#" data-toggle="sub-menu">Hesablama</a>
                     <ul class="submenu">
-                      <li class="menu-item"><a href="index.html">Maaş</a></li>
+                      <li class="menu-item">
+                        <a href="index.html" class="active">Maaş</a>
+                      </li>
                       <li class="menu-item">
                         <a href="gorss-to-nett.html">Gross'dan Nett'ə</a>
                       </li>
@@ -78,7 +84,11 @@
                   </li>
                   <li class="menu-item"><a href="about.html">Haqqında</a></li>
                   <li class="menu-item"><a href="contact.html">Əlaqə</a></li>
-                  <li class="menu-item"><a class="btn btn-primary px-4 login-btn" href="login.html">Giriş</a></li>
+                  <li class="menu-item">
+                    <a class="btn btn-primary px-4 login-btn" href="login.html"
+                      >Giriş</a
+                    >
+                  </li>
                   <!-- <li class="menu-item menu-has-child-item">
                     <a href="#" data-toggle="sub-menu">İstifadəçi Adı</a>
                     <ul class="submenu">
@@ -103,95 +113,60 @@
 
     <!-- ===== Main ===== -->
     <main>
-    
-      
       <div class="container d-flex justify-content-center align-items-center">
         <div class="login-box my-5">
           <div class="forms">
-              <div class="form login m-auto">
-                  <span class="title">Daxil ol</span>
-  
-                  <form action="#">
-                      <div class="input-field">
-                          <input type="text" placeholder="E-poçt daxil edin" required>
-                          <i class="uil uil-envelope icon"></i>
-                      </div>
-                      <div class="input-field">
-                          <input type="password" class="password" placeholder="Şifrənizi daxil edin" required>
-                          <i class="uil uil-lock icon"></i>
-                          <i class="uil uil-eye-slash showHidePw"></i>
-                      </div>
-  
-                      <div class="checkbox-text">
-                          <div class="checkbox-content">
-                              <input type="checkbox" id="logCheck">
-                              <label for="logCheck" class="text">Yadda saxla</label>
-                          </div>
-                          
-                          <a href="#" class="text">Şifrəni unutmusuz?</a>
-                      </div>
-  
-                      <div class="input-field button">
-                          <input type="button" value="Daxil ol">
-                      </div>
-                  </form>
-  
-                  <div class="login-signup">
-                      <span class="text">Hesabınız yoxdur??
-                          <a href="register.html" class="text signup-link">Qeydiyyatdan keçin</a>
-                      </span>
+            <div class="form login m-auto">
+              <span class="title">Daxil ol</span>
+
+              <!-- ===== Login Form ===== -->
+              <form method="get">
+                <div class="input-field">
+                  <input
+                    type="text"
+                    placeholder="İstifadəçi adı və ya Email"
+                    required
+                  />
+                  <i class="uil uil-user"></i>
+                </div>
+                <div class="input-field">
+                  <input
+                    type="password"
+                    class="password"
+                    placeholder="Şifrə"
+                    required
+                  />
+                  <i class="uil uil-padlock icon"></i>
+                  <i class="uil uil-eye-slash showHidePw"></i>
+                </div>
+
+                <div class="checkbox-text">
+                  <div class="checkbox-content">
+                    <input type="checkbox" id="logCheck" />
+                    <label for="logCheck" class="text">Yadda saxla</label>
                   </div>
+
+                  <a href="#" class="text">Şifrəni unutmusan?</a>
+                </div>
+
+                <div class="input-field button">
+                  <input type="submit" value="Daxil ol" />
+                </div>
+              </form>
+              <!-- ===== END Login Form ===== -->
+
+              <div class="login-signup">
+                <span class="text"
+                  >Hesabın yoxdur??
+                  <a href="register.html" class="text signup-link"
+                    >Qeydiyyatdan keç</a
+                  >
+                </span>
               </div>
-  
-              <!-- Registration Form -->
-              <!-- <div class="form signup">
-                  <span class="title">Registration</span>
-  
-                  <form action="#">
-                      <div class="input-field">
-                          <input type="text" placeholder="Enter your name" required>
-                          <i class="uil uil-user"></i>
-                      </div>
-                      <div class="input-field">
-                          <input type="text" placeholder="Enter your email" required>
-                          <i class="uil uil-envelope icon"></i>
-                      </div>
-                      <div class="input-field">
-                          <input type="password" class="password" placeholder="Create a password" required>
-                          <i class="uil uil-lock icon"></i>
-                      </div>
-                      <div class="input-field">
-                          <input type="password" class="password" placeholder="Confirm a password" required>
-                          <i class="uil uil-lock icon"></i>
-                          <i class="uil uil-eye-slash showHidePw"></i>
-                      </div>
-  
-                      <div class="checkbox-text">
-                          <div class="checkbox-content">
-                              <input type="checkbox" id="termCon">
-                              <label for="termCon" class="text">I accepted all terms and conditions</label>
-                          </div>
-                      </div>
-  
-                      <div class="input-field button">
-                          <input type="button" value="Signup">
-                      </div>
-                  </form>
-  
-                  <div class="login-signup">
-                      <span class="text">Already a member?
-                          <a href="#" class="text login-link">Login Now</a>
-                      </span>
-                  </div>
-              </div> -->
+            </div>
           </div>
+        </div>
       </div>
-      </div>
-          
-        
-      
-           
-   
     </main>
     <!-- ===== END Main ===== -->
 
@@ -251,10 +226,13 @@
       </div>
     </footer>
     <!-- ===== END Footer ===== -->
-    <script src="./assets/js/login-register.js"></script> 
+
     <!-- ===== Bootstrap JS v5.3.2 ===== -->
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <!-- ===== MY JS ===== -->
+    <script src="./assets/js/navbar.js"></script>
     <script src="./assets/js/footer.js"></script>
+
+    <script src="./assets/js/login-register.js"></script>
   </body>
 </html>

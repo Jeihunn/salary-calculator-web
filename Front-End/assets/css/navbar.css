@@ -692,7 +692,7 @@ a {
 .main-menu nav ul .menu-item:hover > a {
   color: var(--secondary);
 }
-header a.active {
+.main-menu nav ul .menu-item a.active {
   color: var(--secondary);
 }
 .main-menu nav ul .menu-has-child-item:hover .plus:before,
@@ -855,11 +855,5 @@ header a.active {
   }
   .open-nav-menu {
     display: flex;
-  }
-  .notice {
-    font-size: 16px;
-  }
-  .notice h4 {
-    color: var(--secondary);
   }
 }
