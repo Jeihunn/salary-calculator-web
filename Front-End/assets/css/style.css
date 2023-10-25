@@ -1,0 +1,12 @@
+/* Header Page Title */
+.page-title {
+  background-color: #140b5c;
+  color: #fff;
+  text-align: center;
+  padding: 60px 0;
+  font-size: 24px;
+}
+
+.page-title h1 {
+  margin: 0;
+}

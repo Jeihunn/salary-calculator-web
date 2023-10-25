@@ -692,6 +692,9 @@ a {
 .main-menu nav ul .menu-item:hover > a {
   color: var(--secondary);
 }
+header a.active {
+  color: var(--secondary);
+}
 .main-menu nav ul .menu-has-child-item:hover .plus:before,
 .main-menu nav ul .menu-has-child-item:hover .plus:after {
   background-color: var(--secondary);
