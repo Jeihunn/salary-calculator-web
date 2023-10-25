@@ -1,1 +1,261 @@
-<h1>QEYDİYYAT</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ===== Favicon ===== -->
+    <link
+      rel="shortcut icon"
+      href="./assets/img/salary-calc-logo1.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- ===== Font Awesome v5.15.2 ===== -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <!-- ===== Bootstrap CSS v5.3.2 ===== -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    
+    <!-- ===== MY CSS ===== -->
+    <link rel="stylesheet" href="./assets/css/register.css">
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+
+    <title>Giriş | SalaryCalc</title>
+  </head>
+  <body>
+    <!-- ===== Header ===== -->
+    <div class="overlay"></div>
+    <header class="header-area">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-3">
+            <div class="brand">
+              <a href="index.html" class="logo">
+                <img
+                  src="./assets/img/salary-calc-icon.png"
+                  alt="salary-calc-logo"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="col-9 d-flex align-items-center justify-content-flex-end">
+            <div class="open-nav-menu">
+              <span></span>
+            </div>
+            <div class="main-menu">
+              <nav>
+                <div class="close-nav-btn"></div>
+                <ul>
+                  <li class="menu-item menu-has-child-item">
+                    <a href="#" data-toggle="sub-menu">Hesablama</a>
+                    <ul class="submenu">
+                      <li class="menu-item"><a href="index.html">Maaş</a></li>
+                      <li class="menu-item">
+                        <a href="gorss-to-nett.html">Gross'dan Nett'ə</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="nett-to-gross.html">Nett'dən Gross'a</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item menu-has-child-item">
+                    <a href="#" data-toggle="sub-menu">Əlavə Məlumat</a>
+                    <ul class="submenu">
+                      <li class="menu-item">
+                        <a href="work-calendar.html">İstehsalat Təqvimi</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="faq.html">Tez-tez verilən suallar</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item"><a href="about.html">Haqqında</a></li>
+                  <li class="menu-item"><a href="contact.html">Əlaqə</a></li>
+                  <li class="menu-item"><a class="btn btn-primary px-4 login-btn" href="login.html">Giriş</a></li>
+                  <!-- <li class="menu-item menu-has-child-item">
+                    <a href="#" data-toggle="sub-menu">İstifadəçi Adı</a>
+                    <ul class="submenu">
+                      <li class="menu-item"><a href="profil.html">Profil</a></li>
+                      <li class="menu-item"><a href="#">Çıxış</a></li>
+                    </ul>
+                  </li> -->
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ===== END Header ===== -->
+
+    <!-- ===== Header Page Title ===== -->
+    <div class="page-title">
+      <h1>Giriş</h1>
+    </div>
+    <!-- ===== END Header Page Title ===== -->
+
+    <!-- ===== Main ===== -->
+    <main>
+    
+      
+      <div class="container d-flex justify-content-center align-items-center">
+        <div class="login-box my-5">
+          <div class="forms">
+              <!-- <div class="form login m-auto">
+                  <span class="title">Login</span>
+  
+                  <form action="#">
+                      <div class="input-field">
+                          <input type="text" placeholder="Enter your email" required>
+                          <i class="uil uil-envelope icon"></i>
+                      </div>
+                      <div class="input-field">
+                          <input type="password" class="password" placeholder="Enter your password" required>
+                          <i class="uil uil-lock icon"></i>
+                          <i class="uil uil-eye-slash showHidePw"></i>
+                      </div>
+  
+                      <div class="checkbox-text">
+                          <div class="checkbox-content">
+                              <input type="checkbox" id="logCheck">
+                              <label for="logCheck" class="text">Remember me</label>
+                          </div>
+                          
+                          <a href="#" class="text">Forgot password?</a>
+                      </div>
+  
+                      <div class="input-field button">
+                          <input type="button" value="Login">
+                      </div>
+                  </form>
+  
+                  <div class="login-signup">
+                      <span class="text">Not a member?
+                          <a href="register.html" class="text signup-link">Signup Now</a>
+                      </span>
+                  </div>
+              </div> -->
+  
+              <!-- Registration Form -->
+              <div class="form signup">
+                  <span class="title">Qeydiyyat</span>
+  
+                  <form action="#">
+                      <div class="input-field">
+                          <input type="text" placeholder="İstifadəçi adınızı qeyd edin" required>
+                          <i class="uil uil-user"></i>
+                      </div>
+                      <div class="input-field">
+                          <input type="text" placeholder="E-poçt daxil edin" required>
+                          <i class="uil uil-envelope icon"></i>
+                      </div>
+                      <div class="input-field">
+                          <input type="password" class="password" placeholder="Şifrənizi daxil edin" required>
+                          <i class="uil uil-lock icon"></i>
+                          <i class="uil uil-eye-slash showHidePw"></i>
+                      </div>
+                      <div class="input-field">
+                          <input type="password" class="password" placeholder="Şifrənizi təkrarlayın" required>
+                          <i class="uil uil-lock icon"></i>
+                          <i class="uil uil-eye-slash showHidePw"></i>
+                      </div>
+  
+                      <div class="checkbox-text">
+                          <div class="checkbox-content">
+                              <input type="checkbox" id="termCon">
+                              <label for="termCon" class="text">Saytda qeydiyyatdan keçməklə saytın istifadə şərtlərini qəbul edirəm</label>
+                          </div>
+                      </div>
+  
+                      <div class="input-field button">
+                          <input type="button" value="Yeni hesab yaratmaq">
+                      </div>
+                  </form>
+  
+                  <div class="login-signup">
+                      <span class="text">Hesabınız var?
+                          <a href="login.html" class="text login-link">Daxil ol</a>
+                      </span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+          
+        
+      
+           
+   
+    </main>
+    <!-- ===== END Main ===== -->
+
+    <!-- ===== Footer ===== -->
+    <footer>
+      <div class="content">
+        <div class="top">
+          <div class="logo-details">
+            <img
+              src="./assets/img/salary-calc-icon.png"
+              alt="salary-calc-logo"
+              class="footer-logo"
+            />
+            <span class="logo_name">Salary<span>Calc</span></span>
+          </div>
+          <div class="media-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+          <div class="line-footer"></div>
+        </div>
+
+        <div class="link-boxes">
+          <ul class="box">
+            <li class="link_name">Səhifələr</li>
+            <li><a href="#">Gross'dan Nett'ə</a></li>
+            <li><a href="#">Nett'dən Gross'a</a></li>
+            <li><a href="#">İstehsalat Təqvimi</a></li>
+          </ul>
+          <ul class="box">
+            <li class="link_name">Səhifələr</li>
+            <li><a href="#">Haqqında</a></li>
+            <li><a href="#">Əlaqə</a></li>
+            <li><a href="#">Tez-tez verilən suallar</a></li>
+          </ul>
+          <ul class="box input-box">
+            <li class="link_name">Abunə ol</li>
+            <li><input type="text" placeholder="Elektron ünvanı qeyd et" /></li>
+            <li><input type="button" value="Abunə ol" /></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom-details">
+        <div class="bottom_text">
+          <span class="copyright_text"
+            >Copyright &#169; 2023 <a href="#">SalaryCalc.</a>Bütün hüquqları
+            qorunur</span
+          >
+          <span class="policy_terms">
+            <a href="#">Privacy policy</a>
+            <a href="#">Terms & condition</a>
+          </span>
+        </div>
+      </div>
+    </footer>
+    <!-- ===== END Footer ===== -->
+    <script src="./assets/js/login-register.js"></script> 
+    <!-- ===== Bootstrap JS v5.3.2 ===== -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <!-- ===== MY JS ===== -->
+    <script src="./assets/js/footer.js"></script>
+  </body>
+</html>
