@@ -140,11 +140,15 @@ textarea.input {
   align-items: center;
   font-size: 0.95rem;
 }
-
-.icon {
-  width: 28px;
-  margin-right: 0.7rem;
+.information i{
+  font-size: 20px;
+  color: #1abc9c;
 }
+.information p{
+  padding-left: 20px;
+  margin: 0;
+}
+
 
 .social-media {
   padding: 2rem 0 0 0;
@@ -152,6 +156,7 @@ textarea.input {
 
 .social-media p {
   color: #333;
+
 }
 
 .social-icons {
@@ -221,9 +226,7 @@ textarea.input {
     line-height: 30px;
   }
 
-  .icon {
-    width: 23px;
-  }
+  
 
   .input {
     padding: 0.45rem 1.2rem;
