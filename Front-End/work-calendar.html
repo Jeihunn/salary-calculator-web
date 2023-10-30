@@ -1,1 +1,1036 @@
-<h1>WORK-CALENDAR</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ===== Favicon ===== -->
+    <link
+      rel="shortcut icon"
+      href="./assets/img/salary-calc-logo1.png"
+      type="image/x-icon"
+    />
+
+    <!-- ===== Font Awesome v5.15.2 ===== -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <!-- ===== Iconscout v4.0.0 ===== -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <!-- ===== Bootstrap CSS v5.3.2 ===== -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <!-- ===== MY CSS ===== -->
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/work-calendar.css" />
+
+    <title>İstehsalat Təqvimi | SalaryCalc</title>
+  </head>
+  <body>
+    <!-- ===== Header ===== -->
+    <div class="overlay"></div>
+    <header class="header-area">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-3">
+            <div class="brand">
+              <a href="index.html" class="logo">
+                <img
+                  src="./assets/img/salary-calc-icon.png"
+                  alt="salary-calc-logo"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="col-9 d-flex align-items-center justify-content-flex-end">
+            <div class="open-nav-menu">
+              <span></span>
+            </div>
+            <div class="main-menu">
+              <nav>
+                <div class="close-nav-btn"></div>
+                <ul>
+                  <li class="menu-item menu-has-child-item">
+                    <a href="#" data-toggle="sub-menu">Hesablama</a>
+                    <ul class="submenu">
+                      <li class="menu-item">
+                        <a href="index.html" class="active">Maaş</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="gorss-to-nett.html">Gross'dan Nett'ə</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="nett-to-gross.html">Nett'dən Gross'a</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item menu-has-child-item">
+                    <a href="#" data-toggle="sub-menu">Əlavə Məlumat</a>
+                    <ul class="submenu">
+                      <li class="menu-item">
+                        <a href="work-calendar.html">İstehsalat Təqvimi</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="faq.html">Tez-tez verilən suallar</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item"><a href="about.html">Haqqında</a></li>
+                  <li class="menu-item"><a href="contact.html">Əlaqə</a></li>
+                  <li class="menu-item">
+                    <a class="btn btn-primary px-4 login-btn" href="login.html"
+                      >Giriş</a
+                    >
+                  </li>
+                  <!-- <li class="menu-item menu-has-child-item">
+                    <a href="#" data-toggle="sub-menu">İstifadəçi Adı</a>
+                    <ul class="submenu">
+                      <li class="menu-item"><a href="profil.html">Profil</a></li>
+                      <li class="menu-item"><a href="#">Çıxış</a></li>
+                    </ul>
+                  </li> -->
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ===== END Header ===== -->
+
+    <!-- ===== Header Page Title ===== -->
+    <div class="page-title">
+      <h1>İstehsalat Təqvimi</h1>
+    </div>
+    <!-- ===== END Header Page Title ===== -->
+
+    <!-- ===== Main ===== -->
+    <main>
+      <div class="container-fluid my-4">
+        <!-- ===== Table ===== -->
+        <div class="p-2 mt-4 rounded bg-secondary-subtle text-center">
+          <div class="table-responsive salary-table">
+            <table
+              class="table table-bordered border-dark table-hover text-center table-work-calendar"
+              style="border: 3px solid #000"
+            >
+              <thead>
+                <tr>
+                  <th
+                    colspan="18"
+                    style="
+                      font-size: 40px;
+                      background-color: #ecf0df;
+                      color: #007c7c;
+                    "
+                  >
+                    2024
+                  </th>
+                </tr>
+                <tr>
+                  <th
+                    colspan="1"
+                    rowspan="3"
+                    style="
+                      width: 10%;
+                      background-color: #ecf0df;
+                      font-size: 14px;
+                    "
+                  >
+                    İlin Ayları
+                  </th>
+                  <th
+                    colspan="1"
+                    rowspan="3"
+                    style="
+                      width: 10%;
+                      background-color: #ffff01;
+                      font-size: 14px;
+                    "
+                  >
+                    İstehsalat Təqviminə Uyğun Aylıq İş Norması
+                  </th>
+                  <th
+                    colspan="16"
+                    style="width: 80%; background-color: #ecf0df"
+                  >
+                    Qruplar
+                  </th>
+                </tr>
+                <tr>
+                  <th
+                    colspan="4"
+                    style="
+                      background-color: #ecf0df;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    A
+                  </th>
+                  <th
+                    colspan="4"
+                    style="
+                      background-color: #ecf0df;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    B
+                  </th>
+                  <th
+                    colspan="4"
+                    style="
+                      background-color: #ecf0df;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    C
+                  </th>
+                  <th
+                    colspan="4"
+                    style="
+                      background-color: #ecf0df;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    D
+                  </th>
+                </tr>
+                <tr style="font-size: 11px">
+                  <th
+                    colspan="1"
+                    style="
+                      background-color: #90d054;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    Ümumi İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #fefffc">
+                    Gündüz İş Saatı
+                  </th>
+                  <th
+                    colspan="1"
+                    style="background-color: #000003; color: #fff"
+                  >
+                    Gecə İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #ff3103">
+                    Bayram Saatı
+                  </th>
+                  <th
+                    colspan="1"
+                    style="
+                      background-color: #90d054;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    Ümumi İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #fefffc">
+                    Gündüz İş Saatı
+                  </th>
+                  <th
+                    colspan="1"
+                    style="background-color: #000003; color: #fff"
+                  >
+                    Gecə İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #ff3103">
+                    Bayram Saatı
+                  </th>
+                  <th
+                    colspan="1"
+                    style="
+                      background-color: #90d054;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    Ümumi İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #fefffc">
+                    Gündüz İş Saatı
+                  </th>
+                  <th
+                    colspan="1"
+                    style="background-color: #000003; color: #fff"
+                  >
+                    Gecə İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #ff3103">
+                    Bayram Saatı
+                  </th>
+                  <th
+                    colspan="1"
+                    style="
+                      background-color: #90d054;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    Ümumi İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #fefffc">
+                    Gündüz İş Saatı
+                  </th>
+                  <th
+                    colspan="1"
+                    style="background-color: #000003; color: #fff"
+                  >
+                    Gecə İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #ff3103">
+                    Bayram Saatı
+                  </th>
+                </tr>
+              </thead>
+              <tbody style="font-size: 13px">
+                <tr>
+                  <td>Yanvar</td>
+                  <td>100</td>
+                  <td style="border-left: 3px solid #000">40</td>
+                  <td>30</td>
+                  <td>20</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">35</td>
+                  <td>25</td>
+                  <td>15</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">45</td>
+                  <td>30</td>
+                  <td>10</td>
+                  <td>70</td>
+                  <td style="border-left: 3px solid #000">55</td>
+                  <td>35</td>
+                  <td>15</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Fevral</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Mart</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Aprel</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>May</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>İyun</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>İyul</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Avqust</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Sentyabr</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Oktyabr</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Noyabr</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Dekabr</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <img
+            src="assets/img/2023-istehsalat.png"
+            alt=""
+            class="img-fluid img-thumbnail mt-4"
+          />
+        </div>
+        <!-- ===== END Table ===== -->
+        <!-- ===== Table ===== -->
+        <div class="p-2 mt-4 rounded bg-secondary-subtle text-center">
+          <div class="table-responsive salary-table">
+            <table
+              class="table table-bordered border-dark table-hover text-center table-work-calendar"
+              style="border: 3px solid #000"
+            >
+              <thead>
+                <tr>
+                  <th
+                    colspan="18"
+                    style="
+                      font-size: 40px;
+                      background-color: #ecf0df;
+                      color: #007c7c;
+                    "
+                  >
+                    2023
+                  </th>
+                </tr>
+                <tr>
+                  <th
+                    colspan="1"
+                    rowspan="3"
+                    style="
+                      width: 10%;
+                      background-color: #ecf0df;
+                      font-size: 14px;
+                    "
+                  >
+                    İlin Ayları
+                  </th>
+                  <th
+                    colspan="1"
+                    rowspan="3"
+                    style="
+                      width: 10%;
+                      background-color: #ffff01;
+                      font-size: 14px;
+                    "
+                  >
+                    İstehsalat Təqviminə Uyğun Aylıq İş Norması
+                  </th>
+                  <th
+                    colspan="16"
+                    style="width: 80%; background-color: #ecf0df"
+                  >
+                    Qruplar
+                  </th>
+                </tr>
+                <tr>
+                  <th
+                    colspan="4"
+                    style="
+                      background-color: #ecf0df;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    A
+                  </th>
+                  <th
+                    colspan="4"
+                    style="
+                      background-color: #ecf0df;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    B
+                  </th>
+                  <th
+                    colspan="4"
+                    style="
+                      background-color: #ecf0df;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    C
+                  </th>
+                  <th
+                    colspan="4"
+                    style="
+                      background-color: #ecf0df;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    D
+                  </th>
+                </tr>
+                <tr style="font-size: 11px">
+                  <th
+                    colspan="1"
+                    style="
+                      background-color: #90d054;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    Ümumi İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #fefffc">
+                    Gündüz İş Saatı
+                  </th>
+                  <th
+                    colspan="1"
+                    style="background-color: #000003; color: #fff"
+                  >
+                    Gecə İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #ff3103">
+                    Bayram Saatı
+                  </th>
+                  <th
+                    colspan="1"
+                    style="
+                      background-color: #90d054;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    Ümumi İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #fefffc">
+                    Gündüz İş Saatı
+                  </th>
+                  <th
+                    colspan="1"
+                    style="background-color: #000003; color: #fff"
+                  >
+                    Gecə İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #ff3103">
+                    Bayram Saatı
+                  </th>
+                  <th
+                    colspan="1"
+                    style="
+                      background-color: #90d054;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    Ümumi İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #fefffc">
+                    Gündüz İş Saatı
+                  </th>
+                  <th
+                    colspan="1"
+                    style="background-color: #000003; color: #fff"
+                  >
+                    Gecə İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #ff3103">
+                    Bayram Saatı
+                  </th>
+                  <th
+                    colspan="1"
+                    style="
+                      background-color: #90d054;
+                      border-left: 3px solid #000;
+                    "
+                  >
+                    Ümumi İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #fefffc">
+                    Gündüz İş Saatı
+                  </th>
+                  <th
+                    colspan="1"
+                    style="background-color: #000003; color: #fff"
+                  >
+                    Gecə İş Saatı
+                  </th>
+                  <th colspan="1" style="background-color: #ff3103">
+                    Bayram Saatı
+                  </th>
+                </tr>
+              </thead>
+              <tbody style="font-size: 13px">
+                <tr>
+                  <td>Yanvar</td>
+                  <td>100</td>
+                  <td style="border-left: 3px solid #000">40</td>
+                  <td>30</td>
+                  <td>20</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">35</td>
+                  <td>25</td>
+                  <td>15</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">45</td>
+                  <td>30</td>
+                  <td>10</td>
+                  <td>70</td>
+                  <td style="border-left: 3px solid #000">55</td>
+                  <td>35</td>
+                  <td>15</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Fevral</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Mart</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Aprel</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>May</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>İyun</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>İyul</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Avqust</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Sentyabr</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Oktyabr</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Noyabr</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Dekabr</td>
+                  <td>110</td>
+                  <td style="border-left: 3px solid #000">42</td>
+                  <td>32</td>
+                  <td>22</td>
+                  <td></td>
+                  <td style="border-left: 3px solid #000">38</td>
+                  <td>28</td>
+                  <td>18</td>
+                  <td>63</td>
+                  <td style="border-left: 3px solid #000">47</td>
+                  <td>31</td>
+                  <td>11</td>
+                  <td>74</td>
+                  <td style="border-left: 3px solid #000">58</td>
+                  <td>36</td>
+                  <td>16</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <img
+            src="assets/img/2023-istehsalat.png"
+            alt=""
+            class="img-fluid img-thumbnail mt-4"
+          />
+        </div>
+        <!-- ===== END Table ===== -->
+      </div>
+    </main>
+    <!-- ===== END Main ===== -->
+
+    <!-- ===== Footer ===== -->
+    <footer>
+      <div class="content">
+        <div class="top">
+          <div class="logo-details">
+            <img
+              src="./assets/img/salary-calc-icon.png"
+              alt="salary-calc-logo"
+              class="footer-logo"
+            />
+            <span class="logo_name">Salary<span>Calc</span></span>
+          </div>
+          <div class="media-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+          <div class="line-footer"></div>
+        </div>
+
+        <div class="link-boxes">
+          <ul class="box">
+            <li class="link_name">Səhifələr</li>
+            <li><a href="#">Gross'dan Nett'ə</a></li>
+            <li><a href="#">Nett'dən Gross'a</a></li>
+            <li><a href="#">İstehsalat Təqvimi</a></li>
+          </ul>
+          <ul class="box">
+            <li class="link_name">Səhifələr</li>
+            <li><a href="#">Haqqında</a></li>
+            <li><a href="#">Əlaqə</a></li>
+            <li><a href="#">Tez-tez verilən suallar</a></li>
+          </ul>
+          <ul class="box input-box">
+            <li class="link_name">Abunə ol</li>
+            <li><input type="text" placeholder="Elektron ünvanı qeyd et" /></li>
+            <li><input type="button" value="Abunə ol" /></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom-details">
+        <div class="bottom_text">
+          <span class="copyright_text"
+            >Copyright &#169; 2023 <a href="#">SalaryCalc.</a>Bütün hüquqları
+            qorunur</span
+          >
+          <span class="policy_terms">
+            <a href="#">Privacy policy</a>
+            <a href="#">Terms & condition</a>
+          </span>
+        </div>
+      </div>
+    </footer>
+    <!-- ===== END Footer ===== -->
+
+    <!-- ===== Bootstrap JS v5.3.2 ===== -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <!-- ===== MY JS ===== -->
+    <script src="./assets/js/navbar.js"></script>
+    <script src="./assets/js/footer.js"></script>
+  </body>
+</html>

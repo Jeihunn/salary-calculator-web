@@ -1,0 +1,8 @@
+.table-work-calendar tbody tr:nth-child(odd) td {
+  background-color: cornsilk
+}
+
+.table-work-calendar tbody tr:nth-child(even) td {
+  background-color: floralwhite;
+  /* background-color: ghostwhite; */
+}
