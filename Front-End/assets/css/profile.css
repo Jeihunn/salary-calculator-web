@@ -16,7 +16,7 @@ body{
 
 #profile{
     margin: 30px 0;
-  
+    min-height: 450px;
     
 }
 
@@ -85,13 +85,13 @@ body{
 
 .login-box {
     position: relative;
-    max-width: 430px;
+   
     width: 100%;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin: 0 20px;
+    /* margin: 0 20px; */
   }
   
   .login-box .forms {
