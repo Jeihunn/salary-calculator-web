@@ -19,18 +19,3 @@ pwShowHide.forEach((eyeIcon, index) => {
 });
 
 
-$(document).ready(function(){
-
-    let menues= $("#profile .content-title")
-
-    
-    menues.on("click",function(e){
-        e.preventDefault();
-        $(".active-title").removeClass("active-title")
-        $(this).addClass("active-title")
-        let id=$(this).data("id")
-        $('.item').addClass("d-none");
-        $(`.item[data-id=${id}]`).removeClass("d-none")
-
-    })
-});
