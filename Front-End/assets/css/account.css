@@ -57,6 +57,10 @@ body {
   font-weight: 600;
 }
 
+.profile-info .content-text {
+  padding-right: 30px;
+}
+
 @media (max-width: 768px) {
   .profile-header {
     border-right: none;
