@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  font-family: Lato, sans-serif;
+}
+.active-title {
+  background-color: rgb(213, 225, 221);
+  opacity: 1 !important;
+}
+
+#profile {
+  margin: 30px 0;
+  min-height: 450px;
+}
+
+.profile-header {
+  padding: 20px 0;
+  border-right: 1px solid rgba(170, 176, 174, 0.342);
+}
+
+#profile h2 {
+  font-size: 25px;
+  font-weight: 800;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.profile-header .title {
+  padding-left: 20px;
+}
+
+.profile-header .content .content-title {
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  width: 80%;
+  cursor: pointer;
+  font-weight: 600;
+  color: #333;
+  opacity: 0.5;
+  font-size: 15px;
+}
+
+.profile-info h2 {
+  border-bottom: 1px solid rgba(170, 176, 174, 0.342);
+  margin-bottom: 20px;
+  padding: 20px 0;
+}
+
+.profile-info text {
+  padding-left: 20px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .profile-header {
+    border-right: none;
+    border-bottom: 1px solid rgba(170, 176, 174, 0.342);
+  }
+}
+
+.login-box .forms {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  transition: height 0.2s ease;
+}
+
+.login-box .form {
+  width: 100%;
+  background-color: transparent;
+  transition: margin-left 0.18s ease;
+}
+
+.login-box .form .input-field {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.login-box .input-field input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 0 35px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  transition: all 0.2s ease;
+}
+
+.login-box .input-field input:is(:focus, :valid) {
+  border-color: #4070f4;
+}
+
+.login-box .input-field i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 23px;
+  transition: all 0.2s ease;
+}
+
+.login-box .input-field input:is(:focus, :valid) ~ i {
+  color: #4070f4;
+}
+
+.login-box .input-field i.icon {
+  left: 1%;
+}
+.login-box .input-field i.showHidePw {
+  right: 0;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.login-box .form .button {
+  margin-top: 35px;
+  border-color: #4070f4;
+}
+
+.login-box .form .button input {
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  width: auto !important;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  background-color: #4070f4;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-box .button input:hover {
+  background-color: #265df2;
+}
