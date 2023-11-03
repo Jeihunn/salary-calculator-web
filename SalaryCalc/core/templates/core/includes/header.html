@@ -58,7 +58,7 @@
                 <li class="menu-item menu-has-child-item">
                   <a href="#" data-toggle="sub-menu">{{ request.user.username }}</a>
                   <ul class="submenu">
-                    <li class="menu-item"><a href="profil.html">Hesab</a></li>
+                    <li class="menu-item"><a href="{% url "profile_view" %}">Hesab</a></li>
                     <li class="menu-item"><a href="{% url 'account_logout' %}">Çıxış</a></li>
                   </ul>
                 </li>
