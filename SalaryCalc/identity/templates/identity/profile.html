@@ -1,0 +1,81 @@
+{% extends "core/base.html" %}
+{% load static widget_tweaks %}
+
+{% block page_title %}
+<title>Profil | SalaryCalc</title>
+{% endblock page_title %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/account.css" %}" />
+{% endblock css %}
+
+
+{% block header_page_title %}
+<h1>Hesab</h1>
+{% endblock header_page_title %}
+
+
+{% block main %}
+<main>
+  <section id="profile">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-5">
+          <div class="profile-header">
+            <h2 class="title">Hesabı İdarə Et</h2>
+            <div class="content">
+              <a href="./profile.html">
+                <div class="content-title active-title">
+                  <i class="fa-solid fa-pencil"></i>
+                  <span>Şəxsi Məlumatlar</span>
+                </div>
+              </a>
+              <a href="./change-password.html">
+                <div class="content-title">
+                  <i class="fa-solid fa-lock"></i>
+                  <span>Şifrəni Dəyiş</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-7">
+          <div class="profile-info">
+            <div class="content-desc">
+              <h2>Şəxsi Məlumatlar</h2>
+              <div class="content-text">
+                <div class="row my-3">
+                  <div class="col-6">
+                    <span class="text">İstifadəçi adı</span>
+                  </div>
+                  <div class="col-6"><span class="text">anarmh</span></div>
+                </div>
+                <div class="row my-3">
+                  <div class="col-6">
+                    <span class="text">Ad Soyad</span>
+                  </div>
+                  <div class="col-6">
+                    <span class="text">Anar Hüseynov</span>
+                  </div>
+                </div>
+                <div class="row my-3">
+                  <div class="col-6"><span class="text">Email</span></div>
+                  <div class="col-6">
+                    <span class="text">anarmh@gmail.com</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock main %}
+
+
+{% block js %}
+<script src="{% static "js/eye-show-hide.js" %}"></script>
+{% endblock js %}

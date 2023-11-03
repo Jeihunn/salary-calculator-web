@@ -1,7 +1,7 @@
 # MY
 .vscode/
 venv_*/
-# migrations/
+migrations/
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,venv,python,django,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,venv,python,django,visualstudiocode
