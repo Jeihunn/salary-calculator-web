@@ -1,0 +1,97 @@
+{% extends "core/base.html" %}
+{% load static widget_tweaks %}
+
+{% block page_title %}
+<title>Giriş | SalaryCalc</title>
+{% endblock page_title %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/login-register.css" %}" />
+{% endblock css %}
+
+
+{% block header_page_title %}
+<h1>Giriş</h1>
+{% endblock header_page_title %}
+
+
+{% block main %}
+<main>
+    <div class="container d-flex justify-content-center align-items-center">
+      <div class="login-box my-5">
+        <div class="forms">
+          <div class="form login m-auto">
+            <span class="title">Daxil ol</span>
+
+              <!-- ===== Non Field Errors ===== -->
+              {% if form.non_field_errors %}
+                <div class="mt-3">
+                  {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger">
+                      {{ error }}</strong>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+              <!-- ===== END Non Field Errors ===== -->
+
+            <!-- ===== Login Form ===== -->
+            <form method="post" action="{% url 'account_login' %}">
+              {% csrf_token %}
+              {% comment %} {{ form.as_p }} {% endcomment %}
+              <div class="input-field">
+                {% comment %} <input
+                  type="text"
+                  placeholder="İstifadəçi adı və ya Email"
+                  required
+                /> {% endcomment %}
+                {{ form.login|attr:"placeholder:İstifadəçi adı və ya Email" }}
+                <i class="uil uil-user"></i>
+              </div>
+              <div class="input-field">
+                {% comment %} <input
+                  type="password"
+                  class="password"
+                  placeholder="Şifrə"
+                  required
+                /> {% endcomment %}
+                {{ form.password|add_class:"password"|attr:"placeholder:Şifrə" }}
+                <i class="uil uil-padlock icon"></i>
+                <i class="uil uil-eye-slash showHidePw"></i>
+              </div>
+
+              <div class="checkbox-text">
+                <div class="checkbox-content">
+                  {{ form.remember }}
+                  <label for="{{ form.remember.id_for_label }}" class="text">Yadda saxla</label>
+                </div>
+
+                <a href="{% url "account_reset_password" %}" class="text">Şifrəni unutmusan?</a>
+              </div>
+
+              <div class="input-field button">
+                <input type="submit" value="Daxil ol" />
+              </div>
+            </form>
+            <!-- ===== END Login Form ===== -->
+
+            <div class="login-signup">
+              <span class="text"
+                >Hesabın yoxdur??
+                <a href="{% url 'account_signup' %}" class="text signup-link"
+                  >Qeydiyyatdan keç</a
+                >
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</main>
+{% endblock main %}
+
+
+{% block js %}
+<script src="{% static "js/eye-show-hide.js" %}"></script>
+{% endblock js %}
