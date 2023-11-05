@@ -97,6 +97,7 @@ body {
   outline: none;
   font-size: 16px;
   border: 2px solid #ccc;
+  border-radius: 5px;
   transition: all 0.2s ease;
 }
 

@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-05 21:25+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\core\models.py:10
+msgid "Yaradılma vaxtı"
+msgstr ""
+
+#: .\core\models.py:12
+msgid "Yenilənmə vaxtı"
+msgstr ""
+
+#: .\identity\admin.py:24
+msgid "Personal info"
+msgstr ""
+
+#: .\identity\admin.py:25
+msgid "Permissions"
+msgstr ""
+
+#: .\identity\admin.py:27
+msgid "Important dates"
+msgstr ""
+
+#: .\identity\forms.py:14
+msgid "Bu e-poçt ünvanı artıq qeydiyyatdan keçib."
+msgstr ""
+
+#: .\identity\models.py:12
+msgid "IP'lər"
+msgstr ""
+
+#: .\templates\account\email_confirm.html:20
+#, python-format
+msgid ""
+"\n"
+"                                        Zəhmət olmasa <a href=\"mailto:"
+"%(email)s\" class=\"text-decoration-underline text-primary\">%(email)s</a> "
+"ünvanını <strong>%(user_display)s</strong> istifadəçisi üçün e-poçt ünvanı "
+"olaraq təsdiqləyin.\n"
+"                                    "
+msgstr ""
+
+#: .\templates\account\email_confirm.html:30
+msgid "Təsdiqlə"
+msgstr ""
+
+#: .\templates\account\email_confirm.html:36
+#, python-format
+msgid ""
+"%(email)s ünvanını təsdiqləmək mümkün deyil, çünki o, artıq başqa hesab "
+"tərəfindən təsdiqlənib."
+msgstr ""
+
+#: .\templates\account\email_confirm.html:43
+#, python-format
+msgid ""
+"Bu e-poçt təsdiqi linkinin vaxtı keçib və ya etibarsızdır. Lütfən, <a href="
+"\"%(login_url)s\" class=\"text-decoration-underline text-primary\">yeni e-"
+"poçt təsdiq sorğusu</a> göndərin."
+msgstr ""
