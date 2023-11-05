@@ -35,12 +35,14 @@
                 <i class="uil uil-user"></i>
               </div>
               {{ form.username.errors }}
+
               <div class="input-field">
                 {% comment %} <input type="text" placeholder="Email" required /> {% endcomment %}
                 {{ form.email|attr:"placeholder:Email" }}
                 <i class="uil uil-envelope icon"></i>
               </div>
               {{ form.email.errors }}
+
               <div class="input-field">
                 {% comment %} <input
                   type="password"
@@ -53,6 +55,7 @@
                 <i class="uil uil-eye-slash showHidePw"></i>
               </div>
               {{ form.password1.errors }}
+              
               <div class="input-field">
                 {% comment %} <input
                   type="password"

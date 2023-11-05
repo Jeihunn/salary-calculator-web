@@ -81,6 +81,7 @@ ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_CONFIRMATION_COOLDOWN = 30
 ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_PREVENT_ENUMERATION = False
 
 ACCOUNT_FORMS = {
     'signup': 'identity.forms.CustomSignupForm',
@@ -192,6 +193,10 @@ USE_I18N = True
 USE_TZ = True
 
 USE_L10N = True
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, "locale"),
+]
 
 
 # Static files (CSS, JavaScript, Images)

@@ -813,6 +813,7 @@ a {
     max-height: 0;
     overflow: hidden;
     transition: all 0.3s ease;
+    z-index: 999;
   }
   .main-menu nav ul .menu-has-child-item .submenu .menu-item {
     border-bottom: none;
