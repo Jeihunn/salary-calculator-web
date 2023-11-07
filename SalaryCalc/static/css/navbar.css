@@ -666,6 +666,7 @@ a {
 .main-menu nav ul .menu-item {
   display: inline-block;
   position: relative;
+  z-index: 999;
 }
 .main-menu nav ul .menu-item .submenu {
   position: absolute;
