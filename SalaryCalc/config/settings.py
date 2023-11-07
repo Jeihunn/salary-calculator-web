@@ -55,7 +55,7 @@ THIRD_PARTY_APPS = [
 ]
 
 MY_APPS = [
-    "identity.apps.IdentityConfig", 
+    "identity.apps.IdentityConfig",
     "core.apps.CoreConfig",
 ]
 
@@ -74,23 +74,49 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-# Allauth settings
+# # Allauth settings
+# The default protocol used for when generating URLs
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'http'
+# Specifies the login method to use – whether the user logs in by entering their username, email address, or either one of both
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+# Enforce uniqueness of email addresses
+ACCOUNT_UNIQUE_EMAIL = True
+# The user is required to hand over an email address when signing up
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = True
+# Determines the email verification method during signup – choose one of "mandatory", "optional", or "none"
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+# Can only send one confirmation email in a given period of time
 ACCOUNT_EMAIL_CONFIRMATION_COOLDOWN = 30
-ACCOUNT_LOGOUT_ON_GET = True
+# Determines the expiration date of email confirmation mails (# of days).
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
+# The user is allowed to change their email address
+ACCOUNT_CHANGE_EMAIL = False
+# The maximum number of email addresses that can be registered
+ACCOUNT_MAX_EMAIL_ADDRESSES = 1
+# The user is required to enter a username when signing up
+ACCOUNT_USERNAME_REQUIRED = True
+# An integer specifying the minimum allowed length of a username
+ACCOUNT_USERNAME_MIN_LENGTH = 3
+# Prevents account enumeration attacks
 ACCOUNT_PREVENT_ENUMERATION = False
+# Logs the user out on every GET request
+ACCOUNT_LOGOUT_ON_GET = True
+# Number of failed login attempts
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 10
+# Time period, in seconds, from last unsuccessful login attempt, during which the user is prohibited from trying to log in
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
+# The URL to redirect to after a successful logout
+ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
+# List of usernames that are not allowed
+ACCOUNT_USERNAME_BLACKLIST = []
 
 ACCOUNT_FORMS = {
     'signup': 'identity.forms.CustomSignupForm',
 }
 
 
-
 LOGIN_REDIRECT_URL = 'core:index_view'
-LOGOUT_REDIRECT_URL = 'account_login'
+LOGIN_URL = 'account_login'
 
 
 # Email settings
@@ -102,13 +128,13 @@ EMAIL_HOST_PASSWORD = 'vfvawfeqwoaaergj'
 EMAIL_PORT = 587
 # # Yandex config
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.yandex.com' 
-# EMAIL_PORT = 465  
-# EMAIL_USE_TLS = False  
-# EMAIL_USE_SSL = True 
-# EMAIL_HOST_USER = 'jeihunpiriyev@yandex.com' 
-# EMAIL_HOST_PASSWORD = 'epxjavpnwenkeicb' 
-# DEFAULT_FROM_EMAIL = 'jeihunpiriyev@yandex.com' 
+# EMAIL_HOST = 'smtp.yandex.com'
+# EMAIL_PORT = 465
+# EMAIL_USE_TLS = False
+# EMAIL_USE_SSL = True
+# EMAIL_HOST_USER = 'jeihunpiriyev@yandex.com'
+# EMAIL_HOST_PASSWORD = 'epxjavpnwenkeicb'
+# DEFAULT_FROM_EMAIL = 'jeihunpiriyev@yandex.com'
 
 
 MIDDLEWARE = [
