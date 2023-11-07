@@ -58,7 +58,7 @@ body {
 }
 
 .profile-info .content-text {
-  padding-right: 30px;
+  font-size: 16px;
 }
 
 @media (max-width: 768px) {
@@ -147,4 +147,27 @@ body {
 
 .login-box .button input:hover {
   background-color: #265df2;
+}
+
+@media (max-width: 576px) {
+  .profile-info .content-text {
+    font-size: 12px;
+  }
+
+  .profile-header .content-title {
+    font-size: 13px !important;
+  }
+
+  .profile-header .title,
+  .profile-info .title {
+    font-size: 20px !important;
+  }
+
+  form ::placeholder {
+    font-size: 13px;
+  }
+
+  .login-box .form .button input {
+    font-size: 14px !important;
+  }
 }
