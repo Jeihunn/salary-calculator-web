@@ -9,9 +9,13 @@ from django.core.exceptions import ValidationError
 
 class AbstractModel(models.Model):
     created_at = models.DateTimeField(
-        verbose_name=_("Yaradılma vaxtı"), auto_now_add=True)
+        verbose_name=_("Yaradılma vaxtı"),
+        auto_now_add=True
+    )
     updated_at = models.DateTimeField(
-        verbose_name=_("Yenilənmə vaxtı"), auto_now=True)
+        verbose_name=_("Yenilənmə vaxtı"),
+        auto_now=True
+    )
 
     class Meta:
         abstract = True
@@ -19,7 +23,9 @@ class AbstractModel(models.Model):
 
 class Year(AbstractModel):
     year_value = models.PositiveSmallIntegerField(
-        verbose_name=_("İl"), unique=True)
+        verbose_name=_("İl"),
+        unique=True
+    )
 
     def __str__(self):
         return str(self.year_value)
@@ -51,9 +57,13 @@ class Month(AbstractModel):
 
 class WorkCalendar(AbstractModel):
     year = models.ForeignKey(
-        Year, on_delete=models.CASCADE, verbose_name=_("İl"))
+        Year, on_delete=models.CASCADE,
+        verbose_name=_("İl")
+    )
     month = models.ForeignKey(
-        Month, on_delete=models.CASCADE, verbose_name=_("Ay"))
+        Month, on_delete=models.CASCADE,
+        verbose_name=_("Ay")
+    )
 
     monthly_work_hour = models.PositiveSmallIntegerField(
         verbose_name=_("İstehsalat təqviminə uyğun aylıq iş norması"),
@@ -120,8 +130,8 @@ class WorkCalendar(AbstractModel):
 
     @classmethod
     def get_years_list(cls):
-        return cls.objects.values_list("year__year_value", flat=True).distinct()
-    
+        return cls.objects.values_list("year__year_value", flat=True).distinct().order_by("-year__year_value")
+
     @classmethod
     def get_work_calendar_data(cls):
         work_calendar_data = {}
@@ -139,7 +149,10 @@ class WorkCalendar(AbstractModel):
 
             for month in months:
                 if cls.objects.filter(year__year_value=year, month__month_number=month).exists():
-                    year_month = cls.objects.get(year__year_value=year, month__month_number=month)
+                    year_month = cls.objects.get(
+                        year__year_value=year,
+                        month__month_number=month
+                    )
                     month_data = {
                         "monthly_work_hour": year_month.monthly_work_hour,
                         "group_a_general_work_hour": year_month.group_a_general_work_hour,
@@ -188,9 +201,14 @@ class WorkCalendar(AbstractModel):
 
 class WorkCalendarImage(AbstractModel):
     year = models.ForeignKey(
-        Year, on_delete=models.CASCADE, verbose_name=_("İl"))
-    image = models.ImageField(verbose_name=_(
-        "Şəkil"), upload_to="work_calendar")
+        Year,
+        on_delete=models.CASCADE,
+        verbose_name=_("İl")
+    )
+    image = models.ImageField(
+        verbose_name=_("Şəkil"),
+        upload_to="work_calendar"
+    )
 
     def __str__(self):
         return str(f"{self.year} - {self.image}")

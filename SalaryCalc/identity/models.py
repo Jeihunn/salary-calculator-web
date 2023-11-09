@@ -9,4 +9,9 @@ from django.utils.translation import gettext_lazy as _
 
 
 class User(AbstractUser):
-    ips = models.JSONField(verbose_name=_("IP'lər"), default=list, null=True, blank=True)
+    ips = models.JSONField(
+        verbose_name=_("IP-lər"),
+        default=list,
+        null=True,
+        blank=True
+    )
