@@ -24,7 +24,7 @@
                 <a href="#" data-toggle="sub-menu">Hesablama</a>
                 <ul class="submenu">
                   <li class="menu-item">
-                    <a href="index.html" class="active">Maaş</a>
+                    <a href="{% url "core:index_view" %}" class="active">Maaş</a>
                   </li>
                   <li class="menu-item">
                     <a href="gorss-to-nett.html">Gross'dan Nett'ə</a>
@@ -38,7 +38,7 @@
                 <a href="#" data-toggle="sub-menu">Əlavə Məlumat</a>
                 <ul class="submenu">
                   <li class="menu-item">
-                    <a href="work-calendar.html">İstehsalat Təqvimi</a>
+                    <a href="{% url "core:work_calendar_view" %}">İstehsalat Təqvimi</a>
                   </li>
                   <li class="menu-item">
                     <a href="faq.html">Tez-tez verilən suallar</a>

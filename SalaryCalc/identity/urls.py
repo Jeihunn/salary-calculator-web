@@ -7,9 +7,11 @@ urlpatterns = [
     path("login/", allauth_views.login, name="account_login"),
     path("logout/", allauth_views.logout, name="account_logout"),
 
+    path("account/profile/", views.profile_view, name="profile_view"),
+
     # password change
     path(
-        "password/change/",
+        "account/password/change/",
         allauth_views.password_change,
         name="account_change_password",
     ),
@@ -46,6 +48,4 @@ urlpatterns = [
         allauth_views.password_reset_from_key_done,
         name="account_reset_password_from_key_done",
     ),
-
-    path("profile/", views.profile_view, name="profile_view"),
 ]
