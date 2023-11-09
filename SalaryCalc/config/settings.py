@@ -47,11 +47,12 @@ INITIAL_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    # Allauth
+    ## Allauth apps
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
+    # 'allauth.socialaccount',
     "widget_tweaks",
+    "django_extensions",
 ]
 
 MY_APPS = [
@@ -74,7 +75,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-# # Allauth settings
+## Allauth settings
 # The default protocol used for when generating URLs
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'http'
 # Specifies the login method to use – whether the user logs in by entering their username, email address, or either one of both
@@ -86,7 +87,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 # Determines the email verification method during signup – choose one of "mandatory", "optional", or "none"
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 # Can only send one confirmation email in a given period of time
-ACCOUNT_EMAIL_CONFIRMATION_COOLDOWN = 30
+ACCOUNT_EMAIL_CONFIRMATION_COOLDOWN = 60
 # Determines the expiration date of email confirmation mails (# of days).
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
 # The user is allowed to change their email address
