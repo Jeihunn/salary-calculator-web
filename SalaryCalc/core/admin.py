@@ -5,7 +5,8 @@ from .models import (
     Month,
     Shift,
     WorkCalendar,
-    WorkCalendarImage
+    WorkCalendarImage,
+    SalaryCalculation
 )
 
 
@@ -88,3 +89,10 @@ class WorkCalendarImageAdmin(admin.ModelAdmin):
     list_display = ["id", "year", "image", "created_at", "updated_at"]
     list_display_links = ["id", "year"]
     list_filter = ["year"]
+
+
+@admin.register(SalaryCalculation)
+class SalaryCalculationAdmin(admin.ModelAdmin):
+    list_display = ["id", "user", "year", "month", "shift", "nett", "created_at", "updated_at"]
+    list_display_links = ["id", "user"]
+    list_filter = ["year", "month", "shift"]
