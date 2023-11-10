@@ -2,6 +2,9 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.core.exceptions import ValidationError
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 # Create your models here.
@@ -53,6 +56,26 @@ class Month(AbstractModel):
     class Meta:
         verbose_name = _("Ay")
         verbose_name_plural = _("Aylar")
+
+
+class Shift(AbstractModel):
+    name = models.CharField(
+        verbose_name=_("Növbə adı"),
+        max_length=20,
+        unique=True
+    )
+    value = models.CharField(
+        verbose_name=_("Növbə dəyəri"),
+        max_length=1,
+        unique=True
+    )
+
+    def __str__(self):
+        return f"{self.name} ({self.value})"
+
+    class Meta:
+        verbose_name = _("Növbə")
+        verbose_name_plural = _("Növbələr")
 
 
 class WorkCalendar(AbstractModel):
@@ -227,3 +250,106 @@ class WorkCalendarImage(AbstractModel):
     class Meta:
         verbose_name = _("İstehsalat Təqvimi Şəkili")
         verbose_name_plural = _("İstehsalat Təqvimi Şəkilləri")
+
+
+# class SalaryCalculation(AbstractModel):
+#     user = models.ForeignKey(
+#         User,
+#         on_delete=models.CASCADE,
+#         verbose_name=_("İstifadəçi")
+#     )
+#     year = models.ForeignKey(
+#         Year,
+#         on_delete=models.CASCADE,
+#         verbose_name=_("İl")
+#     )
+#     month = models.ForeignKey(
+#         Month,
+#         on_delete=models.CASCADE,
+#         verbose_name=_("Ay")
+#     )
+#     shift = models.ForeignKey(
+#         Shift,
+#         on_delete=models.CASCADE,
+#         verbose_name=_("Növbə")
+#     )
+
+#     salary = models.DecimalField(
+#         verbose_name=_("Vəzifə maaşı"),
+#         max_digits=10,
+#         decimal_places=2
+#     )
+#     overtime = models.PositiveSmallIntegerField(
+#         verbose_name=_("İstirahət günü əlavə saatı"),
+#     )
+#     bonus_percent = models.PositiveSmallIntegerField(
+#         verbose_name=_("Mükafat faizi"),
+#         validators=[MaxValueValidator(500)]
+#     )
+#     hourly_wage = models.DecimalField(
+#         verbose_name=_("Saatlıq əməkhaqqı"),
+#         max_digits=10,
+#         decimal_places=2
+#     )
+#     night_work_pay = models.DecimalField(
+#         verbose_name=_("Gecə növbəsi ödənişi"),
+#         max_digits=10,
+#         decimal_places=2
+#     )
+#     extra_hour_pay = models.DecimalField(
+#         verbose_name=_("Növbədən artıq qalan saat ödənişi (ikiqat)"),
+#         max_digits=10,
+#         decimal_places=2
+#     )
+#     holiday_hour_pay = models.DecimalField(
+#         verbose_name=_("Bayram saatı ödənişi"),
+#         max_digits=10,
+#         decimal_places=2
+#     )
+#     overtime_pay = models.DecimalField(
+#         verbose_name=_("İstirahət günü əlavə saatı ödənişi (ikiqat)"),
+#         max_digits=10,
+#         decimal_places=2
+#     )
+#     bonus_pay = models.DecimalField(
+#         verbose_name=_("Mükafat məbləği"),
+#         max_digits=10,
+#         decimal_places=2
+#     )
+#     gross = models.DecimalField(
+#         verbose_name=_("Gross maaş"),
+#         max_digits=10,
+#         decimal_places=2
+#     )
+#     nett = models.DecimalField(
+#         verbose_name=_("Nett gəlir"),
+#         max_digits=10,
+#         decimal_places=2
+#     )
+#     income_tax = models.DecimalField(
+#         verbose_name=_("Gəlir vergisi"),
+#         max_digits=10,
+#         decimal_places=2
+#     )
+#     dsmf_tax = models.DecimalField(
+#         verbose_name=_("DSMF vergisi"),
+#         max_digits=10,
+#         decimal_places=2
+#     )
+#     unemployment_insurance_tax = models.DecimalField(
+#         verbose_name=_("İşsizlikdən sığorta vergisi"),
+#         max_digits=10,
+#         decimal_places=2
+#     )
+#     compulsory_health_insurance_tax = models.DecimalField(
+#         verbose_name=_("İcbari tibbi sığorta vergisi"),
+#         max_digits=10,
+#         decimal_places=2
+#     )
+
+#     def __str__(self):
+#         return str(f"{self.user} - {self.year} - {self.month} - {self.shift} - {self.nett}")
+
+#     class Meta:
+#         verbose_name = _("Maaş hesabı")
+#         verbose_name_plural = _("Maaş hesabları")

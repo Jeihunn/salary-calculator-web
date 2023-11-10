@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from .models import (
     Year,
     Month,
+    Shift,
     WorkCalendar,
     WorkCalendarImage
 )
@@ -15,7 +16,6 @@ from .models import (
 class YearAdmin(admin.ModelAdmin):
     list_display = ["id", "year_value", "created_at", "updated_at"]
     list_display_links = ["id", "year_value"]
-    list_filter = ["year_value"]
     search_fields = ["year_value"]
 
 
@@ -23,7 +23,13 @@ class YearAdmin(admin.ModelAdmin):
 class MonthAdmin(admin.ModelAdmin):
     list_display = ["id", "name", "month_number", "created_at", "updated_at"]
     list_display_links = ["id", "name"]
-    list_filter = ["month_number"]
+    search_fields = ["name"]
+
+
+@admin.register(Shift)
+class ShiftAdmin(admin.ModelAdmin):
+    list_display = ["id", "name", "value", "created_at", "updated_at"]
+    list_display_links = ["id", "name"]
     search_fields = ["name"]
 
 
@@ -33,7 +39,6 @@ class WorkCalendarAdmin(admin.ModelAdmin):
                     "group_b_general_work_hour", "group_c_general_work_hour", "group_d_general_work_hour",]
     list_display_links = ["id", "year", "month"]
     list_filter = ["year", "month"]
-    search_fields = ["year", "month"]
 
     fieldsets = (
         (None, {
@@ -83,4 +88,3 @@ class WorkCalendarImageAdmin(admin.ModelAdmin):
     list_display = ["id", "year", "image", "created_at", "updated_at"]
     list_display_links = ["id", "year"]
     list_filter = ["year"]
-    search_fields = ["year"]
