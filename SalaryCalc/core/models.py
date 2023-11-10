@@ -252,104 +252,117 @@ class WorkCalendarImage(AbstractModel):
         verbose_name_plural = _("İstehsalat Təqvimi Şəkilləri")
 
 
-# class SalaryCalculation(AbstractModel):
-#     user = models.ForeignKey(
-#         User,
-#         on_delete=models.CASCADE,
-#         verbose_name=_("İstifadəçi")
-#     )
-#     year = models.ForeignKey(
-#         Year,
-#         on_delete=models.CASCADE,
-#         verbose_name=_("İl")
-#     )
-#     month = models.ForeignKey(
-#         Month,
-#         on_delete=models.CASCADE,
-#         verbose_name=_("Ay")
-#     )
-#     shift = models.ForeignKey(
-#         Shift,
-#         on_delete=models.CASCADE,
-#         verbose_name=_("Növbə")
-#     )
+class SalaryCalculation(AbstractModel):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        verbose_name=_("İstifadəçi")
+    )
+    year = models.ForeignKey(
+        Year,
+        on_delete=models.PROTECT,
+        verbose_name=_("İl")
+    )
+    month = models.ForeignKey(
+        Month,
+        on_delete=models.PROTECT,
+        verbose_name=_("Ay")
+    )
+    shift = models.ForeignKey(
+        Shift,
+        on_delete=models.PROTECT,
+        verbose_name=_("Növbə")
+    )
 
-#     salary = models.DecimalField(
-#         verbose_name=_("Vəzifə maaşı"),
-#         max_digits=10,
-#         decimal_places=2
-#     )
-#     overtime = models.PositiveSmallIntegerField(
-#         verbose_name=_("İstirahət günü əlavə saatı"),
-#     )
-#     bonus_percent = models.PositiveSmallIntegerField(
-#         verbose_name=_("Mükafat faizi"),
-#         validators=[MaxValueValidator(500)]
-#     )
-#     hourly_wage = models.DecimalField(
-#         verbose_name=_("Saatlıq əməkhaqqı"),
-#         max_digits=10,
-#         decimal_places=2
-#     )
-#     night_work_pay = models.DecimalField(
-#         verbose_name=_("Gecə növbəsi ödənişi"),
-#         max_digits=10,
-#         decimal_places=2
-#     )
-#     extra_hour_pay = models.DecimalField(
-#         verbose_name=_("Növbədən artıq qalan saat ödənişi (ikiqat)"),
-#         max_digits=10,
-#         decimal_places=2
-#     )
-#     holiday_hour_pay = models.DecimalField(
-#         verbose_name=_("Bayram saatı ödənişi"),
-#         max_digits=10,
-#         decimal_places=2
-#     )
-#     overtime_pay = models.DecimalField(
-#         verbose_name=_("İstirahət günü əlavə saatı ödənişi (ikiqat)"),
-#         max_digits=10,
-#         decimal_places=2
-#     )
-#     bonus_pay = models.DecimalField(
-#         verbose_name=_("Mükafat məbləği"),
-#         max_digits=10,
-#         decimal_places=2
-#     )
-#     gross = models.DecimalField(
-#         verbose_name=_("Gross maaş"),
-#         max_digits=10,
-#         decimal_places=2
-#     )
-#     nett = models.DecimalField(
-#         verbose_name=_("Nett gəlir"),
-#         max_digits=10,
-#         decimal_places=2
-#     )
-#     income_tax = models.DecimalField(
-#         verbose_name=_("Gəlir vergisi"),
-#         max_digits=10,
-#         decimal_places=2
-#     )
-#     dsmf_tax = models.DecimalField(
-#         verbose_name=_("DSMF vergisi"),
-#         max_digits=10,
-#         decimal_places=2
-#     )
-#     unemployment_insurance_tax = models.DecimalField(
-#         verbose_name=_("İşsizlikdən sığorta vergisi"),
-#         max_digits=10,
-#         decimal_places=2
-#     )
-#     compulsory_health_insurance_tax = models.DecimalField(
-#         verbose_name=_("İcbari tibbi sığorta vergisi"),
-#         max_digits=10,
-#         decimal_places=2
-#     )
+    salary = models.DecimalField(
+        verbose_name=_("Vəzifə maaşı"),
+        max_digits=10,
+        decimal_places=2,
+        validators=[MinValueValidator(0)]
+    )
+    overtime = models.PositiveSmallIntegerField(
+        verbose_name=_("İstirahət günü əlavə saatı"),
+    )
+    bonus_percent = models.PositiveSmallIntegerField(
+        verbose_name=_("Mükafat faizi"),
+        validators=[MaxValueValidator(500)]
+    )
+    hourly_wage = models.DecimalField(
+        verbose_name=_("Saatlıq əməkhaqqı"),
+        max_digits=10,
+        decimal_places=2,
+        validators=[MinValueValidator(0)]
+    )
+    night_work_pay = models.DecimalField(
+        verbose_name=_("Gecə növbəsi ödənişi"),
+        max_digits=10,
+        decimal_places=2,
+        validators=[MinValueValidator(0)]
+    )
+    extra_hour_pay = models.DecimalField(
+        verbose_name=_("Növbədən artıq qalan saat ödənişi (ikiqat)"),
+        max_digits=10,
+        decimal_places=2,
+        validators=[MinValueValidator(0)]
+    )
+    holiday_hour_pay = models.DecimalField(
+        verbose_name=_("Bayram saatı ödənişi"),
+        max_digits=10,
+        decimal_places=2,
+        validators=[MinValueValidator(0)]
+    )
+    overtime_pay = models.DecimalField(
+        verbose_name=_("İstirahət günü əlavə saatı ödənişi (ikiqat)"),
+        max_digits=10,
+        decimal_places=2,
+        validators=[MinValueValidator(0)]
+    )
+    bonus_pay = models.DecimalField(
+        verbose_name=_("Mükafat məbləği"),
+        max_digits=10,
+        decimal_places=2,
+        validators=[MinValueValidator(0)]
+    )
+    gross = models.DecimalField(
+        verbose_name=_("Gross maaş"),
+        max_digits=10,
+        decimal_places=2,
+        validators=[MinValueValidator(0)]
+    )
+    nett = models.DecimalField(
+        verbose_name=_("Nett gəlir"),
+        max_digits=10,
+        decimal_places=2,
+        validators=[MinValueValidator(0)]
+    )
+    income_tax = models.DecimalField(
+        verbose_name=_("Gəlir vergisi"),
+        max_digits=10,
+        decimal_places=2,
+        validators=[MinValueValidator(0)]
+    )
+    dsmf_tax = models.DecimalField(
+        verbose_name=_("Məcburi dövlət sosial sığorta haqqı"),
+        max_digits=10,
+        decimal_places=2,
+        validators=[MinValueValidator(0)]
+    )
+    unemployment_insurance_tax = models.DecimalField(
+        verbose_name=_("İşsizlikdən sığorta haqqı"),
+        max_digits=10,
+        decimal_places=2,
+        validators=[MinValueValidator(0)]
+    )
+    compulsory_health_insurance_tax = models.DecimalField(
+        verbose_name=_("İcbari tibbi sığorta haqqı"),
+        max_digits=10,
+        decimal_places=2,
+        validators=[MinValueValidator(0)]
+    )
 
-#     def __str__(self):
-#         return str(f"{self.user} - {self.year} - {self.month} - {self.shift} - {self.nett}")
+    def __str__(self):
+        return str(f"{self.user} - {self.year} - {self.month} - {self.shift} - {self.nett}")
 
-#     class Meta:
-#         verbose_name = _("Maaş hesabı")
-#         verbose_name_plural = _("Maaş hesabları")
+    class Meta:
+        verbose_name = _("Maaş hesabı")
+        verbose_name_plural = _("Maaş hesabları")

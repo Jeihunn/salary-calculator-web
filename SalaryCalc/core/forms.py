@@ -39,14 +39,14 @@ class SalaryCalculationForm(forms.Form):
         widget=forms.NumberInput(attrs={'class': 'form-control'}),
         required=False
     )
-    bonus = forms.DecimalField(
+    bonus_percent = forms.DecimalField(
         min_value=0,
         max_value=500,
         widget=forms.NumberInput(attrs={'class': 'form-control'}),
         required=False
     )
     monthly_salary = forms.DecimalField(
-        min_value=0,
+        min_value=1,
         max_digits=10,
         decimal_places=2,
         widget=forms.NumberInput(
@@ -59,7 +59,7 @@ class SalaryCalculationForm(forms.Form):
         min_value = date(years_min, 1, 1)
         max_value = date(years_max, 12, 1)
 
-        if not (min_value <= year_month < max_value):
+        if not (min_value <= year_month <= max_value):
             raise ValidationError(
                 _('İl və ay %(min)s və %(max)s arasında olmalıdır'),
                 params={'min': min_value.strftime(
