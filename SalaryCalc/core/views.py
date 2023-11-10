@@ -1,5 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
+from .forms import (
+    SalaryCalculationForm,
+)
 from .models import (
     WorkCalendar,
     Month,
@@ -11,7 +17,19 @@ from .models import (
 
 @login_required
 def index_view(request):
-    return render(request, "core/index.html")
+    if request.method == "POST":
+        form = SalaryCalculationForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            messages.success(request, _("Maaş hesablama ugurla tamamlandi."))
+            return redirect(reverse_lazy("core:index_view"))
+    else:
+        form = SalaryCalculationForm()
+
+    context = {
+        "form": form,
+    }
+    return render(request, "core/index.html", context)
 
 
 def work_calendar_view(request):
