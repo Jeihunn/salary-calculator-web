@@ -67,3 +67,20 @@ class SalaryCalculationForm(forms.Form):
             )
 
         return year_month
+
+
+class GrossToNettForm(forms.Form):
+    gross = forms.DecimalField(
+        min_value=1,
+        max_digits=10,
+        decimal_places=2,
+        widget=forms.NumberInput(
+            attrs={'class': 'form-control'}),
+    )
+    union_membership_percent = forms.DecimalField(
+        min_value=0,
+        max_value=20,
+        decimal_places=2,
+        widget=forms.NumberInput(attrs={'class': 'form-control'}),
+        required=False
+    )

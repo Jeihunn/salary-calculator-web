@@ -10,7 +10,7 @@ NIGHT_WORK_PAY_RATE = 0.2
 EXTRA_HOUR_PAY_RATE = 2
 
 
-def gross_to_nett_for_year(gross, year, tax_rates, union_membership_tax):
+def gross_to_nett_for_year(gross, year, tax_rates, union_membership_percent):
     taxes = {
         "income_tax": 0,
         "dsmf_tax": 0,
@@ -37,12 +37,13 @@ def gross_to_nett_for_year(gross, year, tax_rates, union_membership_tax):
                 (gross - 8000) * tax_rates.get("income_tax", 0), 2)
         taxes["unemployment_insurance_tax"] = round(
             gross * tax_rates.get("unemployment_insurance_tax", 0), 2)
+        union_membership_percent = float(union_membership_percent)
         taxes["union_membership_tax"] = round(
-            gross * union_membership_tax / 100, 2)
+            gross * union_membership_percent / 100, 2)
 
     nett = round(gross - sum(taxes.values()), 2)
 
-    return {"gross": gross, "nett": nett, "taxes": taxes}
+    return {"gross": gross, "nett": nett, "union_membership_percent": union_membership_percent, "taxes": taxes}
 
 
 def get_shift_variables(shift_value, work_calendar):
@@ -56,7 +57,7 @@ def get_shift_variables(shift_value, work_calendar):
     return None
 
 
-def calculate_gross_to_nett(gross, year=None, union_membership_tax=0):
+def calculate_gross_to_nett(gross, year=None, union_membership_percent=0):
     gross = float(gross)
 
     # Adjust tax rates by year
@@ -108,12 +109,13 @@ def calculate_gross_to_nett(gross, year=None, union_membership_tax=0):
         if year in tax_rates_by_year:
             tax_rates = tax_rates_by_year[year]
             results[year] = gross_to_nett_for_year(
-                gross, year, tax_rates, union_membership_tax)
+                gross, year, tax_rates, union_membership_percent)
     else:
         # If year is not specified, calculate for all years from 2020 to 2024
         for year in range(2020, 2025):
             tax_rates = tax_rates_by_year[year]
-            results[year] = gross_to_nett_for_year
+            results[year] = gross_to_nett_for_year(
+                gross, year, tax_rates, union_membership_percent)
     return results
 
 

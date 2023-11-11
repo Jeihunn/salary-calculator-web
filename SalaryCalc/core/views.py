@@ -5,9 +5,11 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from .utils import (
     calculate_salary,
+    calculate_gross_to_nett,
 )
 from .forms import (
     SalaryCalculationForm,
+    GrossToNettForm,
 )
 from .models import (
     WorkCalendar,
@@ -32,10 +34,12 @@ def index_view(request):
             bonus_percent = form.cleaned_data["bonus_percent"] or 0
             monthly_salary = form.cleaned_data["monthly_salary"]
 
-            data = calculate_salary(group_name, year_month, monthly_salary, overtime, bonus_percent)
+            data = calculate_salary(
+                group_name, year_month, monthly_salary, overtime, bonus_percent)
 
             if data is None:
-                messages.error(request, _("Maaş hesablanması zamanı xəta baş verdi. Zəhmət olmasa bir daha cəhd edin. Əgər xəta təkrarlanarsa bizimlə əlaqə saxlayın."))
+                messages.warning(request, _(
+                    "Maaş hesablanması zamanı xəta baş verdi. Zəhmət olmasa bir daha cəhd edin. Əgər xəta təkrarlanarsa bizimlə əlaqə saxlayın."))
                 return redirect(reverse_lazy("core:index_view"))
             else:
                 try:
@@ -61,16 +65,19 @@ def index_view(request):
                         compulsory_health_insurance_tax=data["compulsory_health_insurance_tax"]
                     )
 
-                    messages.success(request, _("Maaş hesablama ugurla tamamlandi."))
+                    messages.success(request, _(
+                        "Maaş hesablama uğurla tamamlandı."))
                     return redirect(reverse_lazy("core:index_view"))
                 except Exception as e:
                     print(f"An error occurred: {str(e)}")
-                    messages.error(request, _("Maaş hesablanması zamanı xəta baş verdi. Zəhmət olmasa bir daha cəhd edin."))
+                    messages.error(request, _(
+                        "Maaş hesablanması zamanı xəta baş verdi. Zəhmət olmasa bir daha cəhd edin."))
                     return redirect(reverse_lazy("core:index_view"))
     else:
         form = SalaryCalculationForm()
-    
-    user_salary_calculations = SalaryCalculation.objects.filter(user=request.user, is_active=True).order_by("-created_at")[:10]
+
+    user_salary_calculations = SalaryCalculation.objects.filter(
+        user=request.user, is_active=True).order_by("-created_at")[:10]
 
     context = {
         "form": form,
@@ -93,4 +100,29 @@ def work_calendar_view(request):
 
 
 def groos_to_nett_view(request):
-    return render(request, "core/gross-to-nett.html")
+    data = None
+
+    if request.method == "POST":
+        form = GrossToNettForm(data=request.POST)
+        if form.is_valid():
+            gross = form.cleaned_data["gross"]
+            union_membership_percent = form.cleaned_data["union_membership_percent"] or 0
+
+            data = calculate_gross_to_nett(
+                gross, union_membership_percent=union_membership_percent)
+
+            if data:
+                form = GrossToNettForm()
+                messages.success(request, _("Hesablama tamamlandi."))
+            else:
+                messages.warning(request, _(
+                    "Hesablama zamanı xəta baş verdi. Zəhmət olmasa bir daha cəhd edin."))
+                return redirect(reverse_lazy("core:groos_to_nett_view"))
+    else:
+        form = GrossToNettForm()
+
+    context = {
+        "form": form,
+        "data": data
+    }
+    return render(request, "core/gross-to-nett.html", context)
