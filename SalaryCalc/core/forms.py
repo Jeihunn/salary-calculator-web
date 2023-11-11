@@ -33,7 +33,7 @@ class SalaryCalculationForm(forms.Form):
         }),
         input_formats=['%Y-%m']
     )
-    extra_hour = forms.DecimalField(
+    overtime = forms.DecimalField(
         min_value=0,
         max_digits=5,
         widget=forms.NumberInput(attrs={'class': 'form-control'}),
