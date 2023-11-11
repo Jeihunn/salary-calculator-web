@@ -93,6 +93,6 @@ class WorkCalendarImageAdmin(admin.ModelAdmin):
 
 @admin.register(SalaryCalculation)
 class SalaryCalculationAdmin(admin.ModelAdmin):
-    list_display = ["id", "user", "year", "month", "shift", "nett", "created_at", "updated_at"]
+    list_display = ["id", "user", "year", "month", "shift", "salary", "gross", "nett", "is_active", "created_at", "updated_at"]
     list_display_links = ["id", "user"]
     list_filter = ["year", "month", "shift"]

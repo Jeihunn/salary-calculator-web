@@ -207,19 +207,19 @@
                     <td class="group-a" style="border-left: 3px solid #000">{{ wcd_year_month|keyvalue:'group_a_general_work_hour' }}</td>
                     <td class="group-a">{{ wcd_year_month|keyvalue:'group_a_daytime_work_hour' }}</td>
                     <td class="group-a">{{ wcd_year_month|keyvalue:'group_a_nighttime_work_hour' }}</td>
-                    <td class="group-a">{{ wcd_year_month|keyvalue:'group_a_holiday_work_hour' }}</td>
+                    <td class="group-a">{% if wcd_year_month|keyvalue:'group_a_holiday_work_hour' %}{{ wcd_year_month|keyvalue:'group_a_holiday_work_hour' }}{% endif %}</td>
                     <td class="group-b" style="border-left: 3px solid #000">{{ wcd_year_month|keyvalue:'group_b_general_work_hour' }}</td>
                     <td class="group-b">{{ wcd_year_month|keyvalue:'group_b_daytime_work_hour' }}</td>
                     <td class="group-b">{{ wcd_year_month|keyvalue:'group_b_nighttime_work_hour' }}</td>
-                    <td class="group-b">{{ wcd_year_month|keyvalue:'group_b_holiday_work_hour' }}</td>
+                    <td class="group-b">{% if wcd_year_month|keyvalue:'group_b_holiday_work_hour' %}{{ wcd_year_month|keyvalue:'group_b_holiday_work_hour' }}{% endif %}</td>
                     <td class="group-c" style="border-left: 3px solid #000">{{ wcd_year_month|keyvalue:'group_c_general_work_hour' }}</td>
                     <td class="group-c">{{ wcd_year_month|keyvalue:'group_c_daytime_work_hour' }}</td>
                     <td class="group-c">{{ wcd_year_month|keyvalue:'group_c_nighttime_work_hour' }}</td>
-                    <td class="group-c">{{ wcd_year_month|keyvalue:'group_c_holiday_work_hour' }}</td>
+                    <td class="group-c">{% if wcd_year_month|keyvalue:'group_c_holiday_work_hour' %}{{ wcd_year_month|keyvalue:'group_c_holiday_work_hour' }}{% endif %}</td>
                     <td class="group-d" style="border-left: 3px solid #000">{{ wcd_year_month|keyvalue:'group_d_general_work_hour' }}</td>
                     <td class="group-d">{{ wcd_year_month|keyvalue:'group_d_daytime_work_hour' }}</td>
                     <td class="group-d">{{ wcd_year_month|keyvalue:'group_d_nighttime_work_hour' }}</td>
-                    <td class="group-d">{{ wcd_year_month|keyvalue:'group_d_holiday_work_hour' }}</td>
+                    <td class="group-d">{% if wcd_year_month|keyvalue:'group_d_holiday_work_hour' %}{{ wcd_year_month|keyvalue:'group_d_holiday_work_hour' }}{% endif %}</td>
                   {% endwith %}
                 </tr>
               {% endfor %}
@@ -237,6 +237,10 @@
       </div>
     {% endwith %}
     <!-- ===== END Table ===== -->
+    {% empty %}
+    <div class="alert alert-info" role="alert">
+      <strong>Heç bir məlumat yoxdur!</strong>
+    </div>
     {% endfor %}
   </div>
 </main>

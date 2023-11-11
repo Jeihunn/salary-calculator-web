@@ -210,8 +210,8 @@ class WorkCalendar(AbstractModel):
         super().clean()
 
     class Meta:
-        verbose_name = _("İş Təqvimi")
-        verbose_name_plural = _("İş Təqvimləri")
+        verbose_name = _("İş təqvimi")
+        verbose_name_plural = _("İş təqvimləri")
 
 
 class WorkCalendarImage(AbstractModel):
@@ -240,8 +240,8 @@ class WorkCalendarImage(AbstractModel):
             )
 
     class Meta:
-        verbose_name = _("İstehsalat Təqvimi Şəkili")
-        verbose_name_plural = _("İstehsalat Təqvimi Şəkilləri")
+        verbose_name = _("İstehsalat təqvimi şəkili")
+        verbose_name_plural = _("İstehsalat təqvimi şəkilləri")
 
 
 class SalaryCalculation(AbstractModel):
@@ -273,7 +273,7 @@ class SalaryCalculation(AbstractModel):
         validators=[MinValueValidator(0)]
     )
     overtime = models.PositiveSmallIntegerField(
-        verbose_name=_("İstirahət günü əlavə saatı"),
+        verbose_name=_("Əlavə iş saatı"),
     )
     bonus_percent = models.PositiveSmallIntegerField(
         verbose_name=_("Mükafat faizi"),
@@ -304,7 +304,7 @@ class SalaryCalculation(AbstractModel):
         validators=[MinValueValidator(0)]
     )
     overtime_pay = models.DecimalField(
-        verbose_name=_("İstirahət günü əlavə saatı ödənişi (ikiqat)"),
+        verbose_name=_("Əlavə iş saatı ödənişi (ikiqat)"),
         max_digits=10,
         decimal_places=2,
         validators=[MinValueValidator(0)]
@@ -351,10 +351,14 @@ class SalaryCalculation(AbstractModel):
         decimal_places=2,
         validators=[MinValueValidator(0)]
     )
+    is_active = models.BooleanField(
+        verbose_name=_("Aktiv"),
+        default=True
+    )
 
     def __str__(self):
         return str(f"{self.user} - {self.year} - {self.month} - {self.shift} - {self.nett}")
 
     class Meta:
-        verbose_name = _("Maaş hesabı")
-        verbose_name_plural = _("Maaş hesabları")
+        verbose_name = _("Maaş hesablaması")
+        verbose_name_plural = _("Maaş hesablamaları")

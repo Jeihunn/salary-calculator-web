@@ -118,7 +118,7 @@ def calculate_gross_to_nett(gross, year=None, union_membership_tax=0):
 
 
 def calculate_hourly_wage(salary, work_hour):
-    return round(salary / work_hour, 2)
+    return salary / work_hour
 
 
 def calculate_night_work_pay(nighttime_work_hour, hourly_wage):
@@ -190,7 +190,7 @@ def calculate_salary(group_name, year_month, monthly_salary, overtime, bonus_per
             "salary": salary,
             "overtime": overtime,
             "bonus_percent": bonus_percent,
-            "hourly_wage": hourly_wage,
+            "hourly_wage": round(hourly_wage, 2),
             "night_work_pay": night_work_pay,
             "extra_hour_pay": extra_hour_pay,
             "holiday_hour_pay": holiday_hour_pay,
@@ -201,8 +201,7 @@ def calculate_salary(group_name, year_month, monthly_salary, overtime, bonus_per
             "income_tax": nett_and_taxes[year.year_value]["taxes"]["income_tax"],
             "dsmf_tax": nett_and_taxes[year.year_value]["taxes"]["dsmf_tax"],
             "unemployment_insurance_tax": nett_and_taxes[year.year_value]["taxes"]["unemployment_insurance_tax"],
-            "compulsory_health_insurance_tax": nett_and_taxes[year.year_value]["taxes"]["compulsory_health_insurance_tax"],
-            "union_membership_tax": nett_and_taxes[year.year_value]["taxes"]["union_membership_tax"]
+            "compulsory_health_insurance_tax": nett_and_taxes[year.year_value]["taxes"]["compulsory_health_insurance_tax"]
         }
     except Exception as e:
         print(f"An error occurred: {str(e)}")
