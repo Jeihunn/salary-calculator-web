@@ -6,6 +6,10 @@ from .models import (
 )
 
 
+NIGHT_WORK_PAY_RATE = 0.2
+EXTRA_HOUR_PAY_RATE = 2
+
+
 def gross_to_nett_for_year(gross, year, tax_rates, union_membership_tax):
     taxes = {
         "income_tax": 0,
@@ -113,10 +117,32 @@ def calculate_gross_to_nett(gross, year=None, union_membership_tax=0):
     return results
 
 
-def calculate_salary(group_name, year_month, monthly_salary, overtime, bonus_percent):
-    NIGHT_WORK_PAY_RATE = 0.2
-    EXTRA_HOUR_PAY_RATE = 2
+def calculate_hourly_wage(salary, work_hour):
+    return round(salary / work_hour, 2)
 
+
+def calculate_night_work_pay(nighttime_work_hour, hourly_wage):
+    return round(nighttime_work_hour * hourly_wage * NIGHT_WORK_PAY_RATE, 2)
+
+
+def calculate_extra_hour_pay(general_work_hour, monthly_work_hour, hourly_wage):
+    extra_hours = max(0, general_work_hour - monthly_work_hour)
+    return round(extra_hours * hourly_wage * EXTRA_HOUR_PAY_RATE, 2)
+
+
+def calculate_holiday_hour_pay(holiday_work_hour, hourly_wage):
+    return round(holiday_work_hour * hourly_wage, 2)
+
+
+def calculate_overtime_pay(overtime, hourly_wage):
+    return round(overtime * hourly_wage * EXTRA_HOUR_PAY_RATE, 2)
+
+
+def calculate_bonus_pay(salary, bonus_percent):
+    return round(salary * bonus_percent / 100, 2)
+
+
+def calculate_salary(group_name, year_month, monthly_salary, overtime, bonus_percent):
     try:
         salary = float(monthly_salary)
         overtime = float(overtime)
@@ -133,33 +159,24 @@ def calculate_salary(group_name, year_month, monthly_salary, overtime, bonus_per
         if shift.value in ["a", "b", "c", "d"]:
             general_work_hour, nighttime_work_hour, holiday_work_hour = get_shift_variables(
                 shift.value, work_calendar)
+            if holiday_work_hour is None:
+                holiday_work_hour = 0
 
-            hourly_wage = round(salary / general_work_hour, 2)
-            night_work_pay = round(
-                nighttime_work_hour * hourly_wage * NIGHT_WORK_PAY_RATE, 2)
-            extra_hour_pay = max(
-                0, (general_work_hour - monthly_work_hour) * hourly_wage * EXTRA_HOUR_PAY_RATE)
-
-            if holiday_work_hour and holiday_work_hour > 0:
-                holiday_hour_pay = round(holiday_work_hour * hourly_wage, 2)
-            else:
-                holiday_hour_pay = 0
+            hourly_wage = calculate_hourly_wage(salary, general_work_hour)
+            night_work_pay = calculate_night_work_pay(
+                nighttime_work_hour, hourly_wage)
+            extra_hour_pay = calculate_extra_hour_pay(
+                general_work_hour, monthly_work_hour, hourly_wage)
+            holiday_hour_pay = calculate_holiday_hour_pay(
+                holiday_work_hour, hourly_wage)
         elif shift.value == "g":
-            hourly_wage = round(salary / monthly_work_hour, 2)
+            hourly_wage = calculate_hourly_wage(salary, monthly_work_hour)
             night_work_pay = 0
             extra_hour_pay = 0
             holiday_hour_pay = 0
 
-        if overtime and overtime > 0:
-            overtime_pay = round(overtime * hourly_wage *
-                                 EXTRA_HOUR_PAY_RATE, 2)
-        else:
-            overtime_pay = 0
-
-        if bonus_percent and bonus_percent > 0:
-            bonus_pay = round(salary * bonus_percent / 100, 2)
-        else:
-            bonus_pay = 0
+        overtime_pay = calculate_overtime_pay(overtime, hourly_wage)
+        bonus_pay = calculate_bonus_pay(salary, bonus_percent)
 
         gross = round(salary + night_work_pay + extra_hour_pay +
                       holiday_hour_pay + overtime_pay + bonus_pay, 2)

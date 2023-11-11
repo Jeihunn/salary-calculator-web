@@ -102,8 +102,6 @@ class WorkCalendar(AbstractModel):
     )
     group_a_holiday_work_hour = models.PositiveSmallIntegerField(
         verbose_name=_("Bayram iş saatı (A)"),
-        null=True,
-        blank=True,
     )
     group_b_general_work_hour = models.PositiveSmallIntegerField(
         verbose_name=_("Ümumi iş saatı (B)"),
@@ -116,8 +114,6 @@ class WorkCalendar(AbstractModel):
     )
     group_b_holiday_work_hour = models.PositiveSmallIntegerField(
         verbose_name=_("Bayram iş saatı (B)"),
-        null=True,
-        blank=True,
     )
     group_c_general_work_hour = models.PositiveSmallIntegerField(
         verbose_name=_("Ümumi iş saatı (C)"),
@@ -130,8 +126,6 @@ class WorkCalendar(AbstractModel):
     )
     group_c_holiday_work_hour = models.PositiveSmallIntegerField(
         verbose_name=_("Bayram iş saatı (C)"),
-        null=True,
-        blank=True,
     )
     group_d_general_work_hour = models.PositiveSmallIntegerField(
         verbose_name=_("Ümumi iş saatı (D)"),
@@ -144,8 +138,6 @@ class WorkCalendar(AbstractModel):
     )
     group_d_holiday_work_hour = models.PositiveSmallIntegerField(
         verbose_name=_("Bayram iş saatı (D)"),
-        null=True,
-        blank=True,
     )
 
     def __str__(self):
