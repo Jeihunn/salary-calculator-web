@@ -40,10 +40,6 @@ def index_view(request):
                 group_name, year_month, monthly_salary, overtime, bonus_percent)
 
             if data:
-                messages.warning(request, _(
-                    "Maaş hesablanması zamanı xəta baş verdi. Zəhmət olmasa bir daha cəhd edin. Əgər xəta təkrarlanarsa bizimlə əlaqə saxlayın."))
-                return redirect(reverse_lazy("core:index_view"))
-            else:
                 try:
                     SalaryCalculation.objects.create(
                         user=request.user,
@@ -75,6 +71,11 @@ def index_view(request):
                     messages.error(request, _(
                         "Maaş hesablanması zamanı xəta baş verdi. Zəhmət olmasa bir daha cəhd edin."))
                     return redirect(reverse_lazy("core:index_view"))
+            else:
+                messages.warning(request, _(
+                    "Maaş hesablanması zamanı xəta baş verdi. Zəhmət olmasa bir daha cəhd edin. Əgər xəta təkrarlanarsa bizimlə əlaqə saxlayın."))
+                print(f"An error occurred: {data}")
+                return redirect(reverse_lazy("core:index_view"))
     else:
         form = SalaryCalculationForm()
 
