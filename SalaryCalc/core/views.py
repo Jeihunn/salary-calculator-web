@@ -15,10 +15,9 @@ from .forms import (
 )
 from .models import (
     WorkCalendar,
-    Year,
     Month,
-    Shift,
     SalaryCalculation,
+    FAQ,
 )
 
 
@@ -89,19 +88,7 @@ def index_view(request):
     return render(request, "core/index.html", context)
 
 
-def work_calendar_view(request):
-    years = WorkCalendar.get_years_list()
-    months = Month.objects.all()
-    work_calendar_data = WorkCalendar.get_work_calendar_data()
-
-    context = {
-        "years": years,
-        "months": months,
-        "work_calendar_data": work_calendar_data
-    }
-    return render(request, "core/work-calendar.html", context)
-
-
+@login_required
 def groos_to_nett_view(request):
     data = None
 
@@ -131,6 +118,7 @@ def groos_to_nett_view(request):
     return render(request, "core/gross-to-nett.html", context)
 
 
+@login_required
 def nett_to_gross_view(request):
     data = None
 
@@ -156,3 +144,25 @@ def nett_to_gross_view(request):
         "data": data
     }
     return render(request, "core/nett-to-gross.html", context)
+
+
+def work_calendar_view(request):
+    years = WorkCalendar.get_years_list()
+    months = Month.objects.all()
+    work_calendar_data = WorkCalendar.get_work_calendar_data()
+
+    context = {
+        "years": years,
+        "months": months,
+        "work_calendar_data": work_calendar_data
+    }
+    return render(request, "core/work-calendar.html", context)
+
+
+def faq_view(request):
+    faqs = FAQ.objects.filter(is_active=True).order_by("display_order")
+
+    context = {
+        "faqs": faqs,
+    }
+    return render(request, "core/faq.html", context)

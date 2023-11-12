@@ -2,3 +2,7 @@
   box-shadow: none;
   border-color: rgba(0, 0, 0, 0.125);
 }
+
+.accordion-item p {
+  margin: 0;
+}
