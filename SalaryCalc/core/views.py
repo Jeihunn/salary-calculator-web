@@ -6,10 +6,12 @@ from django.utils.translation import gettext_lazy as _
 from .utils import (
     calculate_salary,
     calculate_gross_to_nett,
+    calculate_nett_to_gross,
 )
 from .forms import (
     SalaryCalculationForm,
     GrossToNettForm,
+    NettToGrossForm,
 )
 from .models import (
     WorkCalendar,
@@ -37,7 +39,7 @@ def index_view(request):
             data = calculate_salary(
                 group_name, year_month, monthly_salary, overtime, bonus_percent)
 
-            if data is None:
+            if data:
                 messages.warning(request, _(
                     "Maaş hesablanması zamanı xəta baş verdi. Zəhmət olmasa bir daha cəhd edin. Əgər xəta təkrarlanarsa bizimlə əlaqə saxlayın."))
                 return redirect(reverse_lazy("core:index_view"))
@@ -126,3 +128,30 @@ def groos_to_nett_view(request):
         "data": data
     }
     return render(request, "core/gross-to-nett.html", context)
+
+
+def nett_to_gross_view(request):
+    data = None
+
+    if request.method == "POST":
+        form = NettToGrossForm(data=request.POST)
+        if form.is_valid():
+            nett = form.cleaned_data["nett"]
+
+            data = calculate_nett_to_gross(nett)
+
+            if data:
+                form = NettToGrossForm()
+                messages.success(request, _("Hesablama tamamlandi."))
+            else:
+                messages.warning(request, _(
+                    "Hesablama zamanı xəta baş verdi. Zəhmət olmasa bir daha cəhd edin."))
+                return redirect(reverse_lazy("core:nett_to_gross_view"))
+    else:
+        form = NettToGrossForm()
+
+    context = {
+        "form": form,
+        "data": data
+    }
+    return render(request, "core/nett-to-gross.html", context)
