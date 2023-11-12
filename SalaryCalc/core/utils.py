@@ -10,42 +10,6 @@ NIGHT_WORK_PAY_RATE = 0.2
 EXTRA_HOUR_PAY_RATE = 2
 
 
-def gross_to_nett_for_year(gross, year, tax_rates, union_membership_percent):
-    taxes = {
-        "income_tax": 0,
-        "dsmf_tax": 0,
-        "unemployment_insurance_tax": 0,
-        "compulsory_health_insurance_tax": 0,
-        "union_membership_tax": 0
-    }
-
-    if gross > 0:
-        if gross <= 200:
-            taxes["dsmf_tax"] = round(
-                gross * tax_rates.get("dsmf_tax_1", 0), 2)
-        else:
-            taxes["dsmf_tax"] = round(
-                (gross - 200) * tax_rates.get("dsmf_tax_2", 0) + 200 * tax_rates.get("dsmf_tax_1", 0), 2)
-
-        if gross <= 8000:
-            taxes["compulsory_health_insurance_tax"] = round(
-                gross * tax_rates.get("compulsory_health_insurance_tax_1", 0), 2)
-        else:
-            taxes["compulsory_health_insurance_tax"] = round((gross - 8000) * tax_rates.get(
-                "compulsory_health_insurance_tax_2", 0) + 8000 * tax_rates.get("compulsory_health_insurance_tax_1", 0), 2)
-            taxes["income_tax"] = round(
-                (gross - 8000) * tax_rates.get("income_tax", 0), 2)
-        taxes["unemployment_insurance_tax"] = round(
-            gross * tax_rates.get("unemployment_insurance_tax", 0), 2)
-        union_membership_percent = float(union_membership_percent)
-        taxes["union_membership_tax"] = round(
-            gross * union_membership_percent / 100, 2)
-
-    nett = round(gross - sum(taxes.values()), 2)
-
-    return {"gross": gross, "nett": nett, "union_membership_percent": union_membership_percent, "taxes": taxes}
-
-
 def get_shift_variables(shift_value, work_calendar):
     if shift_value in ["a", "b", "c", "d"]:
         shift_fields = [
@@ -57,66 +21,167 @@ def get_shift_variables(shift_value, work_calendar):
     return None
 
 
-def calculate_gross_to_nett(gross, year=None, union_membership_percent=0):
-    gross = float(gross)
-
-    # Adjust tax rates by year
-    tax_rates_by_year = {
-        2020: {
-            "income_tax": 0.14,
-            "dsmf_tax_1": 0.03,
-            "dsmf_tax_2": 0.1,
-            "unemployment_insurance_tax": 0.005
-        },
-        2021: {
-            "income_tax": 0.14,
-            "dsmf_tax_1": 0.03,
-            "dsmf_tax_2": 0.1,
-            "unemployment_insurance_tax": 0.005,
-            "compulsory_health_insurance_tax_1": 0.01,
-            "compulsory_health_insurance_tax_2": 0.005
-        },
-        2022: {
-            "income_tax": 0.14,
-            "dsmf_tax_1": 0.03,
-            "dsmf_tax_2": 0.1,
-            "unemployment_insurance_tax": 0.005,
-            "compulsory_health_insurance_tax_1": 0.02,
-            "compulsory_health_insurance_tax_2": 0.005
-        },
-        2023: {
-            "income_tax": 0.14,
-            "dsmf_tax_1": 0.03,
-            "dsmf_tax_2": 0.1,
-            "unemployment_insurance_tax": 0.005,
-            "compulsory_health_insurance_tax_1": 0.02,
-            "compulsory_health_insurance_tax_2": 0.005
-        },
-        2024: {
-            "income_tax": 0.14,
-            "dsmf_tax_1": 0.03,
-            "dsmf_tax_2": 0.1,
-            "unemployment_insurance_tax": 0.005,
-            "compulsory_health_insurance_tax_1": 0.02,
-            "compulsory_health_insurance_tax_2": 0.005
+def calculate_taxes(gross, year, union_membership_percent=0):
+    try:
+        tax_rates_by_year = {
+            2020: {
+                "income_tax": 0.14,
+                "dsmf_tax_1": 0.03,
+                "dsmf_tax_2": 0.1,
+                "unemployment_insurance_tax": 0.005
+            },
+            2021: {
+                "income_tax": 0.14,
+                "dsmf_tax_1": 0.03,
+                "dsmf_tax_2": 0.1,
+                "unemployment_insurance_tax": 0.005,
+                "compulsory_health_insurance_tax_1": 0.01,
+                "compulsory_health_insurance_tax_2": 0.005
+            },
+            2022: {
+                "income_tax": 0.14,
+                "dsmf_tax_1": 0.03,
+                "dsmf_tax_2": 0.1,
+                "unemployment_insurance_tax": 0.005,
+                "compulsory_health_insurance_tax_1": 0.02,
+                "compulsory_health_insurance_tax_2": 0.005
+            },
+            2023: {
+                "income_tax": 0.14,
+                "dsmf_tax_1": 0.03,
+                "dsmf_tax_2": 0.1,
+                "unemployment_insurance_tax": 0.005,
+                "compulsory_health_insurance_tax_1": 0.02,
+                "compulsory_health_insurance_tax_2": 0.005
+            },
+            2024: {
+                "income_tax": 0.14,
+                "dsmf_tax_1": 0.03,
+                "dsmf_tax_2": 0.1,
+                "unemployment_insurance_tax": 0.005,
+                "compulsory_health_insurance_tax_1": 0.02,
+                "compulsory_health_insurance_tax_2": 0.005
+            }
         }
-    }
 
-    results = {}
+        taxes = {
+            "income_tax": 0,
+            "dsmf_tax": 0,
+            "unemployment_insurance_tax": 0,
+            "compulsory_health_insurance_tax": 0,
+            "union_membership_tax": 0
+        }
 
-    if year:
-        # If a specific year is given, calculate only for that year
         if year in tax_rates_by_year:
             tax_rates = tax_rates_by_year[year]
-            results[year] = gross_to_nett_for_year(
-                gross, year, tax_rates, union_membership_percent)
+            if gross > 0:
+                if gross <= 200:
+                    taxes["dsmf_tax"] = round(
+                        gross * tax_rates.get("dsmf_tax_1", 0), 2)
+                else:
+                    taxes["dsmf_tax"] = round(
+                        (gross - 200) * tax_rates.get("dsmf_tax_2", 0) + 200 * tax_rates.get("dsmf_tax_1", 0), 2)
+
+                if gross <= 8000:
+                    taxes["compulsory_health_insurance_tax"] = round(
+                        gross * tax_rates.get("compulsory_health_insurance_tax_1", 0), 2)
+                else:
+                    taxes["compulsory_health_insurance_tax"] = round((gross - 8000) * tax_rates.get(
+                        "compulsory_health_insurance_tax_2", 0) + 8000 * tax_rates.get("compulsory_health_insurance_tax_1", 0), 2)
+                    taxes["income_tax"] = round(
+                        (gross - 8000) * tax_rates.get("income_tax", 0), 2)
+                taxes["unemployment_insurance_tax"] = round(
+                    gross * tax_rates.get("unemployment_insurance_tax", 0), 2)
+                union_membership_percent = float(union_membership_percent)
+                taxes["union_membership_tax"] = round(
+                    gross * union_membership_percent / 100, 2)
+
+                return taxes
+        return None
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+        return None
+
+
+def gross_to_nett_for_year(gross, year, union_membership_percent):
+    if gross > 0:
+        taxes = calculate_taxes(gross, year, union_membership_percent)
+        nett = round(gross - sum(taxes.values()), 2)
+
+        return {"gross": gross, "nett": nett, "union_membership_percent": union_membership_percent, "taxes": taxes}
     else:
-        # If year is not specified, calculate for all years from 2020 to 2024
-        for year in range(2020, 2025):
-            tax_rates = tax_rates_by_year[year]
+        return None
+
+
+def calculate_gross_to_nett(gross, year=None, union_membership_percent=0):
+    try:
+        gross = float(gross)
+        results = {}
+
+        if year:
+            # If a specific year is given, calculate only for that year
             results[year] = gross_to_nett_for_year(
-                gross, year, tax_rates, union_membership_percent)
-    return results
+                gross, year, union_membership_percent)
+        else:
+            # If year is not specified, calculate for all years from 2020 to 2024
+            for year in range(2020, 2025):
+                results[year] = gross_to_nett_for_year(
+                    gross, year, union_membership_percent)
+        return results
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+        return None
+
+
+def nett_to_gross_for_year(nett, year):
+    if nett > 0:
+        if year == 2020:
+            if nett <= 193:
+                gross = nett / 0.965
+            elif nett > 193 and nett <= 7174:
+                gross = (nett - 14) / 0.895
+            else:
+                gross = (nett - 1134) / 0.755
+        elif year == 2021:
+            if nett <= 191:
+                gross = nett / 0.955
+            elif nett > 191 and nett <= 7094:
+                gross = (nett - 14) / 0.885
+            else:
+                gross = (nett - 1094) / 0.75
+        elif year in range(2022, 2025):
+            if nett <= 189:
+                gross = nett / 0.945
+            elif nett > 189 and nett <= 7014:
+                gross = (nett - 14) / 0.875
+            else:
+                gross = (nett - 1014) / 0.75
+
+        gross = round(gross, 2)
+        taxes = calculate_taxes(gross, year)
+
+        return {"nett": nett, "gross": gross, "taxes": taxes}
+    else:
+        return None
+
+
+def calculate_nett_to_gross(nett, year=None):
+    try:
+        nett = float(nett)
+
+        results = {}
+
+        if year:
+            # If a specific year is given, calculate only for that year
+            results[year] = nett_to_gross_for_year(nett, year)
+        else:
+            # If year is not specified, calculate for all years from 2020 to 2024
+            for year in range(2020, 2025):
+                results[year] = nett_to_gross_for_year(nett, year)
+        return results
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+        return None
 
 
 def calculate_hourly_wage(salary, work_hour):

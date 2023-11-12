@@ -1,0 +1,121 @@
+{% extends "core/base.html" %}
+{% load static widget_tweaks tags %}
+
+{% block page_title %}
+<title>Nett'dən Gross'a | SalaryCalc</title>
+{% endblock page_title %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/gross-nett.css" %}" />
+{% endblock css %}
+
+
+{% block header_page_title %}
+<div class="page-title">
+  <h1>Nett'dən Gross'a Hesablama</h1>
+</div>
+{% endblock header_page_title %}
+
+
+{% block main %}
+<main>
+    <div class="container-fluid my-4">
+      <div class="border border-3 rounded bg-secondary-subtle py-3">
+        <!-- ===== Form ===== -->
+        <form method="post">
+          {% csrf_token %}
+          <div class="container">
+            <div class="text-center">
+              <p>
+                Qeyri neft-qaz və özəl sektor üzrə əmək haqqının hesablanması
+              </p>
+              <hr />
+            </div>
+            <div class="mb-3">
+              <label for="{{ form.nett.id_for_label }}" class="form-label fw-semibold"
+                >Nett Əmək Haqqı</label
+              >
+              <div class="input-group">
+                {{ form.nett }}
+                <span class="input-group-text">₼</span>
+              </div>
+              {{ form.nett.errors }}
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary px-5 py-2">
+                HESABLA
+              </button>
+            </div>
+          </div>
+        </form>
+        <!-- ===== END Form ===== -->
+
+        {% if data %}
+        <!-- ===== Table ===== -->
+        <div class="p-2 mt-4">
+          <div class="table-responsive container">
+            <table
+              class="table text-center table-bordered"
+              style="vertical-align: middle"
+            >
+              <thead>
+                <tr>
+                  <th style="background-color: #e2e3e5"></th>
+                  <th style="background-color: #cbcbcb">2020-ci il</th>
+                  <th style="background-color: #cbcbcb">2021-ci il</th>
+                  <th class="bg-info">2022-2023-cü il</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th class="text-start">Nett əmək haqqı</th>
+                  <td>{{ data.2020.nett }} ₼</td>
+                  <td>{{ data.2021.nett }} ₼</td>
+                  <td>{{ data.2024.nett }} ₼</td>
+                </tr>
+                <tr>
+                  <th class="text-start">Gəlir vergisi</th>
+                  <td>{{ data.2020.taxes.income_tax }} ₼</td>
+                  <td>{{ data.2021.taxes.income_tax }} ₼</td>
+                  <td>{{ data.2024.taxes.income_tax }} ₼</td>
+                </tr>
+                <tr>
+                  <th class="text-start">DSMF ayırmaları</th>
+                  <td>{{ data.2020.taxes.dsmf_tax }} ₼</td>
+                  <td>{{ data.2021.taxes.dsmf_tax }} ₼</td>
+                  <td>{{ data.2024.taxes.dsmf_tax }} ₼</td>
+                </tr>
+                <tr>
+                  <th class="text-start">İşsizlikdən sığorta haqqı</th>
+                  <td>{{ data.2020.taxes.unemployment_insurance_tax }} ₼</td>
+                  <td>{{ data.2021.taxes.unemployment_insurance_tax }} ₼</td>
+                  <td>{{ data.2024.taxes.unemployment_insurance_tax }} ₼</td>
+                </tr>
+                <tr>
+                  <th class="text-start">İcbari tibbi sığorta haqqı</th>
+                  <td>—</td>
+                  <td>{{ data.2021.taxes.compulsory_health_insurance_tax }} ₼</td>
+                  <td>{{ data.2024.taxes.compulsory_health_insurance_tax }} ₼</td>
+                </tr>
+                <tr
+                  class="total-price"
+                  style="height: 50px; font-weight: bold"
+                >
+                  <th class="text-start" style="background-color: #bdba02">
+                    Gross əmək haqqı
+                  </th>
+                  <td style="background-color: #bdba02">{{ data.2020.gross }} ₼</td>
+                  <td style="background-color: #bdba02">{{ data.2021.gross }} ₼</td>
+                  <td style="background-color: #bdba02">{{ data.2024.gross }} ₼</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- ===== END Table ===== -->
+        {% endif %}
+      </div>
+    </div>
+</main>
+{% endblock main %}
