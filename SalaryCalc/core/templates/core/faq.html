@@ -1,0 +1,59 @@
+{% extends "core/base.html" %}
+{% load static widget_tweaks tags %}
+
+{% block page_title %}
+<title>Tez-tez verilən suallar | SalaryCalc</title>
+{% endblock page_title %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/faq.css" %}" />
+{% endblock css %}
+
+
+{% block header_page_title %}
+<div class="page-title">
+  <h1>Tez-tez Verilən Suallar</h1>
+</div>
+{% endblock header_page_title %}
+
+
+{% block main %}
+<main>
+    <!-- ===== Accordion ===== -->
+    <div class="container my-5">
+      <div class="accordion" id="accordionPanelsStayOpenExample">
+        {% for faq in faqs %}
+        <div class="accordion-item mb-3">
+          <h2 class="accordion-header" id="panelsStayOpen-heading-{{ forloop.counter }}">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapse-{{ forloop.counter }}"
+              aria-expanded="false"
+              aria-controls="panelsStayOpen-collapse-{{ forloop.counter }}"
+            >
+              {{ faq.question|safe }}
+            </button>
+          </h2>
+          <div
+            id="panelsStayOpen-collapse-{{ forloop.counter }}"
+            class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingOne"
+          >
+            <div class="accordion-body">
+              {{ faq.answer|safe }}
+            </div>
+          </div>
+        </div>
+        {% empty %}
+        <div class="alert alert-info" role="alert">
+          <strong>Heç bir məlumat yoxdur!</strong>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <!-- ===== END Accordion ===== -->
+</main>
+{% endblock main %}

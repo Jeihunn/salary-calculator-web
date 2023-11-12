@@ -2,6 +2,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.core.exceptions import ValidationError
+from ckeditor.fields import RichTextField
+from django.utils.html import strip_tags
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -362,3 +364,30 @@ class SalaryCalculation(AbstractModel):
     class Meta:
         verbose_name = _("Maaş hesablaması")
         verbose_name_plural = _("Maaş hesablamaları")
+
+
+class FAQ(AbstractModel):
+    question = RichTextField(
+        verbose_name=_("Sual"),
+    )
+    answer = RichTextField(
+        verbose_name=_("Cavab")
+    )
+    display_order = models.PositiveSmallIntegerField(
+        verbose_name=_("Göstərilmə sırası"),
+        unique=True
+    )
+    is_active = models.BooleanField(
+        verbose_name=_("Aktiv"),
+        default=True
+    )
+
+    def __str__(self):
+        if len(strip_tags(self.question)) > 100:
+            return f"{strip_tags(self.question)[:100]}..."
+        else:
+            return strip_tags(self.question)
+
+    class Meta:
+        verbose_name = _("Tez-tez verilən sual")
+        verbose_name_plural = _("Tez-tez verilən suallar")

@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-218z(wi3+a5!^q6#jn++7rp*_r_97onxh(w9pid-xf)o96qns-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -47,12 +47,13 @@ INITIAL_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    ## Allauth apps
+    # Allauth apps
     'allauth',
     'allauth.account',
     # 'allauth.socialaccount',
     "widget_tweaks",
     "django_extensions",
+    "ckeditor",
 ]
 
 MY_APPS = [
@@ -75,7 +76,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-## Allauth settings
+# Allauth settings
 # The default protocol used for when generating URLs
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'http'
 # Specifies the login method to use – whether the user logs in by entering their username, email address, or either one of both
@@ -248,3 +249,26 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Cookie Session(sessionid) expiration time
 SESSION_COOKIE_AGE = timedelta(days=14).total_seconds()
 # SESSION_COOKIE_NAME = "sessionid"
+
+
+# CKEditor configs
+CKEDITOR_CONFIGS = {
+    'default': {
+        # 'skin': 'moono',
+        'height': 200,
+        'width': '100%',
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Undo', 'Redo'],
+            ['Font', 'FontSize'],
+            ['Code'],
+            ['Bold', 'Italic', 'Underline', "Strike", 'Subscript', 'Superscript'],
+            ['TextColor', 'BGColor'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-',
+                'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink',],
+            ['RemoveFormat', 'Source'],
+
+        ]
+    }
+}
