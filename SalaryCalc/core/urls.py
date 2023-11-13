@@ -8,4 +8,5 @@ urlpatterns = [
     path("nett-to-gross", views.nett_to_gross_view, name="nett_to_gross_view"),
     path("work-calendar", views.work_calendar_view, name="work_calendar_view"),
     path("faq", views.faq_view, name="faq_view"),
+    path("contact", views.contact_view, name="contact_view"),
 ]

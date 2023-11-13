@@ -24,13 +24,13 @@
                 <a href="#" data-toggle="sub-menu">Hesablama</a>
                 <ul class="submenu">
                   <li class="menu-item">
-                    <a href="{% url "core:index_view" %}" class="active">Maaş</a>
+                    <a href="{% url "core:index_view" %}" class="{% if request.resolver_match.view_name == 'core:index_view' %}active{% endif %}">Maaş</a>
                   </li>
                   <li class="menu-item">
-                    <a href="{% url "core:groos_to_nett_view" %}">Gross'dan Nett'ə</a>
+                    <a href="{% url "core:groos_to_nett_view" %}" class="{% if request.resolver_match.view_name == 'core:groos_to_nett_view' %}active{% endif %}">Gross'dan Nett'ə</a>
                   </li>
                   <li class="menu-item">
-                    <a href="{% url "core:nett_to_gross_view" %}">Nett'dən Gross'a</a>
+                    <a href="{% url "core:nett_to_gross_view" %}" class="{% if request.resolver_match.view_name == 'core:nett_to_gross_view' %}active{% endif %}">Nett'dən Gross'a</a>
                   </li>
                 </ul>
               </li>
@@ -38,19 +38,18 @@
                 <a href="#" data-toggle="sub-menu">Əlavə Məlumat</a>
                 <ul class="submenu">
                   <li class="menu-item">
-                    <a href="{% url "core:work_calendar_view" %}">İstehsalat təqvimi</a>
+                    <a href="{% url "core:work_calendar_view" %}" class="{% if request.resolver_match.view_name == 'core:work_calendar_view' %}active{% endif %}">İstehsalat təqvimi</a>
                   </li>
                   <li class="menu-item">
-                    <a href="{% url "core:faq_view" %}">Tez-tez verilən suallar</a>
+                    <a href="{% url "core:faq_view" %}" class="{% if request.resolver_match.view_name == 'core:faq_view' %}active{% endif %}">Tez-tez verilən suallar</a>
                   </li>
                 </ul>
               </li>
-              <li class="menu-item"><a href="about.html">Haqqında</a></li>
-              <li class="menu-item"><a href="contact.html">Əlaqə</a></li>
+              <li class="menu-item"><a href="{% url "core:contact_view" %}" class="{% if request.resolver_match.view_name == 'core:contact_view' %}active{% endif %}">Əlaqə</a></li>
 
               {% if not request.user.is_authenticated %}
                 <li class="menu-item">
-                  <a class="btn btn-primary px-4 login-btn" href="{% url "account_login" %}"
+                  <a class="btn btn-primary px-4 login-btn {% if request.resolver_match.view_name == 'core:index_view' %}active{% endif %}" href="{% url "account_login" %}"
                     >Giriş</a
                   >
                 </li>
@@ -58,7 +57,13 @@
                 <li class="menu-item menu-has-child-item">
                   <a href="#" data-toggle="sub-menu">{{ request.user.username }}</a>
                   <ul class="submenu">
-                    <li class="menu-item"><a href="{% url "profile_view" %}">Hesab</a></li>
+                    <li class="menu-item"><a 
+                      href="{% url "profile_view" %}"
+                      class="{% if request.resolver_match.view_name == 'profile_view' or request.resolver_match.view_name == 'account_change_password' %}active{% endif %}"
+                      >
+                      Hesab
+                      </a>
+                    </li>
                     <li class="menu-item"><a href="{% url 'account_logout' %}">Çıxış</a></li>
                   </ul>
                 </li>

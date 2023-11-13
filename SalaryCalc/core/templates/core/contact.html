@@ -1,0 +1,102 @@
+{% extends "core/base.html" %}
+{% load static widget_tweaks tags %}
+
+{% block page_title %}
+<title>Əlaqə | SalaryCalc</title>
+{% endblock page_title %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/contact.css" %}" />
+{% endblock css %}
+
+
+{% block header_page_title %}
+<div class="page-title">
+  <h1>Əlaqə</h1>
+</div>
+{% endblock header_page_title %}
+
+
+{% block main %}
+<main>
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Let's get in touch</h3>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+            dolorum adipisci recusandae praesentium dicta!
+          </p>
+
+          <div class="info">
+            <div class="information">
+              <i class="fa-regular fa-envelope"></i>
+              <span>
+                <p>lorem@ipsum.com</p>
+                <p>lorem@ipsum.com</p>
+                <p>lorem@ipsum.com</p>
+              </span>
+            </div>
+            <div class="information">
+              <i class="fa-solid fa-phone-volume"></i>
+              <span>
+                <p>123-456-789</p>
+                <p>123-456-789</p>
+              </span>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <p>Connect with us :</p>
+            <div class="social-icons">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <!-- ===== Contact Form ===== -->
+          <form autocomplete="off" method="post">
+            {% csrf_token %}
+            <h3 class="title">Əlaqə</h3>
+            <div class="input-container">
+              {{ form.full_name }}
+              {{ form.full_name.errors }}
+            </div>
+            <div class="input-container">
+              {{ form.email }}
+              {{ form.email.errors }}
+            </div>
+            <div class="input-container">
+              {{ form.subject }}
+              {{ form.subject.errors }}
+            </div>
+            <div class="input-container textarea">
+              {{ form.message }}
+              {{ form.message.errors }}
+            </div>
+            <input type="submit" value="Göndər" class="btn-submit" />
+          </form>
+          <!-- ===== END Contact Form ===== -->
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock main %}
