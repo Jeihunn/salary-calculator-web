@@ -391,3 +391,27 @@ class FAQ(AbstractModel):
     class Meta:
         verbose_name = _("Tez-tez verilən sual")
         verbose_name_plural = _("Tez-tez verilən suallar")
+
+
+class Contact(AbstractModel):
+    full_name = models.CharField(
+        verbose_name=_("Ad Soyad"),
+        max_length=100
+    )
+    email = models.EmailField(
+        verbose_name=_("E-Poçt")
+    )
+    subject = models.CharField(
+        verbose_name=_("Mövzu"),
+        max_length=255
+    )
+    message = models.TextField(
+        verbose_name=_("Mesaj")
+    )
+
+    def __str__(self):
+        return f"{self.full_name} -- {self.subject}"
+
+    class Meta:
+        verbose_name = _("Əlaqə")
+        verbose_name_plural = _("Əlaqələr")

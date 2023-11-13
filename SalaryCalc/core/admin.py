@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
+from django.contrib.admin.models import LogEntry
 from django.utils.html import strip_tags
 from django.contrib import messages
 from .models import (
@@ -10,6 +11,7 @@ from .models import (
     WorkCalendarImage,
     SalaryCalculation,
     FAQ,
+    Contact,
 )
 
 
@@ -30,6 +32,13 @@ def toggle_active_selected(modeladmin, request, queryset):
 toggle_active_selected.short_description = _(
     "Seçilənlərin Aktivlik vəziyyətini dəyiştir")
 # ===== END Actions =====
+
+
+@admin.register(LogEntry)
+class LogEntryAdmin(admin.ModelAdmin):
+    list_display = ["action_time", "user", "content_type",
+                    "object_id", "object_repr", "action_flag"]
+    list_filter = ["action_time", "user", "action_flag"]
 
 
 @admin.register(Year)
@@ -148,3 +157,11 @@ class FAQAdmin(admin.ModelAdmin):
                 return strip_tags(obj.answer)
         return None
     answer_short.short_description = _("Cavab")
+
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ["id", "full_name", "email",
+                    "subject", "created_at", "updated_at"]
+    list_display_links = ["id", "full_name"]
+    search_fields = ["full_name", "email", "subject"]

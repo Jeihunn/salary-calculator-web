@@ -12,6 +12,7 @@ from .forms import (
     SalaryCalculationForm,
     GrossToNettForm,
     NettToGrossForm,
+    ContactForm,
 )
 from .models import (
     WorkCalendar,
@@ -88,7 +89,6 @@ def index_view(request):
     return render(request, "core/index.html", context)
 
 
-@login_required
 def groos_to_nett_view(request):
     data = None
 
@@ -103,7 +103,7 @@ def groos_to_nett_view(request):
 
             if data:
                 form = GrossToNettForm()
-                messages.success(request, _("Hesablama tamamlandi."))
+                messages.success(request, _("Hesablama tamamlandı."))
             else:
                 messages.warning(request, _(
                     "Hesablama zamanı xəta baş verdi. Zəhmət olmasa bir daha cəhd edin."))
@@ -118,7 +118,6 @@ def groos_to_nett_view(request):
     return render(request, "core/gross-to-nett.html", context)
 
 
-@login_required
 def nett_to_gross_view(request):
     data = None
 
@@ -131,7 +130,7 @@ def nett_to_gross_view(request):
 
             if data:
                 form = NettToGrossForm()
-                messages.success(request, _("Hesablama tamamlandi."))
+                messages.success(request, _("Hesablama tamamlandı."))
             else:
                 messages.warning(request, _(
                     "Hesablama zamanı xəta baş verdi. Zəhmət olmasa bir daha cəhd edin."))
@@ -166,3 +165,19 @@ def faq_view(request):
         "faqs": faqs,
     }
     return render(request, "core/faq.html", context)
+
+
+def contact_view(request):
+    if request.method == "POST":
+        form = ContactForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, _("Mesaj uğurla göndərildi."))
+            return redirect(reverse_lazy("core:contact_view"))
+    else:
+        form = ContactForm()
+
+    context = {
+        "form": form
+    }
+    return render(request, "core/contact.html", context)

@@ -30,26 +30,18 @@
             <form method="post" action="{% url 'account_signup' %}">
               {% csrf_token %}
               <div class="input-field">
-                {% comment %} <input type="text" placeholder="İstifadəçi adı" required /> {% endcomment %}
                 {{ form.username|attr:"placeholder:İstifadəçi adı" }}
                 <i class="uil uil-user"></i>
               </div>
               {{ form.username.errors }}
 
               <div class="input-field">
-                {% comment %} <input type="text" placeholder="Email" required /> {% endcomment %}
-                {{ form.email|attr:"placeholder:Email" }}
+                {{ form.email|attr:"placeholder:E-poçt" }}
                 <i class="uil uil-envelope icon"></i>
               </div>
               {{ form.email.errors }}
 
               <div class="input-field">
-                {% comment %} <input
-                  type="password"
-                  class="password"
-                  placeholder="Şifrə"
-                  required
-                /> {% endcomment %}
                 {{ form.password1|add_class:"password"|attr:"placeholder:Şifrə" }}
                 <i class="uil uil-padlock icon"></i>
                 <i class="uil uil-eye-slash showHidePw"></i>
@@ -57,12 +49,6 @@
               {{ form.password1.errors }}
               
               <div class="input-field">
-                {% comment %} <input
-                  type="password"
-                  class="password"
-                  placeholder="Təkrar şifrə"
-                  required
-                /> {% endcomment %}
                 {{ form.password2|add_class:"password"|attr:"placeholder:Təkrar şifrə" }}
                 <i class="uil uil-padlock icon"></i>
                 <i class="uil uil-eye-slash showHidePw"></i>

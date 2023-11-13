@@ -1,8 +1,11 @@
 from django import forms
+from datetime import date
 from core.models import WorkCalendar
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
-from datetime import date
+from .models import (
+    Contact,
+)
 
 
 years = WorkCalendar.get_years_list()
@@ -94,3 +97,15 @@ class NettToGrossForm(forms.Form):
         widget=forms.NumberInput(
             attrs={'class': 'form-control'}),
     )
+
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ['full_name', 'email', 'subject', 'message']
+        widgets = {
+            'full_name': forms.TextInput(attrs={'class': 'input', 'placeholder': 'Ad Soyad'}),
+            'email': forms.EmailInput(attrs={'class': 'input', 'placeholder': 'E-poçt'}),
+            'subject': forms.TextInput(attrs={'class': 'input', 'placeholder': 'Mövzu'}),
+            'message': forms.Textarea(attrs={'class': 'input', 'placeholder': 'Mesaj'}),
+        }
