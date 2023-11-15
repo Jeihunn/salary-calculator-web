@@ -415,3 +415,19 @@ class Contact(AbstractModel):
     class Meta:
         verbose_name = _("Əlaqə")
         verbose_name_plural = _("Əlaqələr")
+
+
+class Subscriber(AbstractModel):
+    email = models.EmailField(
+        verbose_name=_("E-Poçt")
+    )
+    subscription_status = models.BooleanField(
+        verbose_name=_("Abunə statusu"),
+    )
+
+    def __str__(self):
+        return self.email
+
+    class Meta:
+        verbose_name = _("Abunə")
+        verbose_name_plural = _("Abunələr")

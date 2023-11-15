@@ -12,6 +12,7 @@ from .models import (
     SalaryCalculation,
     FAQ,
     Contact,
+    Subscriber,
 )
 
 
@@ -165,3 +166,26 @@ class ContactAdmin(admin.ModelAdmin):
                     "subject", "created_at", "updated_at"]
     list_display_links = ["id", "full_name"]
     search_fields = ["full_name", "email", "subject"]
+
+
+@admin.register(Subscriber)
+class SubscriberAdmin(admin.ModelAdmin):
+    actions = ["toggle_status_selected"]
+
+    list_display = ["id", "email", "subscription_status",
+                    "created_at", "updated_at"]
+    list_display_links = ["id", "email"]
+    list_filter = ["subscription_status"]
+    search_fields = ["email"]
+
+    def toggle_status_selected(modeladmin, request, queryset):
+        count = queryset.count()
+        for obj in queryset:
+            obj.subscription_status = not obj.subscription_status
+            obj.save()
+
+        message = _(f"{count} obyektin abunə statusu uğurla dəyiştirildi.")
+        modeladmin.message_user(request, message, level=messages.SUCCESS)
+
+    toggle_status_selected.short_description = _(
+        "Seçilənlərin Abunə statusunu dəyiştir")
