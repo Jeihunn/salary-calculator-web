@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="./assets/css/footer.css" />
     <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/work-calendar.css" />
 
     <title>İstehsalat Təqvimi | SalaryCalc</title>
   </head>
@@ -56,7 +55,7 @@
                 <div class="close-nav-btn"></div>
                 <ul>
                   <li class="menu-item menu-has-child-item">
-                    <a href="#" data-toggle="sub-menu">Hesablama</a>
+                    <a data-toggle="sub-menu" class="sub-menu-title">Hesablama</a>
                     <ul class="submenu">
                       <li class="menu-item">
                         <a href="index.html" class="active">Maaş</a>
@@ -70,7 +69,7 @@
                     </ul>
                   </li>
                   <li class="menu-item menu-has-child-item">
-                    <a href="#" data-toggle="sub-menu">Əlavə Məlumat</a>
+                    <a data-toggle="sub-menu" class="sub-menu-title">Əlavə Məlumat</a>
                     <ul class="submenu">
                       <li class="menu-item">
                         <a href="work-calendar.html">İstehsalat təqvimi</a>
@@ -88,9 +87,9 @@
                     >
                   </li>
                   <!-- <li class="menu-item menu-has-child-item">
-                    <a href="#" data-toggle="sub-menu">İstifadəçi Adı</a>
+                    <a data-toggle="sub-menu" class="sub-menu-title">İstifadəçi Adı</a>
                     <ul class="submenu">
-                      <li class="menu-item"><a href="profil.html">Profil</a></li>
+                      <li class="menu-item"><a href="profile.html">Profil</a></li>
                       <li class="menu-item"><a href="#">Çıxış</a></li>
                     </ul>
                   </li> -->
@@ -116,7 +115,7 @@
         <div class="p-2 mt-4 rounded bg-secondary-subtle text-center">
           <div class="table-responsive salary-table">
             <table
-              class="table table-bordered border-dark table-hover text-center table-work-calendar"
+              class="table table-bordered border-dark table-hover text-center table-work-calendar table-striped"
               style="border: 3px solid #000"
             >
               <thead>
@@ -125,8 +124,7 @@
                     colspan="18"
                     style="
                       font-size: 40px;
-                      background-color: #ecf0df;
-                      color: #007c7c;
+                      background-color: rgb(190, 190, 190);
                     "
                   >
                     2024
@@ -138,7 +136,6 @@
                     rowspan="3"
                     style="
                       width: 10%;
-                      background-color: #ecf0df;
                       font-size: 14px;
                     "
                   >
@@ -149,7 +146,6 @@
                     rowspan="3"
                     style="
                       width: 10%;
-                      background-color: #ffff01;
                       font-size: 14px;
                     "
                   >
@@ -157,7 +153,7 @@
                   </th>
                   <th
                     colspan="16"
-                    style="width: 80%; background-color: #ecf0df"
+                    style="width: 80%;"
                   >
                     Qruplar
                   </th>
@@ -166,7 +162,6 @@
                   <th
                     colspan="4"
                     style="
-                      background-color: #ecf0df;
                       border-left: 3px solid #000;
                     "
                   >
@@ -175,7 +170,6 @@
                   <th
                     colspan="4"
                     style="
-                      background-color: #ecf0df;
                       border-left: 3px solid #000;
                     "
                   >
@@ -184,7 +178,6 @@
                   <th
                     colspan="4"
                     style="
-                      background-color: #ecf0df;
                       border-left: 3px solid #000;
                     "
                   >
@@ -193,7 +186,6 @@
                   <th
                     colspan="4"
                     style="
-                      background-color: #ecf0df;
                       border-left: 3px solid #000;
                     "
                   >
@@ -204,85 +196,80 @@
                   <th
                     colspan="1"
                     style="
-                      background-color: #90d054;
                       border-left: 3px solid #000;
                     "
                   >
                     Ümumi iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #fefffc">
+                  <th colspan="1">
                     Gündüz iş saatı
                   </th>
                   <th
                     colspan="1"
-                    style="background-color: #000003; color: #fff"
+                    
                   >
                     Gecə iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #ff3103">
+                  <th colspan="1" >
                     Bayram iş saatı
                   </th>
                   <th
                     colspan="1"
                     style="
-                      background-color: #90d054;
                       border-left: 3px solid #000;
                     "
                   >
                     Ümumi iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #fefffc">
+                  <th colspan="1" >
                     Gündüz iş saatı
                   </th>
                   <th
                     colspan="1"
-                    style="background-color: #000003; color: #fff"
                   >
                     Gecə iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #ff3103">
+                  <th colspan="1" >
                     Bayram iş saatı
                   </th>
                   <th
                     colspan="1"
                     style="
-                      background-color: #90d054;
                       border-left: 3px solid #000;
                     "
                   >
                     Ümumi iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #fefffc">
+                  <th colspan="1" >
                     Gündüz iş saatı
                   </th>
                   <th
                     colspan="1"
-                    style="background-color: #000003; color: #fff"
+                    
                   >
                     Gecə iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #ff3103">
+                  <th colspan="1" >
                     Bayram iş saatı
                   </th>
                   <th
                     colspan="1"
                     style="
-                      background-color: #90d054;
                       border-left: 3px solid #000;
                     "
                   >
                     Ümumi iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #fefffc">
+                  <th colspan="1" >
                     Gündüz iş saatı
                   </th>
                   <th
                     colspan="1"
-                    style="background-color: #000003; color: #fff"
+                    
                   >
                     Gecə iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #ff3103">
+                  <th colspan="1" >
                     Bayram iş saatı
                   </th>
                 </tr>
@@ -543,7 +530,7 @@
         <div class="p-2 mt-4 rounded bg-secondary-subtle text-center">
           <div class="table-responsive salary-table">
             <table
-              class="table table-bordered border-dark table-hover text-center table-work-calendar"
+              class="table table-bordered border-dark table-hover text-center table-work-calendar table-striped"
               style="border: 3px solid #000"
             >
               <thead>
@@ -552,8 +539,7 @@
                     colspan="18"
                     style="
                       font-size: 40px;
-                      background-color: #ecf0df;
-                      color: #007c7c;
+                      background-color: rgb(190, 190, 190);
                     "
                   >
                     2023
@@ -565,7 +551,6 @@
                     rowspan="3"
                     style="
                       width: 10%;
-                      background-color: #ecf0df;
                       font-size: 14px;
                     "
                   >
@@ -576,7 +561,6 @@
                     rowspan="3"
                     style="
                       width: 10%;
-                      background-color: #ffff01;
                       font-size: 14px;
                     "
                   >
@@ -584,7 +568,7 @@
                   </th>
                   <th
                     colspan="16"
-                    style="width: 80%; background-color: #ecf0df"
+                    style="width: 80%;"
                   >
                     Qruplar
                   </th>
@@ -593,7 +577,6 @@
                   <th
                     colspan="4"
                     style="
-                      background-color: #ecf0df;
                       border-left: 3px solid #000;
                     "
                   >
@@ -602,7 +585,6 @@
                   <th
                     colspan="4"
                     style="
-                      background-color: #ecf0df;
                       border-left: 3px solid #000;
                     "
                   >
@@ -611,7 +593,6 @@
                   <th
                     colspan="4"
                     style="
-                      background-color: #ecf0df;
                       border-left: 3px solid #000;
                     "
                   >
@@ -620,7 +601,6 @@
                   <th
                     colspan="4"
                     style="
-                      background-color: #ecf0df;
                       border-left: 3px solid #000;
                     "
                   >
@@ -631,85 +611,80 @@
                   <th
                     colspan="1"
                     style="
-                      background-color: #90d054;
                       border-left: 3px solid #000;
                     "
                   >
                     Ümumi iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #fefffc">
+                  <th colspan="1">
                     Gündüz iş saatı
                   </th>
                   <th
                     colspan="1"
-                    style="background-color: #000003; color: #fff"
+                    
                   >
                     Gecə iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #ff3103">
+                  <th colspan="1" >
                     Bayram iş saatı
                   </th>
                   <th
                     colspan="1"
                     style="
-                      background-color: #90d054;
                       border-left: 3px solid #000;
                     "
                   >
                     Ümumi iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #fefffc">
+                  <th colspan="1" >
                     Gündüz iş saatı
                   </th>
                   <th
                     colspan="1"
-                    style="background-color: #000003; color: #fff"
                   >
                     Gecə iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #ff3103">
+                  <th colspan="1" >
                     Bayram iş saatı
                   </th>
                   <th
                     colspan="1"
                     style="
-                      background-color: #90d054;
                       border-left: 3px solid #000;
                     "
                   >
                     Ümumi iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #fefffc">
+                  <th colspan="1" >
                     Gündüz iş saatı
                   </th>
                   <th
                     colspan="1"
-                    style="background-color: #000003; color: #fff"
+                    
                   >
                     Gecə iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #ff3103">
+                  <th colspan="1" >
                     Bayram iş saatı
                   </th>
                   <th
                     colspan="1"
                     style="
-                      background-color: #90d054;
                       border-left: 3px solid #000;
                     "
                   >
                     Ümumi iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #fefffc">
+                  <th colspan="1" >
                     Gündüz iş saatı
                   </th>
                   <th
                     colspan="1"
-                    style="background-color: #000003; color: #fff"
+                    
                   >
                     Gecə iş saatı
                   </th>
-                  <th colspan="1" style="background-color: #ff3103">
+                  <th colspan="1" >
                     Bayram iş saatı
                   </th>
                 </tr>

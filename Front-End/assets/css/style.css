@@ -10,3 +10,21 @@
 .page-title h1 {
   margin: 0;
 }
+
+.errorlist {
+  margin-top: 5px;
+  color: red;
+  font-size: 13px;
+  list-style-type: none;
+  padding: 0 0 0 5px;
+}
+
+table tbody tr:hover td {
+  background-color: #dfdede;
+}
+
+@media (max-width: 576px) {
+  .errorlist {
+    font-size: 11px;
+  }
+}
