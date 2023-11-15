@@ -21,7 +21,7 @@
             <div class="close-nav-btn"></div>
             <ul>
               <li class="menu-item menu-has-child-item">
-                <a href="#" data-toggle="sub-menu">Hesablama</a>
+                <a data-toggle="sub-menu" class="sub-menu-title">Hesablama</a>
                 <ul class="submenu">
                   <li class="menu-item">
                     <a href="{% url "core:index_view" %}" class="{% if request.resolver_match.view_name == 'core:index_view' %}active{% endif %}">Maaş</a>
@@ -35,7 +35,7 @@
                 </ul>
               </li>
               <li class="menu-item menu-has-child-item">
-                <a href="#" data-toggle="sub-menu">Əlavə Məlumat</a>
+                <a data-toggle="sub-menu" class="sub-menu-title">Əlavə Məlumat</a>
                 <ul class="submenu">
                   <li class="menu-item">
                     <a href="{% url "core:work_calendar_view" %}" class="{% if request.resolver_match.view_name == 'core:work_calendar_view' %}active{% endif %}">İstehsalat təqvimi</a>
@@ -55,7 +55,7 @@
                 </li>
               {% else %}
                 <li class="menu-item menu-has-child-item">
-                  <a href="#" data-toggle="sub-menu">{{ request.user.username }}</a>
+                  <a data-toggle="sub-menu" class="sub-menu-title">{{ request.user.username }}</a>
                   <ul class="submenu">
                     <li class="menu-item"><a 
                       href="{% url "profile_view" %}"

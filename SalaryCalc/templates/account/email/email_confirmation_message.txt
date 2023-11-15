@@ -1,0 +1,8 @@
+{% extends "account/email/base_message.txt" %}
+{% load account %}
+{% load i18n %}
+
+{% block content %}{% autoescape off %}{% user_display user as user_display %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Sizə xoş gəldiniz deyirik! {{ user_display }} istifadəçisi tərəfindən sizin e-poçt ünvanınızın {{ site_domain }}-da hesab yaratmaq üçün istifadə edildiyini bildirmək üçün bu e-poçtu alırsınız.
+
+Məlumatın doğruluğunu təsdiq etmək üçün, zəhmət olmasa aşağıdakı linkə keçid edərək e-poçt ünvanınızı təsdiqləyin:
+{{ activate_url }}{% endblocktrans %}{% endautoescape %}{% endblock content %}

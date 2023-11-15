@@ -19,6 +19,10 @@
   padding: 0 0 0 5px;
 }
 
+table tbody tr:hover td {
+  background-color: #dfdede;
+}
+
 @media (max-width: 576px) {
   .errorlist {
     font-size: 11px;
