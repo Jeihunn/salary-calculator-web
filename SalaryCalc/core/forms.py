@@ -8,11 +8,6 @@ from .models import (
 )
 
 
-years = WorkCalendar.get_years_list()
-years_min = min(years)
-years_max = max(years)
-
-
 class SalaryCalculationForm(forms.Form):
     GROUP_CHOICES = [
         ('a', 'A'),
@@ -21,6 +16,13 @@ class SalaryCalculationForm(forms.Form):
         ('d', 'D'),
         ('g', 'Gündəlik'),
     ]
+
+    years = WorkCalendar.get_years_list()
+    if years:
+        years_min = min(years)
+        years_max = max(years)
+    else:
+        years_min = years_max = date.today().year
 
     group_name = forms.ChoiceField(
         choices=GROUP_CHOICES,
@@ -59,8 +61,8 @@ class SalaryCalculationForm(forms.Form):
     def clean_year_month(self):
         year_month = self.cleaned_data['year_month']
 
-        min_value = date(years_min, 1, 1)
-        max_value = date(years_max, 12, 1)
+        min_value = date(self.years_min, 1, 1)
+        max_value = date(self.years_max, 12, 1)
 
         if not (min_value <= year_month <= max_value):
             raise ValidationError(

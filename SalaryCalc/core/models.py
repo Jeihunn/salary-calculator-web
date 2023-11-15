@@ -36,6 +36,7 @@ class Year(AbstractModel):
         return str(self.year_value)
 
     class Meta:
+        app_label = "core"
         verbose_name = _("İl")
         verbose_name_plural = _("İllər")
 
@@ -56,6 +57,7 @@ class Month(AbstractModel):
         return f"{self.name} ({self.month_number})"
 
     class Meta:
+        app_label = "core"
         verbose_name = _("Ay")
         verbose_name_plural = _("Aylar")
 
@@ -76,6 +78,7 @@ class Shift(AbstractModel):
         return f"{self.name} ({self.value})"
 
     class Meta:
+        app_label = "core"
         verbose_name = _("Növbə")
         verbose_name_plural = _("Növbələr")
 
@@ -212,6 +215,7 @@ class WorkCalendar(AbstractModel):
         super().clean()
 
     class Meta:
+        app_label = "core"
         verbose_name = _("İş təqvimi")
         verbose_name_plural = _("İş təqvimləri")
 
@@ -242,6 +246,7 @@ class WorkCalendarImage(AbstractModel):
             )
 
     class Meta:
+        app_label = "core"
         verbose_name = _("İstehsalat təqvimi şəkili")
         verbose_name_plural = _("İstehsalat təqvimi şəkilləri")
 
@@ -362,6 +367,7 @@ class SalaryCalculation(AbstractModel):
         return str(f"{self.user} - {self.year} - {self.month} - {self.shift} - {self.nett}")
 
     class Meta:
+        app_label = "core"
         verbose_name = _("Maaş hesablaması")
         verbose_name_plural = _("Maaş hesablamaları")
 
@@ -389,6 +395,7 @@ class FAQ(AbstractModel):
             return strip_tags(self.question)
 
     class Meta:
+        app_label = "core"
         verbose_name = _("Tez-tez verilən sual")
         verbose_name_plural = _("Tez-tez verilən suallar")
 
@@ -413,6 +420,7 @@ class Contact(AbstractModel):
         return f"{self.full_name} -- {self.subject}"
 
     class Meta:
+        app_label = "core"
         verbose_name = _("Əlaqə")
         verbose_name_plural = _("Əlaqələr")
 
@@ -429,5 +437,6 @@ class Subscriber(AbstractModel):
         return self.email
 
     class Meta:
+        app_label = "core"
         verbose_name = _("Abunə")
         verbose_name_plural = _("Abunələr")

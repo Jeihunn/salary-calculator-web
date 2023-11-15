@@ -149,7 +149,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "allauth.account.middleware.AccountMiddleware",  # Allauth middleware
     # ========== MY MIDDLEWARES ==========
-
+    "core.middleware.BlacklistMiddleware",  # Custom Middleware Blacklist
+    "core.middleware.AddUserIpsMiddleware",  # Custom Middleware AddUserIps
 ]
 
 ROOT_URLCONF = 'config.urls'
