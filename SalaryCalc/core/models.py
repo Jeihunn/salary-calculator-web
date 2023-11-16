@@ -12,7 +12,11 @@ User = get_user_model()
 # Create your models here.
 
 
-class AbstractModel(models.Model):
+class Year(models.Model):
+    year_value = models.PositiveSmallIntegerField(
+        verbose_name=_("İl"),
+        unique=True
+    )
     created_at = models.DateTimeField(
         verbose_name=_("Yaradılma vaxtı"),
         auto_now_add=True
@@ -20,16 +24,6 @@ class AbstractModel(models.Model):
     updated_at = models.DateTimeField(
         verbose_name=_("Yenilənmə vaxtı"),
         auto_now=True
-    )
-
-    class Meta:
-        abstract = True
-
-
-class Year(AbstractModel):
-    year_value = models.PositiveSmallIntegerField(
-        verbose_name=_("İl"),
-        unique=True
     )
 
     def __str__(self):
@@ -41,7 +35,7 @@ class Year(AbstractModel):
         verbose_name_plural = _("İllər")
 
 
-class Month(AbstractModel):
+class Month(models.Model):
     name = models.CharField(
         verbose_name=_("Ay adı"),
         max_length=20,
@@ -51,6 +45,14 @@ class Month(AbstractModel):
         verbose_name=_("Ay nömrəsi"),
         unique=True,
         validators=[MinValueValidator(1), MaxValueValidator(12)]
+    )
+    created_at = models.DateTimeField(
+        verbose_name=_("Yaradılma vaxtı"),
+        auto_now_add=True
+    )
+    updated_at = models.DateTimeField(
+        verbose_name=_("Yenilənmə vaxtı"),
+        auto_now=True
     )
 
     def __str__(self):
@@ -62,7 +64,7 @@ class Month(AbstractModel):
         verbose_name_plural = _("Aylar")
 
 
-class Shift(AbstractModel):
+class Shift(models.Model):
     name = models.CharField(
         verbose_name=_("Növbə adı"),
         max_length=20,
@@ -72,6 +74,14 @@ class Shift(AbstractModel):
         verbose_name=_("Növbə dəyəri"),
         max_length=1,
         unique=True
+    )
+    created_at = models.DateTimeField(
+        verbose_name=_("Yaradılma vaxtı"),
+        auto_now_add=True
+    )
+    updated_at = models.DateTimeField(
+        verbose_name=_("Yenilənmə vaxtı"),
+        auto_now=True
     )
 
     def __str__(self):
@@ -83,7 +93,7 @@ class Shift(AbstractModel):
         verbose_name_plural = _("Növbələr")
 
 
-class WorkCalendar(AbstractModel):
+class WorkCalendar(models.Model):
     year = models.ForeignKey(
         Year, on_delete=models.CASCADE,
         verbose_name=_("İl")
@@ -143,6 +153,14 @@ class WorkCalendar(AbstractModel):
     )
     group_d_holiday_work_hour = models.PositiveSmallIntegerField(
         verbose_name=_("Bayram iş saatı (D)"),
+    )
+    created_at = models.DateTimeField(
+        verbose_name=_("Yaradılma vaxtı"),
+        auto_now_add=True
+    )
+    updated_at = models.DateTimeField(
+        verbose_name=_("Yenilənmə vaxtı"),
+        auto_now=True
     )
 
     def __str__(self):
@@ -220,7 +238,7 @@ class WorkCalendar(AbstractModel):
         verbose_name_plural = _("İş təqvimləri")
 
 
-class WorkCalendarImage(AbstractModel):
+class WorkCalendarImage(models.Model):
     year = models.ForeignKey(
         Year,
         on_delete=models.CASCADE,
@@ -229,6 +247,14 @@ class WorkCalendarImage(AbstractModel):
     image = models.ImageField(
         verbose_name=_("Şəkil"),
         upload_to="work_calendar"
+    )
+    created_at = models.DateTimeField(
+        verbose_name=_("Yaradılma vaxtı"),
+        auto_now_add=True
+    )
+    updated_at = models.DateTimeField(
+        verbose_name=_("Yenilənmə vaxtı"),
+        auto_now=True
     )
 
     def __str__(self):
@@ -251,7 +277,7 @@ class WorkCalendarImage(AbstractModel):
         verbose_name_plural = _("İstehsalat təqvimi şəkilləri")
 
 
-class SalaryCalculation(AbstractModel):
+class SalaryCalculation(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -362,6 +388,14 @@ class SalaryCalculation(AbstractModel):
         verbose_name=_("Aktiv"),
         default=True
     )
+    created_at = models.DateTimeField(
+        verbose_name=_("Yaradılma vaxtı"),
+        auto_now_add=True
+    )
+    updated_at = models.DateTimeField(
+        verbose_name=_("Yenilənmə vaxtı"),
+        auto_now=True
+    )
 
     def __str__(self):
         return str(f"{self.user} - {self.year} - {self.month} - {self.shift} - {self.nett}")
@@ -372,7 +406,7 @@ class SalaryCalculation(AbstractModel):
         verbose_name_plural = _("Maaş hesablamaları")
 
 
-class FAQ(AbstractModel):
+class FAQ(models.Model):
     question = RichTextField(
         verbose_name=_("Sual"),
     )
@@ -387,6 +421,14 @@ class FAQ(AbstractModel):
         verbose_name=_("Aktiv"),
         default=True
     )
+    created_at = models.DateTimeField(
+        verbose_name=_("Yaradılma vaxtı"),
+        auto_now_add=True
+    )
+    updated_at = models.DateTimeField(
+        verbose_name=_("Yenilənmə vaxtı"),
+        auto_now=True
+    )
 
     def __str__(self):
         if len(strip_tags(self.question)) > 100:
@@ -400,7 +442,7 @@ class FAQ(AbstractModel):
         verbose_name_plural = _("Tez-tez verilən suallar")
 
 
-class Contact(AbstractModel):
+class Contact(models.Model):
     full_name = models.CharField(
         verbose_name=_("Ad Soyad"),
         max_length=100
@@ -415,6 +457,14 @@ class Contact(AbstractModel):
     message = models.TextField(
         verbose_name=_("Mesaj")
     )
+    created_at = models.DateTimeField(
+        verbose_name=_("Yaradılma vaxtı"),
+        auto_now_add=True
+    )
+    updated_at = models.DateTimeField(
+        verbose_name=_("Yenilənmə vaxtı"),
+        auto_now=True
+    )
 
     def __str__(self):
         return f"{self.full_name} -- {self.subject}"
@@ -425,12 +475,22 @@ class Contact(AbstractModel):
         verbose_name_plural = _("Əlaqələr")
 
 
-class Subscriber(AbstractModel):
+class Subscriber(models.Model):
     email = models.EmailField(
-        verbose_name=_("E-Poçt")
+        verbose_name=_("E-Poçt"),
+        unique=True
     )
     subscription_status = models.BooleanField(
         verbose_name=_("Abunə statusu"),
+        default=True
+    )
+    created_at = models.DateTimeField(
+        verbose_name=_("Yaradılma vaxtı"),
+        auto_now_add=True
+    )
+    updated_at = models.DateTimeField(
+        verbose_name=_("Yenilənmə vaxtı"),
+        auto_now=True
     )
 
     def __str__(self):
@@ -440,3 +500,110 @@ class Subscriber(AbstractModel):
         app_label = "core"
         verbose_name = _("Abunə")
         verbose_name_plural = _("Abunələr")
+
+
+class SiteInfo(models.Model):
+    name = models.CharField(
+        verbose_name=_("Sayt adı"),
+        max_length=50
+    )
+    logo = models.ImageField(
+        verbose_name=_("Loqo"),
+        upload_to="logo",
+        blank=True,
+        null = True
+    )
+    favicon = models.ImageField(
+        verbose_name=_("Favicon"),
+        upload_to="favicon",
+        blank=True,
+        null = True
+    )
+    privacy_policy_url = models.URLField(
+        verbose_name=_("Gizlilik URL"),
+        blank=True,
+        null = True
+    )
+    terms_condition_url = models.URLField(
+        verbose_name=_("Şərtlər & Qaydalar URL"),
+        blank=True,
+        null = True
+    )
+    facebook_url = models.URLField(
+        verbose_name=_("Facebook URL"),
+        blank=True,
+        null = True
+    )
+    instagram_url = models.URLField(
+        verbose_name=_("Instagram URL"),
+        blank=True,
+        null = True
+    )
+    youtube_url = models.URLField(
+        verbose_name=_("Youtube URL"),
+        blank=True,
+        null = True
+    )
+    linkedin_url = models.URLField(
+        verbose_name=_("Linkedin URL"),
+        blank=True,
+        null = True
+    )
+    github_url = models.URLField(
+        verbose_name=_("Github URL"),
+        blank=True,
+        null = True
+    )
+    email1 = models.EmailField(
+        verbose_name=_("Email 1"),
+        blank=True,
+        null = True
+    )
+    email2 = models.EmailField(
+        verbose_name=_("Email 2"),
+        blank=True,
+        null = True
+    )
+    email3 = models.EmailField(
+        verbose_name=_("Email 3"),
+        blank=True,
+        null = True
+    )
+    phone_number1 = models.CharField(
+        verbose_name=_("Telefon nömrəsi 1"),
+        max_length=40,
+        blank=True,
+        null = True
+    )
+    phone_number2 = models.CharField(
+        verbose_name=_("Telefon nömrəsi 2"),
+        max_length=40,
+        blank=True,
+        null = True
+    )
+    phone_number3 = models.CharField(
+        verbose_name=_("Telefon nömrəsi 3"),
+        max_length=40,
+        blank=True,
+        null = True
+    )
+    is_active = models.BooleanField(
+        verbose_name=_("Aktiv"),
+        default=True
+    )
+    created_at = models.DateTimeField(
+        verbose_name=_("Yaradılma vaxtı"),
+        auto_now_add=True
+    )
+    updated_at = models.DateTimeField(
+        verbose_name=_("Yenilənmə vaxtı"),
+        auto_now=True
+    )
+
+    def __str__(self):
+        return f"{self.name} #{self.id}" 
+    
+    class Meta:
+        app_label = "core"
+        verbose_name = _("Sayt məlumatı")
+        verbose_name_plural = _("Sayt məlumatları")

@@ -13,6 +13,7 @@ from .models import (
     FAQ,
     Contact,
     Subscriber,
+    SiteInfo
 )
 
 
@@ -189,3 +190,11 @@ class SubscriberAdmin(admin.ModelAdmin):
 
     toggle_status_selected.short_description = _(
         "Seçilənlərin Abunə statusunu dəyiştir")
+
+
+@admin.register(SiteInfo)
+class SiteInfoAdmin(admin.ModelAdmin):
+    actions = [toggle_active_selected]
+
+    list_display = ["id", "name", "logo", "favicon", "is_active"]
+    list_display_links = ["id", "name"]

@@ -50,10 +50,10 @@ THIRD_PARTY_APPS = [
     # Allauth apps
     'allauth',
     'allauth.account',
-    # 'allauth.socialaccount',
     "widget_tweaks",
     "django_extensions",
     "ckeditor",
+    "rest_framework",
 ]
 
 MY_APPS = [
@@ -168,6 +168,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # ========== MY CONTEXT PROCESSORS ==========
+                "core.context_processors.site_info_global",  # Custom Context Processors
             ],
         },
     },

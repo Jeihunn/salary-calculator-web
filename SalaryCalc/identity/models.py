@@ -43,7 +43,8 @@ class Blacklist(models.Model):
     reason = models.TextField(
         verbose_name=_("Səbəb"),
         null=True,
-        blank=True)
+        blank=True
+    )
     is_active = models.BooleanField(
         verbose_name=_("Aktiv"),
         default=True

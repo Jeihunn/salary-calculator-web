@@ -17,11 +17,11 @@ class SalaryCalculationForm(forms.Form):
         ('g', 'Gündəlik'),
     ]
 
-    years = WorkCalendar.get_years_list()
-    if years:
+    try:
+        years = WorkCalendar.get_years_list()
         years_min = min(years)
         years_max = max(years)
-    else:
+    except:
         years_min = years_max = date.today().year
 
     group_name = forms.ChoiceField(

@@ -9,11 +9,21 @@
         <span class="logo_name">Salary<span>Calc</span></span>
       </div>
       <div class="media-icons">
-        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="github"><i class="fab fa-github"></i></a>
-        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+        {% if site_info_global.facebook_url %}
+        <a href="{{ site_info_global.facebook_url }}" class="facebook"><i class="fab fa-facebook-f"></i></a>
+        {% endif %}
+        {% if site_info_global.github_url %}
+        <a href="{{ site_info_global.github_url }}" class="github"><i class="fab fa-github"></i></a>
+        {% endif %}
+        {% if site_info_global.instagram_url %}
+        <a href="{{ site_info_global.instagram_url }}" class="instagram"><i class="fab fa-instagram"></i></a>
+        {% endif %}
+        {% if site_info_global.linkedin_url %}
+        <a href="{{ site_info_global.linkedin_url }}" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+        {% endif %}
+        {% if site_info_global.youtube_url %}
+        <a href="{{ site_info_global.youtube_url }}" class="youtube"><i class="fab fa-youtube"></i></a>
+        {% endif %}
       </div>
       <div class="line-footer"></div>
     </div>
@@ -21,20 +31,24 @@
     <div class="link-boxes">
       <ul class="box">
         <li class="link_name">Səhifələr</li>
-        <li><a href="#">Gross'dan Nett'ə</a></li>
-        <li><a href="#">Nett'dən Gross'a</a></li>
-        <li><a href="#">İstehsalat Təqvimi</a></li>
+        <li><a href="{% url "core:index_view" %}">Maaş</a></li>
+        <li><a href="{% url "core:groos_to_nett_view" %}">Gross'dan Nett'ə</a></li>
+        <li><a href="{% url "core:nett_to_gross_view" %}">Nett'dən Gross'a</a></li>
       </ul>
       <ul class="box">
         <li class="link_name">Səhifələr</li>
-        <li><a href="#">Haqqında</a></li>
-        <li><a href="#">Əlaqə</a></li>
-        <li><a href="#">Tez-tez verilən suallar</a></li>
+        <li><a href="{% url "core:contact_view" %}">Əlaqə</a></li>
+        <li><a href="{% url "core:faq_view" %}">Tez-tez verilən suallar</a></li>
+        <li><a href="{% url "core:work_calendar_view" %}">İstehsalat Təqvimi</a></li>
       </ul>
       <ul class="box input-box">
         <li class="link_name">Abunə ol</li>
-        <li><input type="text" placeholder="Elektron ünvanı qeyd et" /></li>
-        <li><input type="button" value="Abunə ol" /></li>
+        <form id="subscribe-form" method="post">
+          {% csrf_token %}
+          <li><input type="email" name="email" id="subscribe-email" placeholder="Elektron ünvanı qeyd et" /></li>
+          <ul class="errorlist"></ul>
+          <li><input type="submit" value="Abunə ol" /></li>
+        </form>
       </ul>
     </div>
   </div>
@@ -45,8 +59,8 @@
         qorunur</span
       >
       <span class="policy_terms">
-        <a href="#">Privacy policy</a>
-        <a href="#">Terms & condition</a>
+        <a href="{% if site_info_global.privacy_policy_url %}{{ site_info_global.privacy_policy_url }}{% else %}#{% endif %}">Gizlilik</a>
+        <a href="{% if site_info_global.terms_condition_url %}{{ site_info_global.terms_condition_url }}{% else %}#{% endif %}">Şərtlər & Qaydalar</a>
       </span>
     </div>
   </div>
