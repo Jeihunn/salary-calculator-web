@@ -24,50 +24,73 @@
     <div class="contact-wrapper">
       <div class="form">
         <div class="contact-info">
-          <h3 class="title">Let's get in touch</h3>
-          <p class="text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-            dolorum adipisci recusandae praesentium dicta!
-          </p>
-
           <div class="info">
+            {% if site_info_global.email1 or site_info_global.email2 or site_info_global.email3 %}
             <div class="information">
               <i class="fa-regular fa-envelope"></i>
               <span>
-                <p>lorem@ipsum.com</p>
-                <p>lorem@ipsum.com</p>
-                <p>lorem@ipsum.com</p>
+                {% if site_info_global.email1 %}
+                <p>{{ site_info_global.email1 }}</p>
+                {% endif %}
+                {% if site_info_global.email2 %}
+                <p>{{ site_info_global.email2 }}</p>
+                {% endif %}
+                {% if site_info_global.email3 %}
+                <p>{{ site_info_global.email3 }}</p>
+                {% endif %}
               </span>
             </div>
+            {% endif %}
+            {% if site_info_global.phone_number1 or site_info_global.phone_number2 or site_info_global.phone_number3 %}
             <div class="information">
               <i class="fa-solid fa-phone-volume"></i>
               <span>
-                <p>123-456-789</p>
-                <p>123-456-789</p>
+                {% if site_info_global.phone_number1 %}
+                <p>{{ site_info_global.phone_number1 }}</p>
+                {% endif %}
+                {% if site_info_global.phone_number2 %}
+                <p>{{ site_info_global.phone_number2 }}</p>
+                {% endif %}
+                {% if site_info_global.phone_number3 %}
+                <p>{{ site_info_global.phone_number3 }}</p>
+                {% endif %}
               </span>
             </div>
+            {% endif %}
           </div>
 
+          {% if site_info_global.facebook_url or site_info_global.github_url or site_info_global.instagram_url or site_info_global.linkedin_url or site_info_global.youtube_url %}
           <div class="social-media">
-            <p>Connect with us :</p>
+            <p>Bizimlə əlaqə:</p>
             <div class="social-icons">
-              <a href="#">
+              {% if site_info_global.facebook_url %}
+              <a href="{{ site_info_global.facebook_url }}">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="#">
+              {% endif %}
+              {% if site_info_global.github_url %}
+              <a href="{{ site_info_global.github_url }}">
                 <i class="fab fa-github"></i>
               </a>
-              <a href="#">
+              {% endif %}
+              {% if site_info_global.instagram_url %}
+              <a href="{{ site_info_global.instagram_url }}">
                 <i class="fab fa-instagram"></i>
               </a>
-              <a href="#">
+              {% endif %}
+              {% if site_info_global.linkedin_url %}
+              <a href="{{ site_info_global.linkedin_url }}">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-              <a href="#">
+              {% endif %}
+              {% if site_info_global.youtube_url %}
+              <a href="{{ site_info_global.youtube_url }}">
                 <i class="fab fa-youtube"></i>
               </a>
+              {% endif %}
             </div>
           </div>
+          {% endif %}
         </div>
 
         <div class="contact-form">

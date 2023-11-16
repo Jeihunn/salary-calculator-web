@@ -23,6 +23,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("identity.urls")),
     path("", include("core.urls", namespace="core")),
+
+    # API Rest Framework
+    path('api-auth/', include('rest_framework.urls')),
+
+    # API APP
+    path("api/", include("core.api.urls", namespace="api_core")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
