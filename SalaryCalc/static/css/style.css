@@ -23,6 +23,10 @@ table tbody tr:hover td {
   background-color: #dfdede;
 }
 
+.custom-admin-site-logo-class {
+  height: 50px;
+}
+
 @media (max-width: 576px) {
   .errorlist {
     font-size: 11px;

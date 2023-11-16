@@ -218,20 +218,21 @@ class WorkCalendar(models.Model):
         return work_calendar_data
 
     def clean(self):
-        existing_entry = WorkCalendar.objects.filter(
-            year=self.year,
-            month=self.month
-        ).exclude(pk=self.pk)
+        if hasattr(self, "year") and hasattr(self, "month"):
+            existing_entry = WorkCalendar.objects.filter(
+                year=self.year,
+                month=self.month
+            ).exclude(pk=self.pk)
 
-        if existing_entry.exists():
-            raise ValidationError(
-                {
-                    "month": _("Bu il və ay üçün məlumat artıq mövcuddur. Zəhmət olmasa fərqli bir il və ya ay seçin."),
-                    "year": _("Bu il və ay üçün məlumat artıq mövcuddur. Zəhmət olmasa fərqli bir il və ya ay seçin."),
-                },
-            )
+            if existing_entry.exists():
+                raise ValidationError(
+                    {
+                        "month": _("Bu il və ay üçün məlumat artıq mövcuddur. Zəhmət olmasa fərqli bir il və ya ay seçin."),
+                        "year": _("Bu il və ay üçün məlumat artıq mövcuddur. Zəhmət olmasa fərqli bir il və ya ay seçin."),
+                    },
+                )
         super().clean()
-
+    
     class Meta:
         app_label = "core"
         verbose_name = _("İş təqvimi")
