@@ -100,7 +100,7 @@
 } */
 
 .salary-table table tbody tr:nth-child(odd) .nett {
-  background-color: #ffa500;
+  background-color: #9ACD32;
 }
 
 /* .salary-table table tbody tr:nth-child(even) .deductions {
@@ -108,7 +108,7 @@
 } */
 
 .salary-table table tbody tr:nth-child(even) .nett {
-  background-color: #ffc266;
+  background-color: #a8df39;
 }
 
 @media screen and (max-width: 768px) {
@@ -162,7 +162,7 @@
   } */
 
   .salary-table table tbody tr .nett {
-    background-color: #ffa500 !important;
+    background-color: #9ACD32 !important;
   }
 
   .salary-table table tr {

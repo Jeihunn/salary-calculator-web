@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from django.contrib.admin.models import LogEntry
-from django.utils.html import strip_tags
+from django.utils.html import strip_tags, format_html
 from django.contrib import messages
 from .models import (
     Year,
@@ -197,8 +197,26 @@ class SubscriberAdmin(admin.ModelAdmin):
 class SiteInfoAdmin(admin.ModelAdmin):
     actions = [toggle_active_selected]
 
-    list_display = ["id", "name", "logo", "favicon", "is_active"]
+    list_display = ["id", "name", "logo_image_thumbnail",
+                    "favicon_image_thumbnail", "is_active"]
     list_display_links = ["id", "name"]
+
+    def logo_image_thumbnail(self, obj):
+        if obj.logo:
+            return format_html('<img src="{}" class="thumbnail-img" />', obj.logo.url)
+        return None
+    logo_image_thumbnail.short_description = _("Loqo")
+
+    def favicon_image_thumbnail(self, obj):
+        if obj.favicon:
+            return format_html('<img src="{}" class="thumbnail-img" />', obj.favicon.url)
+        return None
+    favicon_image_thumbnail.short_description = _("Favicon")
+
+    class Media:
+        css = {
+            'all': ('css/admin_custom.css',),
+        }
 
 
 @admin.register(CalculationCount)
@@ -207,6 +225,6 @@ class CalculationCountAdmin(admin.ModelAdmin):
     list_display_links = ["count"]
 
     def has_add_permission(self, request):
-            if CalculationCount.objects.exists():
-                return False
-            return super().has_add_permission(request)
+        if CalculationCount.objects.exists():
+            return False
+        return super().has_add_permission(request)

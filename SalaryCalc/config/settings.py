@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 from datetime import timedelta
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,7 +44,7 @@ BASE_APPS = [
 ]
 
 INITIAL_APPS = [
-
+    "jazzmin",
 ]
 
 THIRD_PARTY_APPS = [
@@ -275,4 +276,79 @@ CKEDITOR_CONFIGS = {
 
         ]
     }
+}
+
+
+# Jazzmin settings
+JAZZMIN_SETTINGS = {
+    "site_title": "SalaryCalc Admin",
+    "site_header": "SalaryCalc Admin",
+    "site_brand": "SalaryCalc Admin Panel",
+    "welcome_sign": "SalaryCalc admin panelinə xoş gəlmisiniz",
+    "copyright": "SalaryCalc",
+    "changeform_format": "horizontal_tabs",
+    "changeform_format_overrides": {
+        "core.workcalendar": "single",
+    },
+    "topmenu_links": [
+        {"name": _("SAYTI ZİYARƏT ET"), "url": "core:index_view", "new_window": True},
+    ],
+    "icons": {
+        "auth.Group": "fas fa-users",
+        "admin.LogEntry": "fas fa-history",
+        "sites.Site": "fas fa-globe",
+
+        # allauth APP
+        "account.EmailAddress": "fas fa-at",
+
+        # identity APP
+        "identity.User": "fas fa-user",
+        "identity.Blacklist": "fas fa-ban",
+
+        # core APP
+        "core.Year": "fas fa-calendar-alt",  # Örneğin, takvim ikonu
+        "core.Month": "fas fa-calendar",
+        "core.Shift": "fas fa-clock",
+        "core.WorkCalendar": "fas fa-calendar-check",
+        "core.WorkCalendarImage": "fas fa-image",
+        "core.SalaryCalculation": "fas fa-dollar-sign",
+        "core.FAQ": "fas fa-question-circle",
+        "core.Contact": "fas fa-envelope",
+        "core.Subscriber": "fas fa-users",
+        "core.SiteInfo": "fas fa-info-circle",
+        "core.CalculationCount": "fas fa-sort-numeric-up",
+    },
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": True,
+    "brand_small_text": False,
+    "brand_colour": "navbar-navy",
+    "accent": "accent-primary",
+    "navbar": "navbar-white navbar-light",
+    "no_navbar_border": False,
+    "navbar_fixed": False,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": False,
+    "sidebar": "sidebar-dark-primary",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": True,
+    "theme": "default",
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-primary",
+        "secondary": "btn-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success"
+    },
+    "actions_sticky_top": True
 }
