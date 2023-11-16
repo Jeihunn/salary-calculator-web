@@ -511,81 +511,81 @@ class SiteInfo(models.Model):
         verbose_name=_("Loqo"),
         upload_to="logo",
         blank=True,
-        null = True
+        null=True
     )
     favicon = models.ImageField(
         verbose_name=_("Favicon"),
         upload_to="favicon",
         blank=True,
-        null = True
+        null=True
     )
     privacy_policy_url = models.URLField(
         verbose_name=_("Gizlilik URL"),
         blank=True,
-        null = True
+        null=True
     )
     terms_condition_url = models.URLField(
         verbose_name=_("Şərtlər & Qaydalar URL"),
         blank=True,
-        null = True
+        null=True
     )
     facebook_url = models.URLField(
         verbose_name=_("Facebook URL"),
         blank=True,
-        null = True
+        null=True
     )
     instagram_url = models.URLField(
         verbose_name=_("Instagram URL"),
         blank=True,
-        null = True
+        null=True
     )
     youtube_url = models.URLField(
         verbose_name=_("Youtube URL"),
         blank=True,
-        null = True
+        null=True
     )
     linkedin_url = models.URLField(
         verbose_name=_("Linkedin URL"),
         blank=True,
-        null = True
+        null=True
     )
     github_url = models.URLField(
         verbose_name=_("Github URL"),
         blank=True,
-        null = True
+        null=True
     )
     email1 = models.EmailField(
         verbose_name=_("Email 1"),
         blank=True,
-        null = True
+        null=True
     )
     email2 = models.EmailField(
         verbose_name=_("Email 2"),
         blank=True,
-        null = True
+        null=True
     )
     email3 = models.EmailField(
         verbose_name=_("Email 3"),
         blank=True,
-        null = True
+        null=True
     )
     phone_number1 = models.CharField(
         verbose_name=_("Telefon nömrəsi 1"),
         max_length=40,
         blank=True,
-        null = True
+        null=True
     )
     phone_number2 = models.CharField(
         verbose_name=_("Telefon nömrəsi 2"),
         max_length=40,
         blank=True,
-        null = True
+        null=True
     )
     phone_number3 = models.CharField(
         verbose_name=_("Telefon nömrəsi 3"),
         max_length=40,
         blank=True,
-        null = True
+        null=True
     )
     is_active = models.BooleanField(
         verbose_name=_("Aktiv"),
@@ -601,9 +601,37 @@ class SiteInfo(models.Model):
     )
 
     def __str__(self):
-        return f"{self.name} #{self.id}" 
-    
+        return f"{self.name} #{self.id}"
+
     class Meta:
         app_label = "core"
         verbose_name = _("Sayt məlumatı")
         verbose_name_plural = _("Sayt məlumatları")
+
+
+class CalculationCount(models.Model):
+    count = models.PositiveSmallIntegerField(
+        verbose_name=_("Say"),
+        default=0
+    )
+    created_at = models.DateTimeField(
+        verbose_name=_("Yaradılma vaxtı"),
+        auto_now_add=True
+    )
+    updated_at = models.DateTimeField(
+        verbose_name=_("Yenilənmə vaxtı"),
+        auto_now=True
+    )
+
+    def save(self, *args, **kwargs):
+        if CalculationCount.objects.exists() and not self.pk:
+            raise ValidationError(_("Yalnızca bir ədəd obyekt yaratmağa icazə verilir"))
+        return super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.count}"
+
+    class Meta:
+        app_label = "core"
+        verbose_name = _("Hesablama sayı")
+        verbose_name_plural = _("Hesablama sayı")

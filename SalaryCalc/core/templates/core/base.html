@@ -28,7 +28,6 @@
     <!-- ===== MY CSS ===== -->
     <link rel="stylesheet" href="{% static "css/footer.css" %}" />
     <link rel="stylesheet" href="{% static "css/navbar.css" %}" />
-    <link rel="stylesheet" href="{% static "css/scroll-up.css" %}" />
     <link rel="stylesheet" href="{% static "css/style.css" %}" />
 
     {% block css %}{% endblock css %}
@@ -36,11 +35,6 @@
     {% block page_title %}{% endblock page_title %}
   </head>
   <body>
-
-    <!-- ===== Scroll Up Button ===== -->
-    
-    <!-- ===== END Scroll Up Button ===== -->
-
     <!-- ===== Alert Close Message ===== -->
     {% include "core/includes/alert-close-message.html" %}
     <!-- ===== END Alert Close Message ===== -->
@@ -67,7 +61,6 @@
     <script src="{% static "js/navbar.js" %}"></script>
     <script src="{% static "js/footer.js" %}"></script>
     <script src="{% static "js/subscriber-form.js" %}"></script>
-    <script src="{% static "js/scroll-up.js" %}"></script>
 
     {% block js %}{% endblock js %}
   </body>
