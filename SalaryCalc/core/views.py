@@ -19,6 +19,7 @@ from .models import (
     Month,
     SalaryCalculation,
     FAQ,
+    CalculationCount
 )
 
 
@@ -63,6 +64,13 @@ def index_view(request):
                         compulsory_health_insurance_tax=data["compulsory_health_insurance_tax"]
                     )
 
+                    calculation_count = CalculationCount.objects.first()
+                    if calculation_count:
+                        calculation_count.count += 1
+                        calculation_count.save()
+                    else:
+                        CalculationCount.objects.create(count=1)
+
                     messages.success(request, _(
                         "Maaş hesablama uğurla tamamlandı."))
                     return redirect(reverse_lazy("core:index_view"))
@@ -103,6 +111,14 @@ def groos_to_nett_view(request):
 
             if data:
                 form = GrossToNettForm()
+
+                calculation_count = CalculationCount.objects.first()
+                if calculation_count:
+                    calculation_count.count += 1
+                    calculation_count.save()
+                else:
+                    CalculationCount.objects.create(count=1)
+
                 messages.success(request, _("Hesablama tamamlandı."))
             else:
                 messages.warning(request, _(
@@ -130,6 +146,14 @@ def nett_to_gross_view(request):
 
             if data:
                 form = NettToGrossForm()
+
+                calculation_count = CalculationCount.objects.first()
+                if calculation_count:
+                    calculation_count.count += 1
+                    calculation_count.save()
+                else:
+                    CalculationCount.objects.create(count=1)
+                                    
                 messages.success(request, _("Hesablama tamamlandı."))
             else:
                 messages.warning(request, _(

@@ -13,7 +13,8 @@ from .models import (
     FAQ,
     Contact,
     Subscriber,
-    SiteInfo
+    SiteInfo,
+    CalculationCount
 )
 
 
@@ -198,3 +199,14 @@ class SiteInfoAdmin(admin.ModelAdmin):
 
     list_display = ["id", "name", "logo", "favicon", "is_active"]
     list_display_links = ["id", "name"]
+
+
+@admin.register(CalculationCount)
+class CalculationCountAdmin(admin.ModelAdmin):
+    list_display = ["count", "created_at", "updated_at"]
+    list_display_links = ["count"]
+
+    def has_add_permission(self, request):
+            if CalculationCount.objects.exists():
+                return False
+            return super().has_add_permission(request)
