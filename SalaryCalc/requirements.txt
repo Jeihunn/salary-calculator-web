@@ -27,6 +27,7 @@ oauthlib==3.2.2
 parso==0.8.3
 Pillow==10.1.0
 prompt-toolkit==3.0.39
+psycopg2-binary==2.9.9
 pure-eval==0.2.2
 pycparser==2.21
 Pygments==2.16.1
