@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-05 21:25+0400\n"
+"POT-Creation-Date: 2023-11-17 00:15+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,42 +17,578 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\core\models.py:10
+
+#: .\config\settings.py:294
+msgid "SAYTI ZİYARƏT ET"
+msgstr ""
+
+#: .\core\admin.py:31
+#, python-brace-format
+msgid "{count} obyektin aktivlik vəziyyəti uğurla dəyiştirildi."
+msgstr ""
+
+#: .\core\admin.py:36
+msgid "Seçilənlərin Aktivlik vəziyyətini dəyiştir"
+msgstr ""
+
+#: .\core\admin.py:83
+msgid "Qrup A"
+msgstr ""
+
+#: .\core\admin.py:91
+msgid "Qrup B"
+msgstr ""
+
+#: .\core\admin.py:99
+msgid "Qrup C"
+msgstr ""
+
+#: .\core\admin.py:107
+msgid "Qrup D"
+msgstr ""
+
+#: .\core\admin.py:153 .\core\models.py:412
+msgid "Sual"
+msgstr ""
+
+#: .\core\admin.py:162 .\core\models.py:415
+msgid "Cavab"
+msgstr ""
+
+#: .\core\admin.py:189
+#, python-brace-format
+msgid "{count} obyektin abunə statusu uğurla dəyiştirildi."
+msgstr ""
+
+#: .\core\admin.py:193
+msgid "Seçilənlərin Abunə statusunu dəyiştir"
+msgstr ""
+
+#: .\core\admin.py:208 .\core\models.py:512
+msgid "Loqo"
+msgstr ""
+
+#: .\core\admin.py:214 .\core\models.py:518
+msgid "Favicon"
+msgstr ""
+
+#: .\core\forms.py:69
+#, python-format
+msgid "İl və ay %(min)s və %(max)s arasında olmalıdır"
+msgstr ""
+
+#: .\core\models.py:17 .\core\models.py:34 .\core\models.py:99
+#: .\core\models.py:246 .\core\models.py:290
+msgid "İl"
+msgstr ""
+
+#: .\core\models.py:21 .\core\models.py:50 .\core\models.py:79
+#: .\core\models.py:158 .\core\models.py:253 .\core\models.py:393
+#: .\core\models.py:426 .\core\models.py:462 .\core\models.py:489
+#: .\core\models.py:596 .\core\models.py:619 .\identity\models.py:53
 msgid "Yaradılma vaxtı"
 msgstr ""
 
-#: .\core\models.py:12
+#: .\core\models.py:25 .\core\models.py:54 .\core\models.py:83
+#: .\core\models.py:162 .\core\models.py:257 .\core\models.py:397
+#: .\core\models.py:430 .\core\models.py:466 .\core\models.py:493
+#: .\core\models.py:600 .\core\models.py:623 .\identity\models.py:57
 msgid "Yenilənmə vaxtı"
 msgstr ""
 
-#: .\identity\admin.py:24
+#: .\core\models.py:35
+msgid "İllər"
+msgstr ""
+
+#: .\core\models.py:40
+msgid "Ay adı"
+msgstr ""
+
+#: .\core\models.py:45
+msgid "Ay nömrəsi"
+msgstr ""
+
+#: .\core\models.py:63 .\core\models.py:103 .\core\models.py:295
+msgid "Ay"
+msgstr ""
+
+#: .\core\models.py:64
+msgid "Aylar"
+msgstr ""
+
+#: .\core\models.py:69
+msgid "Növbə adı"
+msgstr ""
+
+#: .\core\models.py:74
+msgid "Növbə dəyəri"
+msgstr ""
+
+#: .\core\models.py:92 .\core\models.py:300
+msgid "Növbə"
+msgstr ""
+
+#: .\core\models.py:93
+msgid "Növbələr"
+msgstr ""
+
+#: .\core\models.py:107
+msgid "İstehsalat təqviminə uyğun aylıq iş norması"
+msgstr ""
+
+#: .\core\models.py:110
+msgid "Ümumi iş saatı (A)"
+msgstr ""
+
+#: .\core\models.py:113
+msgid "Gündüz iş saatı (A)"
+msgstr ""
+
+#: .\core\models.py:116
+msgid "Gecə iş saatı (A)"
+msgstr ""
+
+#: .\core\models.py:119
+msgid "Bayram iş saatı (A)"
+msgstr ""
+
+#: .\core\models.py:122
+msgid "Ümumi iş saatı (B)"
+msgstr ""
+
+#: .\core\models.py:125
+msgid "Gündüz iş saatı (B)"
+msgstr ""
+
+#: .\core\models.py:128
+msgid "Gecə iş saatı (B)"
+msgstr ""
+
+#: .\core\models.py:131
+msgid "Bayram iş saatı (B)"
+msgstr ""
+
+#: .\core\models.py:134
+msgid "Ümumi iş saatı (C)"
+msgstr ""
+
+#: .\core\models.py:137
+msgid "Gündüz iş saatı (C)"
+msgstr ""
+
+#: .\core\models.py:140
+msgid "Gecə iş saatı (C)"
+msgstr ""
+
+#: .\core\models.py:143
+msgid "Bayram iş saatı (C)"
+msgstr ""
+
+#: .\core\models.py:146
+msgid "Ümumi iş saatı (D)"
+msgstr ""
+
+#: .\core\models.py:149
+msgid "Gündüz iş saatı (D)"
+msgstr ""
+
+#: .\core\models.py:152
+msgid "Gecə iş saatı (D)"
+msgstr ""
+
+#: .\core\models.py:155
+msgid "Bayram iş saatı (D)"
+msgstr ""
+
+#: .\core\models.py:230 .\core\models.py:231
+msgid ""
+"Bu il və ay üçün məlumat artıq mövcuddur. Zəhmət olmasa fərqli bir il və ya "
+"ay seçin."
+msgstr ""
+
+#: .\core\models.py:238
+msgid "İş təqvimi"
+msgstr ""
+
+#: .\core\models.py:239
+msgid "İş təqvimləri"
+msgstr ""
+
+#: .\core\models.py:249
+msgid "Şəkil"
+msgstr ""
+
+#: .\core\models.py:272
+msgid "Bu il üçün şəkil artıq mövcuddur. Zəhmət olmasa fərqli bir il seçin."
+msgstr ""
+
+#: .\core\models.py:277
+msgid "İstehsalat təqvimi şəkili"
+msgstr ""
+
+#: .\core\models.py:278
+msgid "İstehsalat təqvimi şəkilləri"
+msgstr ""
+
+#: .\core\models.py:285 .\identity\models.py:25
+msgid "İstifadəçi"
+msgstr ""
+
+#: .\core\models.py:304
+msgid "Vəzifə maaşı"
+msgstr ""
+
+#: .\core\models.py:310
+msgid "Əlavə iş saatı"
+msgstr ""
+
+#: .\core\models.py:313
+msgid "Mükafat faizi"
+msgstr ""
+
+#: .\core\models.py:317
+msgid "Saatlıq əməkhaqqı"
+msgstr ""
+
+#: .\core\models.py:323
+msgid "Gecə növbəsi ödənişi"
+msgstr ""
+
+#: .\core\models.py:329
+msgid "Növbədən artıq qalan saat ödənişi (ikiqat)"
+msgstr ""
+
+#: .\core\models.py:335
+msgid "Bayram saatı ödənişi"
+msgstr ""
+
+#: .\core\models.py:341
+msgid "Əlavə iş saatı ödənişi (ikiqat)"
+msgstr ""
+
+#: .\core\models.py:347
+msgid "Mükafat məbləği"
+msgstr ""
+
+#: .\core\models.py:353
+msgid "Gross maaş"
+msgstr ""
+
+#: .\core\models.py:359
+msgid "Nett gəlir"
+msgstr ""
+
+#: .\core\models.py:365
+msgid "Gəlir vergisi"
+msgstr ""
+
+#: .\core\models.py:371
+msgid "Məcburi dövlət sosial sığorta haqqı"
+msgstr ""
+
+#: .\core\models.py:377
+msgid "İşsizlikdən sığorta haqqı"
+msgstr ""
+
+#: .\core\models.py:383
+msgid "İcbari tibbi sığorta haqqı"
+msgstr ""
+
+#: .\core\models.py:389 .\core\models.py:422 .\core\models.py:592
+#: .\identity\models.py:49
+msgid "Aktiv"
+msgstr ""
+
+#: .\core\models.py:406
+msgid "Maaş hesablaması"
+msgstr ""
+
+#: .\core\models.py:407
+msgid "Maaş hesablamaları"
+msgstr ""
+
+#: .\core\models.py:418
+msgid "Göstərilmə sırası"
+msgstr ""
+
+#: .\core\models.py:442
+msgid "Tez-tez verilən sual"
+msgstr ""
+
+#: .\core\models.py:443
+msgid "Tez-tez verilən suallar"
+msgstr ""
+
+#: .\core\models.py:448
+msgid "Ad Soyad"
+msgstr ""
+
+#: .\core\models.py:452 .\core\models.py:481
+msgid "E-Poçt"
+msgstr ""
+
+#: .\core\models.py:455
+msgid "Mövzu"
+msgstr ""
+
+#: .\core\models.py:459
+msgid "Mesaj"
+msgstr ""
+
+#: .\core\models.py:475
+msgid "Əlaqə"
+msgstr ""
+
+#: .\core\models.py:476
+msgid "Əlaqələr"
+msgstr ""
+
+#: .\core\models.py:485
+msgid "Abunə statusu"
+msgstr ""
+
+#: .\core\models.py:502
+msgid "Abunə"
+msgstr ""
+
+#: .\core\models.py:503
+msgid "Abunələr"
+msgstr ""
+
+#: .\core\models.py:508
+msgid "Sayt adı"
+msgstr ""
+
+#: .\core\models.py:524
+msgid "Gizlilik URL"
+msgstr ""
+
+#: .\core\models.py:529
+msgid "Şərtlər & Qaydalar URL"
+msgstr ""
+
+#: .\core\models.py:534
+msgid "Facebook URL"
+msgstr ""
+
+#: .\core\models.py:539
+msgid "Instagram URL"
+msgstr ""
+
+#: .\core\models.py:544
+msgid "Youtube URL"
+msgstr ""
+
+#: .\core\models.py:549
+msgid "Linkedin URL"
+msgstr ""
+
+#: .\core\models.py:554
+msgid "Github URL"
+msgstr ""
+
+#: .\core\models.py:559
+msgid "Email 1"
+msgstr ""
+
+#: .\core\models.py:564
+msgid "Email 2"
+msgstr ""
+
+#: .\core\models.py:569
+msgid "Email 3"
+msgstr ""
+
+#: .\core\models.py:574
+msgid "Telefon nömrəsi 1"
+msgstr ""
+
+#: .\core\models.py:580
+msgid "Telefon nömrəsi 2"
+msgstr ""
+
+#: .\core\models.py:586
+msgid "Telefon nömrəsi 3"
+msgstr ""
+
+#: .\core\models.py:609
+msgid "Sayt məlumatı"
+msgstr ""
+
+#: .\core\models.py:610
+msgid "Sayt məlumatları"
+msgstr ""
+
+#: .\core\models.py:615
+msgid "Say"
+msgstr ""
+
+#: .\core\models.py:629
+msgid "Yalnızca bir ədəd obyekt yaratmağa icazə verilir"
+msgstr ""
+
+#: .\core\models.py:637 .\core\models.py:638
+msgid "Hesablama sayı"
+msgstr ""
+
+#: .\core\views.py:75
+msgid "Maaş hesablama uğurla tamamlandı."
+msgstr ""
+
+#: .\core\views.py:80
+msgid ""
+"Maaş hesablanması zamanı xəta baş verdi. Zəhmət olmasa bir daha cəhd edin."
+msgstr ""
+
+#: .\core\views.py:84
+msgid ""
+"Maaş hesablanması zamanı xəta baş verdi. Zəhmət olmasa bir daha cəhd edin. "
+"Əgər xəta təkrarlanarsa bizimlə əlaqə saxlayın."
+msgstr ""
+
+#: .\core\views.py:122 .\core\views.py:157
+msgid "Hesablama tamamlandı."
+msgstr ""
+
+#: .\core\views.py:125 .\core\views.py:160
+msgid "Hesablama zamanı xəta baş verdi. Zəhmət olmasa bir daha cəhd edin."
+msgstr ""
+
+#: .\core\views.py:199
+msgid "Mesaj uğurla göndərildi."
+msgstr ""
+
+#: .\identity\admin.py:26
 msgid "Personal info"
 msgstr ""
 
-#: .\identity\admin.py:25
+#: .\identity\admin.py:27
 msgid "Permissions"
 msgstr ""
 
-#: .\identity\admin.py:27
+#: .\identity\admin.py:29
 msgid "Important dates"
 msgstr ""
 
-#: .\identity\forms.py:14
+#: .\identity\forms.py:23 .\identity\forms.py:24
+msgid ""
+"Həm İstifadəçi, həm də IP ünvanı sahələri eyni vaxtda boş qala bilməz. "
+"Lütfən, ya İstifadəçi seçin, ya da IP ünvanı göstərin."
+msgstr ""
+
+#: .\identity\forms.py:29 .\identity\forms.py:30
+msgid ""
+"Siz eyni anda həm İstifadəçi seçə, həm də IP ünvanını təqdim edə "
+"bilməzsiniz. Lütfən, ya İstifadəçi seçin, ya da IP ünvanı göstərin."
+msgstr ""
+
+#: .\identity\forms.py:40
 msgid "Bu e-poçt ünvanı artıq qeydiyyatdan keçib."
 msgstr ""
 
 #: .\identity\models.py:12
-msgid "IP'lər"
+msgid "IP-lər"
+msgstr ""
+
+#: .\identity\models.py:29
+msgid "IP ünvanı"
+msgstr ""
+
+#: .\identity\models.py:36
+msgid "Başlama vaxtı"
+msgstr ""
+
+#: .\identity\models.py:40
+msgid "Müddət"
+msgstr ""
+
+#: .\identity\models.py:41
+msgid "Müddəti '45 days 15:29:40' formatında göstərin."
+msgstr ""
+
+#: .\identity\models.py:44
+msgid "Səbəb"
+msgstr ""
+
+#: .\identity\models.py:69
+msgid "Qara siyahı girişi"
+msgstr ""
+
+#: .\identity\models.py:70
+msgid "Qara siyahı girişləri"
+msgstr ""
+
+#: .\identity\templates\identity\blacklist.html:53
+msgid "Giriş Bloklandı"
+msgstr ""
+
+#: .\identity\templates\identity\blacklist.html:54
+msgid ""
+"Bu səhifəyə girişiniz təhlükəsizlik səbəbi ilə bloklanıb. Bunun xəta "
+"olduğuna inanırsınızsa və ya əlavə yardıma ehtiyacınız varsa, dəstək "
+"komandamızla əlaqə saxlayın."
+msgstr ""
+
+#: .\identity\templates\identity\blacklist.html:56
+msgid "Dəstək E-poçtu"
+msgstr ""
+
+#: .\templates\account\email\base_message.txt:1
+#, python-format
+msgid "%(site_name)s-dan salam!"
+msgstr ""
+
+#: .\templates\account\email\base_message.txt:5
+#, python-format
+msgid ""
+"Hər hansı sual və ya yardıma ehtiyacınız varsa, dəstək komandamızla əlaqə "
+"saxlamaqdan çəkinməyin.\n"
+"\n"
+"Hörmətlə,\n"
+"%(site_name)s komandası"
+msgstr ""
+
+#: .\templates\account\email\email_confirmation_message.txt:5
+#, python-format
+msgid ""
+"Sizə xoş gəldiniz deyirik! %(user_display)s istifadəçisi tərəfindən sizin e-"
+"poçt ünvanınızın %(site_domain)s-da hesab yaratmaq üçün istifadə edildiyini "
+"bildirmək üçün bu e-poçtu alırsınız.\n"
+"\n"
+"Məlumatın doğruluğunu təsdiq etmək üçün, zəhmət olmasa aşağıdakı linkə keçid "
+"edərək e-poçt ünvanınızı təsdiqləyin:\n"
+"%(activate_url)s"
+msgstr ""
+
+#: .\templates\account\email\email_confirmation_subject.txt:3
+msgid "E-poçt Ünvanınızı Təsdiqləyin"
+msgstr ""
+
+#: .\templates\account\email\password_reset_key_message.txt:4
+msgid ""
+"Sizin və ya başqa biri tərəfindən hesabınız üçün şifrə sıfırlanması tələb "
+"olunub. Əgər şifrə sıfırlamağı siz tələb etməmisinizsə, bu məktubu gözardı "
+"edə bilərsiniz.\n"
+"Şifrənizi sıfırlamaq üçün aşağıdakı linkə keçid edin:\n"
+msgstr ""
+
+#: .\templates\account\email\password_reset_key_message.txt:9
+#, python-format
+msgid "İstifadəçi adınız \"%(username)s\"."
+msgstr ""
+
+#: .\templates\account\email\password_reset_key_subject.txt:3
+msgid "Şifrə Sıfırlama"
 msgstr ""
 
 #: .\templates\account\email_confirm.html:20
 #, python-format
 msgid ""
 "\n"
-"                                        Zəhmət olmasa <a href=\"mailto:"
-"%(email)s\" class=\"text-decoration-underline text-primary\">%(email)s</a> "
-"ünvanını <strong>%(user_display)s</strong> istifadəçisi üçün e-poçt ünvanı "
-"olaraq təsdiqləyin.\n"
+"                                        Zəhmət olmasa <a class=\"text-"
+"decoration-underline text-primary\">%(email)s</a> ünvanını <strong>"
+"%(user_display)s</strong> istifadəçisi üçün e-poçt ünvanı olaraq "
+"təsdiqləyin.\n"
 "                                    "
 msgstr ""
 
@@ -73,4 +609,12 @@ msgid ""
 "Bu e-poçt təsdiqi linkinin vaxtı keçib və ya etibarsızdır. Lütfən, <a href="
 "\"%(login_url)s\" class=\"text-decoration-underline text-primary\">yeni e-"
 "poçt təsdiq sorğusu</a> göndərin."
+msgstr ""
+
+#: .\templates\account\password_reset_from_key.html:22
+#, python-format
+msgid ""
+"Şifrə sıfırlama linki etibarsızdır, ola bilsin ki, artıq istifadə olunub. "
+"Lütfən, <a href=\"%(passwd_reset_url)s\" class=\"link-primary\">yeni şifrə "
+"sıfırlamasını</a> tələb edin."
 msgstr ""
