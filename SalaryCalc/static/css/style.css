@@ -19,7 +19,7 @@
   padding: 0 0 0 5px;
 }
 
-table tbody tr:hover td {
+table.custom-table-hover tbody tr:hover td {
   background-color: #dfdede;
 }
 
