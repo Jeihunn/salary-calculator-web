@@ -12,6 +12,13 @@ User = get_user_model()
 # Create your models here.
 
 
+class CustomImageField(models.ImageField):
+    def validate(self, value, model_instance):
+        super().validate(value, model_instance)
+        if not value.name.isascii():
+            raise ValidationError(_("Şəklin adı '{}' ASCII olmayan simvolları ehtiva edir. Şəklin adında yalnız əsas ingilis hərfləri (A-Z, a-z), rəqəmlər və xüsusi simvollar ola bilər. Lütfən, düzgün şəkil adı daxil edin.").format(value.name))
+
+
 class Year(models.Model):
     year_value = models.PositiveSmallIntegerField(
         verbose_name=_("İl"),
@@ -241,7 +248,7 @@ class WorkCalendarImage(models.Model):
         on_delete=models.CASCADE,
         verbose_name=_("İl")
     )
-    image = models.ImageField(
+    image = CustomImageField(
         verbose_name=_("Şəkil"),
         upload_to="work_calendar"
     )
@@ -499,13 +506,13 @@ class SiteInfo(models.Model):
         verbose_name=_("Sayt adı"),
         max_length=50
     )
-    logo = models.ImageField(
+    logo = CustomImageField(
         verbose_name=_("Loqo"),
         upload_to="logo",
         blank=True,
         null=True
     )
-    favicon = models.ImageField(
+    favicon = CustomImageField(
         verbose_name=_("Favicon"),
         upload_to="favicon",
         blank=True,
