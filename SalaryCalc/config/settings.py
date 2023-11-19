@@ -130,7 +130,17 @@ EMAIL_USE_TLS = int(os.environ.get("EMAIL_USE_TLS", default=1))
 EMAIL_USE_SSL = int(os.environ.get("EMAIL_USE_TLS", default=0))
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "maashesabla@gmail.com")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "vbktegmuaqrbjrhj")
-DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "maashesabla@gmail.com")
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "SalaryCalc <maashesabla@gmail.com>")
+
+# # Zoho Email config
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.zoho.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+# EMAIL_HOST_USER = 'mail@maashesabla.info'
+# EMAIL_HOST_PASSWORD = 'XU4DSc9Z03zK'
+# DEFAULT_FROM_EMAIL = 'SalaryCalc <mail@maashesabla.info>'
 
 # # Gmail Email config
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -145,12 +155,12 @@ DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "maashesabla@gmail.com
 # # Yandex Email config
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.yandex.com'
-# EMAIL_PORT = 465
-# EMAIL_USE_TLS = False
-# EMAIL_USE_SSL = True
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
 # EMAIL_HOST_USER = 'jeihunpiriyev@yandex.com'
 # EMAIL_HOST_PASSWORD = 'epxjavpnwenkeicb'
-# DEFAULT_FROM_EMAIL = 'jeihunpiriyev@yandex.com'
+# DEFAULT_FROM_EMAIL = 'SalaryCalc <jeihunpiriyev@yandex.com>'
 
 
 MIDDLEWARE = [
