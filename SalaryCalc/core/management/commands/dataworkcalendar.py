@@ -277,10 +277,10 @@ class Command(BaseCommand):
                 try:
                     with transaction.atomic():
                         WorkCalendar.objects.bulk_create([WorkCalendar(**entry) for entry in data])
-                    self.stdout.write(self.style.SUCCESS('WorkCalendar modeli məlumatları uğurla əlavə edildi.'))
+                    self.stdout.write(self.style.SUCCESS('WorkCalendar modeli melumatlari ugurla elave edildi.'))
                 except Exception as e:
-                    self.stdout.write(self.style.ERROR(f'Xəta baş verdi: {str(e)}'))
+                    self.stdout.write(self.style.ERROR(f'Xeta bash verdi: {str(e)}'))
             else:
-                self.stdout.write(self.style.WARNING('Məlumat əlavə olunmadı!!! Əlavə ediləcək ay və ya il yoxdur.'))
+                self.stdout.write(self.style.WARNING('Melumat elave olunmadi!!! Elave edilecek ay ve ya il yoxdur.'))
         else:
-            self.stdout.write(self.style.WARNING('Məlumat əlavə olunmadı!!! Məlumat əlavə oluna bilməyi üçün WorkCalendar modeli boş olmalıdır.'))
+            self.stdout.write(self.style.WARNING('Melumat elave olunmadi!!! Melumat elave oluna bilmeyi uchun WorkCalendar modeli bosh olmalidir.'))

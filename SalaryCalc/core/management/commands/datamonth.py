@@ -25,8 +25,8 @@ class Command(BaseCommand):
             try:
                 with transaction.atomic():
                     Month.objects.bulk_create([Month(**entry) for entry in data])
-                self.stdout.write(self.style.SUCCESS('Month modeli məlumatları uğurla əlavə edildi.'))
+                self.stdout.write(self.style.SUCCESS('Month modeli melumatlari ugurla elave edildi.'))
             except Exception as e:
-                self.stdout.write(self.style.ERROR(f'Xəta baş verdi: {str(e)}'))
+                self.stdout.write(self.style.ERROR(f'Xeta bash verdi: {str(e)}'))
         else:
-            self.stdout.write(self.style.WARNING('Məlumat əlavə olunmadı!!! Məlumat əlavə oluna bilməyi üçün Month modeli boş olmalıdır.'))
+            self.stdout.write(self.style.WARNING('Melumat elave olunmadi!!! Melumat elave oluna bilmeyi uchun Month modeli bosh olmalidir.'))
