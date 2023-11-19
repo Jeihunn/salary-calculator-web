@@ -79,7 +79,7 @@ AUTHENTICATION_BACKENDS = [
 
 # Allauth settings
 # The default protocol used for when generating URLs
-ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'http'
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 # Specifies the login method to use – whether the user logs in by entering their username, email address, or either one of both
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 # Enforce uniqueness of email addresses
@@ -127,7 +127,7 @@ EMAIL_BACKEND = os.environ.get("EMAIL_BACKEND", "django.core.mail.backends.smtp.
 EMAIL_HOST = os.environ.get("EMAIL_HOST", "smtp.gmail.com")
 EMAIL_PORT = os.environ.get("EMAIL_PORT", 587)
 EMAIL_USE_TLS = int(os.environ.get("EMAIL_USE_TLS", default=1))
-EMAIL_USE_SSL = int(os.environ.get("EMAIL_USE_TLS", default=0))
+EMAIL_USE_SSL = int(os.environ.get("EMAIL_USE_SSL", default=0))
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "maashesabla@gmail.com")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "vbktegmuaqrbjrhj")
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "SalaryCalc <maashesabla@gmail.com>")
