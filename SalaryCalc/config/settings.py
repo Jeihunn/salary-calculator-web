@@ -27,8 +27,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-218z(wi3+a5!^q6#jn++7
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get("DEBUG", default=1))
-PROD = not DEBUG
-ALLOWED_HOSTS = ["*"]  # os.environ.get("ALLOWED_HOSTS", "*").split(",")
+PROD = int(os.environ.get("PROD", default=0))
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "*").split(",")
 
 
 # Application definition
@@ -48,13 +48,13 @@ INITIAL_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    # Allauth apps
     'allauth',
     'allauth.account',
     "widget_tweaks",
     "django_extensions",
     "ckeditor",
     "rest_framework",
+    "corsheaders",
 ]
 
 MY_APPS = [
@@ -122,14 +122,27 @@ LOGIN_REDIRECT_URL = 'core:index_view'
 LOGIN_URL = 'account_login'
 
 
-# Email settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'maashesabla@gmail.com'
-EMAIL_HOST_PASSWORD = 'vbkt egmu aqrb jrhj'
-EMAIL_PORT = 587
-# # Yandex config
+# Email config
+EMAIL_BACKEND = os.environ.get("EMAIL_BACKEND", "django.core.mail.backends.smtp.EmailBackend")
+EMAIL_HOST = os.environ.get("EMAIL_HOST", "smtp.gmail.com")
+EMAIL_PORT = os.environ.get("EMAIL_PORT", 587)
+EMAIL_USE_TLS = int(os.environ.get("EMAIL_USE_TLS", default=1))
+EMAIL_USE_SSL = int(os.environ.get("EMAIL_USE_TLS", default=0))
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "maashesabla@gmail.com")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "vbktegmuaqrbjrhj")
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "maashesabla@gmail.com")
+
+# # Gmail Email config
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+# EMAIL_HOST_USER = 'maashesabla@gmail.com'
+# EMAIL_HOST_PASSWORD = 'vbktegmuaqrbjrhj'
+# DEFAULT_FROM_EMAIL = 'maashesabla@gmail.com'
+
+# # Yandex Email config
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.yandex.com'
 # EMAIL_PORT = 465
@@ -143,6 +156,7 @@ EMAIL_PORT = 587
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",  # CORS Middleware
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -183,25 +197,25 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# # SQLite
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# PostgreSQL
+# SQLite
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get("POSTGRES_DB", 'salary_calc'),
-        'USER': os.environ.get("POSTGRES_USER", 'postgres'),
-        'PASSWORD': os.environ.get("POSTGRES_PASSWORD", 12345),
-        'HOST': os.environ.get("POSTGRES_HOST", 'localhost'), # 'localhost' or droplet_ip
-        'PORT': os.environ.get("POSTGRES_PORT", 5432),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# # PostgreSQL
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ.get("POSTGRES_DB", 'salary_calc'),
+#         'USER': os.environ.get("POSTGRES_USER", 'postgres'),
+#         'PASSWORD': os.environ.get("POSTGRES_PASSWORD", 12345),
+#         'HOST': os.environ.get("POSTGRES_HOST", 'localhost'), # 'localhost' or droplet_ip
+#         'PORT': 5432,
+#     }
+# }
 
 
 # Custom User model
@@ -368,3 +382,16 @@ JAZZMIN_UI_TWEAKS = {
     },
     "actions_sticky_top": True
 }
+
+
+# CORS Headers config
+if PROD:
+    CORS_ALLOW_ALL_ORIGINS: False
+    CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://*,https://*').split(',')
+else:
+    CORS_ALLOW_ALL_ORIGINS: True
+    
+
+# CSRF TRUSTED ORIGINS config
+if PROD:
+    CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', 'http://*,https://*').split(',')

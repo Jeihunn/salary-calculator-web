@@ -30,7 +30,6 @@ class Year(models.Model):
         return str(self.year_value)
 
     class Meta:
-        app_label = "core"
         verbose_name = _("İl")
         verbose_name_plural = _("İllər")
 
@@ -59,7 +58,6 @@ class Month(models.Model):
         return f"{self.name} ({self.month_number})"
 
     class Meta:
-        app_label = "core"
         verbose_name = _("Ay")
         verbose_name_plural = _("Aylar")
 
@@ -88,7 +86,6 @@ class Shift(models.Model):
         return f"{self.name} ({self.value})"
 
     class Meta:
-        app_label = "core"
         verbose_name = _("Növbə")
         verbose_name_plural = _("Növbələr")
 
@@ -234,7 +231,6 @@ class WorkCalendar(models.Model):
         super().clean()
     
     class Meta:
-        app_label = "core"
         verbose_name = _("İş təqvimi")
         verbose_name_plural = _("İş təqvimləri")
 
@@ -273,7 +269,6 @@ class WorkCalendarImage(models.Model):
             )
 
     class Meta:
-        app_label = "core"
         verbose_name = _("İstehsalat təqvimi şəkili")
         verbose_name_plural = _("İstehsalat təqvimi şəkilləri")
 
@@ -402,7 +397,6 @@ class SalaryCalculation(models.Model):
         return str(f"{self.user} - {self.year} - {self.month} - {self.shift} - {self.nett}")
 
     class Meta:
-        app_label = "core"
         verbose_name = _("Maaş hesablaması")
         verbose_name_plural = _("Maaş hesablamaları")
 
@@ -438,7 +432,6 @@ class FAQ(models.Model):
             return strip_tags(self.question)
 
     class Meta:
-        app_label = "core"
         verbose_name = _("Tez-tez verilən sual")
         verbose_name_plural = _("Tez-tez verilən suallar")
 
@@ -471,7 +464,6 @@ class Contact(models.Model):
         return f"{self.full_name} -- {self.subject}"
 
     class Meta:
-        app_label = "core"
         verbose_name = _("Əlaqə")
         verbose_name_plural = _("Əlaqələr")
 
@@ -498,7 +490,6 @@ class Subscriber(models.Model):
         return self.email
 
     class Meta:
-        app_label = "core"
         verbose_name = _("Abunə")
         verbose_name_plural = _("Abunələr")
 
@@ -605,7 +596,6 @@ class SiteInfo(models.Model):
         return f"{self.name} #{self.id}"
 
     class Meta:
-        app_label = "core"
         verbose_name = _("Sayt məlumatı")
         verbose_name_plural = _("Sayt məlumatları")
 
@@ -633,6 +623,5 @@ class CalculationCount(models.Model):
         return f"{self.count}"
 
     class Meta:
-        app_label = "core"
         verbose_name = _("Hesablama sayı")
         verbose_name_plural = _("Hesablama sayı")

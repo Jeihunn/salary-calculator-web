@@ -65,6 +65,5 @@ class Blacklist(models.Model):
             return f"Blacklist for IP {self.ip_address}"
 
     class Meta:
-        app_label = "identity"
         verbose_name = _("Qara siyahı girişi")
         verbose_name_plural = _("Qara siyahı girişləri")
