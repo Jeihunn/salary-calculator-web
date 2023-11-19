@@ -132,36 +132,6 @@ EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "maashesabla@gmail.com")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "vbktegmuaqrbjrhj")
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "SalaryCalc <maashesabla@gmail.com>")
 
-# # Zoho Email config
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.zoho.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
-# EMAIL_HOST_USER = 'mail@maashesabla.info'
-# EMAIL_HOST_PASSWORD = 'XU4DSc9Z03zK'
-# DEFAULT_FROM_EMAIL = 'SalaryCalc <mail@maashesabla.info>'
-
-# # Gmail Email config
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
-# EMAIL_HOST_USER = 'maashesabla@gmail.com'
-# EMAIL_HOST_PASSWORD = 'vbktegmuaqrbjrhj'
-# DEFAULT_FROM_EMAIL = 'maashesabla@gmail.com'
-
-# # Yandex Email config
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.yandex.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
-# EMAIL_HOST_USER = 'jeihunpiriyev@yandex.com'
-# EMAIL_HOST_PASSWORD = 'epxjavpnwenkeicb'
-# DEFAULT_FROM_EMAIL = 'SalaryCalc <jeihunpiriyev@yandex.com>'
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -207,25 +177,25 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# SQLite
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-# # PostgreSQL
+# # SQLite
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ.get("POSTGRES_DB", 'salary_calc'),
-#         'USER': os.environ.get("POSTGRES_USER", 'postgres'),
-#         'PASSWORD': os.environ.get("POSTGRES_PASSWORD", 12345),
-#         'HOST': os.environ.get("POSTGRES_HOST", 'localhost'), # 'localhost' or droplet_ip
-#         'PORT': 5432,
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+# PostgreSQL
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get("POSTGRES_DB", 'salary_calc'),
+        'USER': os.environ.get("POSTGRES_USER", 'postgres'),
+        'PASSWORD': os.environ.get("POSTGRES_PASSWORD", 12345),
+        'HOST': os.environ.get("POSTGRES_HOST", 'localhost'), # 'localhost' or droplet_ip
+        'PORT': 5432,
+    }
+}
 
 
 # Custom User model
