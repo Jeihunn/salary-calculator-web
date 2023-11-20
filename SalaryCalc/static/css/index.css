@@ -86,10 +86,10 @@
 }
 
 .salary-table table th {
-  font-size: 11px;
+  font-size: 13px;
 }
 .salary-table table td {
-  font-size: 10px;
+  font-size: 12px;
 }
 .salary-table table .deductions {
   color: #ff0000;
