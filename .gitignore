@@ -1,5 +1,8 @@
 # MY
 .vscode/
+venv_*/
+pgdb/
+migrations/
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,venv,python,django,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,venv,python,django,visualstudiocode
@@ -72,7 +75,7 @@ coverage.xml
 cover/
 
 # Translations
-*.mo
+# *.mo
 
 # Django stuff:
 

@@ -1,0 +1,54 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% load account %}
+{% load allauth %}
+{% block page_title %}
+<title>E-poçt ünvanının təsdiqlənməsi | SalaryCalc</title>
+{% endblock page_title %}
+{% block main %}
+<main>
+    <div class="container text-center my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card p-3" style="min-height: 150px;">
+                    <div class="card-body text-center d-flex flex-column align-items-center justify-content-center">
+                        {% if confirmation %}
+                        {% user_display confirmation.email_address.user as user_display %}
+                            {% if can_confirm %}
+                                <i class="fa-solid fa-envelope-circle-check text-success fa-5x mb-3"></i>
+                                <p>
+                                    {% blocktrans with confirmation.email_address.email as email %}
+                                        Zəhmət olmasa <a class="text-decoration-underline text-primary">{{ email }}</a> ünvanını <strong>{{ user_display }}</strong> istifadəçisi üçün e-poçt ünvanı olaraq təsdiqləyin.
+                                    {% endblocktrans %}
+                                </p>
+                                {% url 'account_confirm_email' confirmation.key as action_url %}
+                                {% element form method="post" action=action_url %}
+                                    {% slot actions %}
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-primary">
+                                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                            {% trans 'Təsdiqlə' %}
+                                        </button>
+                                    {% endslot %}
+                                {% endelement %}
+                            {% else %}
+                                <p>
+                                    {% blocktrans %}{{ email }} ünvanını təsdiqləmək mümkün deyil, çünki o, artıq başqa hesab tərəfindən təsdiqlənib.{% endblocktrans %}
+                                </p>
+                            {% endif %}
+                        {% else %}
+                            {% url 'account_login' as login_url %}
+                                <i class="fas fa-exclamation-triangle fa-5x mb-3 text-danger"></i> 
+                                <p>
+                                    {% blocktrans %}Bu e-poçt təsdiqi linkinin vaxtı keçib və ya etibarsızdır. Lütfən, <a href="{{ login_url }}" class="text-decoration-underline text-primary">yeni e-poçt təsdiq sorğusu</a> göndərin.{% endblocktrans %}
+                                </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock main %}
+
+

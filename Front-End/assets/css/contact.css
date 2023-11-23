@@ -7,7 +7,7 @@
 }
 
 body,
-input,
+.contact-form input,
 textarea {
   font-family: "Poppins", sans-serif;
 }
@@ -51,7 +51,7 @@ textarea {
   left: -13px;
 }
 
-form {
+.contact-form form {
   padding: 2.3rem 2.2rem;
   z-index: 10;
   overflow: hidden;
@@ -201,11 +201,7 @@ textarea.input {
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 1.5rem;
-  }
-
-  form,
+  .contact-form form,
   .contact-info {
     padding: 1.7rem 1.6rem;
   }
@@ -225,8 +221,6 @@ textarea.input {
     height: 30px;
     line-height: 30px;
   }
-
-  
 
   .input {
     padding: 0.45rem 1.2rem;

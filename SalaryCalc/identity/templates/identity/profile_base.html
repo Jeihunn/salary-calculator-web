@@ -1,0 +1,45 @@
+{% extends "core/base.html" %}
+{% load static widget_tweaks %}
+
+{% block header_page_title %}
+<div class="page-title">
+  <h1>Hesab</h1>
+</div>
+{% endblock header_page_title %}
+
+
+{% block main %}
+<main>
+  <section id="profile">
+    <div class="container">
+      <div class="row">
+        <!-- ===== Profile Header ===== -->
+        <div class="col-12 col-md-3">
+          <div class="profile-header">
+            <h2 class="title">Hesabı İdarə Et</h2>
+            <div class="content">
+              <a href="{% url "profile_view" %}">
+                <div class="content-title {% if request.resolver_match.view_name == 'profile_view' %}active-title{% endif %}">
+                  <i class="fa-solid fa-pencil"></i>
+                  <span>Şəxsi Məlumatlar</span>
+                </div>
+              </a>
+              <a href="{% url "account_change_password" %}">
+                <div class="content-title {% if request.resolver_match.view_name == 'account_change_password' %}active-title{% endif %}">
+                  <i class="fa-solid fa-lock"></i>
+                  <span>Şifrəni Dəyiş</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- ===== END Profile Header ===== -->
+
+        <!-- ===== Profile Info ===== -->
+        {% block profile_info %}{% endblock profile_info %}
+        <!-- ===== END Profile Info ===== -->
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock main %}

@@ -1,0 +1,80 @@
+{% extends "core/base.html" %}
+{% load static widget_tweaks %}
+
+{% block page_title %}
+<title>Qeydiyyat | SalaryCalc</title>
+{% endblock page_title %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/login-register.css" %}" />
+{% endblock css %}
+
+
+{% block header_page_title %}
+<div class="page-title">
+  <h1>Qeydiyyat</h1>
+</div>
+{% endblock header_page_title %}
+
+
+{% block main %}
+<main>
+    <div class="container d-flex justify-content-center align-items-center">
+      <div class="login-box my-5">
+        <div class="forms">
+          <div class="form signup">
+            <span class="title">Qeydiyyat</span>
+
+            <!-- ===== Registration Form ===== -->
+            <form method="post" action="{% url 'account_signup' %}">
+              {% csrf_token %}
+              <div class="input-field">
+                {{ form.username|attr:"placeholder:İstifadəçi adı" }}
+                <i class="uil uil-user"></i>
+              </div>
+              {{ form.username.errors }}
+
+              <div class="input-field">
+                {{ form.email|attr:"placeholder:E-poçt" }}
+                <i class="uil uil-envelope icon"></i>
+              </div>
+              {{ form.email.errors }}
+
+              <div class="input-field">
+                {{ form.password1|add_class:"password"|attr:"placeholder:Şifrə" }}
+                <i class="uil uil-padlock icon"></i>
+                <i class="uil uil-eye-slash showHidePw"></i>
+              </div>
+              {{ form.password1.errors }}
+              
+              <div class="input-field">
+                {{ form.password2|add_class:"password"|attr:"placeholder:Təkrar şifrə" }}
+                <i class="uil uil-padlock icon"></i>
+                <i class="uil uil-eye-slash showHidePw"></i>
+              </div>
+              {{ form.password2.errors }}
+
+              <div class="input-field button">
+                <input type="submit" value="Yeni hesab yarat" />
+              </div>
+            </form>
+            <!-- ===== END Registration Form ===== -->
+
+            <div class="login-signup">
+              <span class="text"
+                >Hesabın var?
+                <a href="{% url "account_login" %}" class="text login-link">Daxil ol</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</main>
+{% endblock main %}
+
+
+{% block js %}
+<script src="{% static "js/eye-show-hide.js" %}"></script>
+{% endblock js %}

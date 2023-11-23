@@ -59,38 +59,38 @@ footer .logo-details .logo_name span {
   text-decoration: none;
   transition: all 0.4s ease;
 }
-.top .media-icons a:nth-child(1) {
+.top .media-icons a.facebook {
   background: #4267b2;
 }
-.top .media-icons a:nth-child(1):hover {
+.top .media-icons a.facebook:hover {
   color: #4267b2;
   background: #fff;
 }
-.top .media-icons a:nth-child(2) {
-  background: #1da1f2;
+.top .media-icons a.github {
+  background: #171515;
 }
-.top .media-icons a:nth-child(2):hover {
-  color: #1da1f2;
+.top .media-icons a.github:hover {
+  color: #171515;
   background: #fff;
 }
-.top .media-icons a:nth-child(3) {
+.top .media-icons a.instagram {
   background: #e1306c;
 }
-.top .media-icons a:nth-child(3):hover {
+.top .media-icons a.instagram:hover {
   color: #e1306c;
   background: #fff;
 }
-.top .media-icons a:nth-child(4) {
+.top .media-icons a.linkedin {
   background: #0077b5;
 }
-.top .media-icons a:nth-child(4):hover {
+.top .media-icons a.linkedin:hover {
   color: #0077b5;
   background: #fff;
 }
-.top .media-icons a:nth-child(5) {
+.top .media-icons a.youtube {
   background: #ff0000;
 }
-.top .media-icons a:nth-child(5):hover {
+.top .media-icons a.youtube:hover {
   color: #ff0000;
   background: #fff;
 }

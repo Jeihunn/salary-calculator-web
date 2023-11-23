@@ -1,0 +1,204 @@
+{% extends "core/base.html" %}
+{% load static widget_tweaks %}
+
+{% block page_title %}
+<title>Maaş | SalaryCalc</title>
+{% endblock page_title %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/index.css" %}" />
+{% endblock css %}
+
+
+{% block header_page_title %}
+<div class="page-title">
+  <h1>Maaş Hesablama</h1>
+</div>
+{% endblock header_page_title %}
+
+
+{% block main %}
+<main>
+    <!-- ===== Form ===== -->
+    <div class="container-fluid my-4">
+      <form method="post">
+        {% csrf_token %}
+        <div class="border border-3 rounded bg-secondary-subtle py-3">
+          <div class="row">
+            <div class="col-md-6 offset-md-3 mb-3 text-center">
+              <p>
+                Qeyri neft-qaz və özəl sektor üzrə işçinin aylıq iş normasını tam işlədiyi halda əmək haqqının
+                hesablanması
+              </p>
+              <hr />
+            </div>
+            <div class="col-md-6 offset-md-3 mb-3">
+              <label class="form-label fw-semibold">Qrup</label>
+              <div class="d-sm-flex gap-3 div-group">
+                {% for radio in form.group_name %}
+                <div class="form-check">
+                  {{ radio.tag }}
+                  <label for="{{ radio.id_for_label }}" class="form-check-label">{{ radio.choice_label }}</label>
+                </div>
+                {% endfor %}
+              </div>
+              {{ form.group_name.errors }}
+            </div>
+
+            <div class="col-md-6 offset-md-3 mb-3">
+              <label for="{{ form.year_month.id_for_label }}" class="form-label fw-semibold"
+                >Tarix</label
+              >
+              {{ form.year_month }}
+              {{ form.year_month.errors }}
+            </div>
+
+            <div class="col-md-6 offset-md-3 mb-3">
+              <label for="{{ form.overtime.id_for_label }}" class="form-label fw-semibold"
+                >Əlavə iş saatı</label
+              >
+              <div class="input-group">
+                {{ form.overtime }}
+                <span class="input-group-text">saat</span>
+              </div>
+              {{ form.overtime.errors }}
+            </div>
+
+            <div class="col-md-6 offset-md-3 mb-3">
+              <label for="{{ form.bonus_percent.id_for_label }}" class="form-label fw-semibold"
+                >Mükafat faizi</label
+              >
+              <div class="input-group">
+                {{ form.bonus_percent }}
+                <span class="input-group-text">%</span>
+              </div>
+              {{ form.bonus_percent.errors }}
+            </div>
+
+            <div class="col-md-6 offset-md-3 mb-3">
+              <label for="{{ form.monthly_salary.id_for_label }}" class="form-label fw-semibold"
+                >Vəzifə maaşı</label
+              >
+              <div class="input-group">
+                {{ form.monthly_salary }}
+                <span class="input-group-text">₼</span>
+              </div>
+              {{ form.monthly_salary.errors }}
+            </div>
+
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-primary px-5 py-2">
+                HESABLA
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- ===== END Form ===== -->
+
+    {% if user_salary_calculations %}
+      <!-- ===== Table ===== -->
+      <div class="container-fluid my-4">
+        <div class="p-2 rounded bg-secondary-subtle">
+          <div class="table-responsive salary-table">
+            <table
+              class="table table-bordered table-striped text-center custom-table-hover"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">№</th>
+                  <th scope="col">İL</th>
+                  <th scope="col">AY</th>
+                  <th scope="col">Qrup</th>
+                  <th scope="col">Vəzifə maaşı</th>
+                  <th scope="col">Əlavə iş saatı</th>
+                  <th scope="col">Mükafat faizi</th>
+                  <th scope="col">Saatlıq əməkhaqqı</th>
+                  <th scope="col">Gecə növbəsi ödənişi</th>
+                  <th scope="col">
+                    Növbədən artıq qalan əlavə saat ödənişi (ikiqat)
+                  </th>
+                  <th scope="col">Bayram saatı ödənişi</th>
+                  <th scope="col">
+                    Əlavə iş saatı ödənişi (ikiqat)
+                  </th>
+                  <th scope="col">Mükafat məbləği</th>
+                  <th scope="col">GROSS maaş</th>
+                  <th scope="col">NETT gəlir</th>
+                  <th scope="col">Gəlir vergisi</th>
+                  <th scope="col">Məcburi dövlət sosial sığorta haqqı</th>
+                  <th scope="col">İşsizlikdən sığorta haqqı</th>
+                  <th scope="col">İcbari tibbi sığorta haqqı</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for salary_calculation in user_salary_calculations %}
+                  <tr>
+                    <td data-label="№" class="tooltip-td">
+                      {{ forloop.counter }}
+                      <span class="tooltiptext"
+                        ><span>Hesablanma tarixi:</span
+                        ><span>{{ salary_calculation.created_at|date:"d.m.Y H:i:s" }}</span></span
+                      >
+                    </td>
+                    <td data-label="İL">{{ salary_calculation.year.year_value }}</td>
+                    <td data-label="AY">{{ salary_calculation.month.name }}</td>
+                    <td data-label="Qrup">{{ salary_calculation.shift.name }}</td>
+                    <td data-label="Vəzifə maaşı">{{ salary_calculation.salary }} ₼</td>
+                    <td data-label="Əlavə iş saatı">{{ salary_calculation.overtime }} saat</td>
+                    <td data-label="Mükafat faizi">{{ salary_calculation.bonus_percent }}%</td>
+                    <td data-label="Saatlıq əməkhaqqı">{{ salary_calculation.hourly_wage }} ₼</td>
+                    <td data-label="Gecə növbəsi ödənişi">
+                      {% if salary_calculation.shift.value != "g" %}
+                        {{ salary_calculation.night_work_pay }} ₼
+                      {% else %}
+                        —
+                      {% endif %}
+                    </td>
+                    <td
+                      data-label="Növbədən artıq qalan əlavə saat ödənişi (ikiqat)"
+                    >
+                      {% if salary_calculation.shift.value != "g" %}
+                        {{ salary_calculation.extra_hour_pay }} ₼
+                      {% else %}
+                        —
+                      {% endif %}
+                    </td>
+                    <td data-label="Bayram saatı ödənişi">
+                      {% if salary_calculation.shift.value != "g" %}
+                        {{ salary_calculation.holiday_hour_pay }} ₼
+                      {% else %}
+                        —
+                      {% endif %}
+                    </td>
+                    <td data-label="Əlavə iş saatı ödənişi (ikiqat)">
+                      {{ salary_calculation.overtime_pay }} ₼
+                    </td>
+                    <td data-label="Mükafat məbləği">{{ salary_calculation.bonus_pay }} ₼</td>
+                    <td data-label="GROSS maaş">{{ salary_calculation.gross }} ₼</td>
+                    <td data-label="NETT gəlir" class="nett">{{ salary_calculation.nett }} ₼</td>
+                    <td data-label="Gəlir vergisi" class="deductions">
+                      -{{ salary_calculation.income_tax }} ₼
+                    </td>
+                    <td data-label="Məcburi dövlət sosial sığorta haqqı" class="deductions">
+                      -{{ salary_calculation.dsmf_tax }} ₼
+                    </td>
+                    <td data-label="İşsizlikdən sığorta haqqı" class="deductions">
+                      -{{ salary_calculation.unemployment_insurance_tax }} ₼
+                    </td>
+                    <td data-label="İcbari tibbi sığorta haqqı" class="deductions">
+                      -{{ salary_calculation.compulsory_health_insurance_tax }} ₼
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- ===== END Table ===== -->
+    {% endif %}
+</main>
+{% endblock main %}

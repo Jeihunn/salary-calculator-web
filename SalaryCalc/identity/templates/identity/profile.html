@@ -1,0 +1,60 @@
+{% extends "identity/profile_base.html" %}
+{% load static widget_tweaks %}
+
+
+{% block page_title %}
+<title>Profil | SalaryCalc</title>
+{% endblock page_title %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/account.css" %}" />
+{% endblock css %}
+
+
+{% block profile_info %}
+<div class="col-12 col-md-9">
+  <div class="profile-info">
+    <div class="content-desc">
+      <h2>Şəxsi Məlumatlar</h2>
+      <div class="content-text">
+        <!-- Username -->
+        <div class="row my-3">
+          <div class="col-4">
+            <span class="text">İstifadəçi adı</span>
+          </div>
+          <div class="col-8">
+            <span class="text">
+              {% if request.user.username %}{{ request.user.username }}{% else %}―{% endif %}
+            </span>
+          </div>
+        </div>
+        {% if request.user.get_full_name %}
+        <!-- Full Name-->
+        <div class="row my-3">
+          <div class="col-4">
+            <span class="text">Ad Soyad</span>
+          </div>
+          <div class="col-8">
+            <span class="text">
+              {% if request.user.get_full_name %}{{ request.user.get_full_name }}{% else %}―{% endif %}
+            </span>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Email -->
+        <div class="row my-3">
+          <div class="col-4">
+            <span class="text">E-poçt</span>
+          </div>
+          <div class="col-8">
+            <span class="text">
+              {% if request.user.email %}{{ request.user.email }}{% else %}―{% endif %}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock profile_info %}

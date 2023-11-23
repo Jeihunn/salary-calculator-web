@@ -1,1 +1,281 @@
-<h1>NETT-TO-GROSS</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ===== Favicon ===== -->
+    <link
+      rel="shortcut icon"
+      href="./assets/img/salary-calc-logo1.png"
+      type="image/x-icon"
+    />
+
+    <!-- ===== Font Awesome v6.4.2 ===== -->
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- ===== Iconscout v4.0.0 ===== -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <!-- ===== Bootstrap CSS v5.3.2 ===== -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <!-- ===== MY CSS ===== -->
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <link rel="stylesheet" href="./assets/css/gross-nett.css" />
+
+    <title>Nett'dən Gross'a | SalaryCalc</title>
+  </head>
+  <body>
+    <!-- ===== Header ===== -->
+    <div class="overlay"></div>
+    <header class="header-area">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-3">
+            <div class="brand">
+              <a href="index.html" class="logo">
+                <img
+                  src="./assets/img/salary-calc-icon.png"
+                  alt="salary-calc-logo"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="col-9 d-flex align-items-center justify-content-flex-end">
+            <div class="open-nav-menu">
+              <span></span>
+            </div>
+            <div class="main-menu">
+              <nav>
+                <div class="close-nav-btn"></div>
+                <ul>
+                  <li class="menu-item menu-has-child-item">
+                    <a data-toggle="sub-menu" class="sub-menu-title">Hesablama</a>
+                    <ul class="submenu">
+                      <li class="menu-item">
+                        <a href="index.html" class="active">Maaş</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="gross-to-nett.html">Gross'dan Nett'ə</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="nett-to-gross.html">Nett'dən Gross'a</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item menu-has-child-item">
+                    <a data-toggle="sub-menu" class="sub-menu-title">Əlavə Məlumat</a>
+                    <ul class="submenu">
+                      <li class="menu-item">
+                        <a href="work-calendar.html">İstehsalat təqvimi</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="faq.html">Tez-tez verilən suallar</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item"><a href="about.html">Haqqında</a></li>
+                  <li class="menu-item"><a href="contact.html">Əlaqə</a></li>
+                  <li class="menu-item">
+                    <a class="btn btn-primary px-4 login-btn" href="login.html"
+                      >Giriş</a
+                    >
+                  </li>
+                  <!-- <li class="menu-item menu-has-child-item">
+                    <a data-toggle="sub-menu" class="sub-menu-title">İstifadəçi Adı</a>
+                    <ul class="submenu">
+                      <li class="menu-item"><a href="profile.html">Profil</a></li>
+                      <li class="menu-item"><a href="#">Çıxış</a></li>
+                    </ul>
+                  </li> -->
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ===== END Header ===== -->
+
+    <!-- ===== Header Page Title ===== -->
+    <div class="page-title">
+      <h1>Nett'dən Gross'a Hesablama</h1>
+    </div>
+    <!-- ===== END Header Page Title ===== -->
+
+    <!-- ===== Main ===== -->
+    <main>
+      <div class="container-fluid my-4">
+        <div class="border border-3 rounded bg-secondary-subtle py-3">
+          <!-- ===== Form ===== -->
+          <form action="">
+            <div class="container">
+              <div class="text-center">
+                <p>
+                  Qeyri neft-qaz və özəl sektor üzrə əmək haqqının hesablanması
+                </p>
+                <hr />
+              </div>
+              <div class="mb-3">
+                <label for="nett-1" class="form-label fw-semibold"
+                  >Nett Əmək Haqqı</label
+                >
+                <div class="input-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="nett-1"
+                    name="nett"
+                    step="0.01"
+                    min="0"
+                  />
+                  <span class="input-group-text">₼</span>
+                </div>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary px-5 py-2">
+                  HESABLA
+                </button>
+              </div>
+            </div>
+          </form>
+          <!-- ===== END Form ===== -->
+
+          <!-- ===== Table ===== -->
+          <div class="p-2 mt-4">
+            <div class="table-responsive container">
+              <table
+                class="table text-center table-bordered"
+                style="vertical-align: middle"
+              >
+                <thead>
+                  <tr>
+                    <th style="background-color: transparent"></th>
+                    <th style="background-color: #cbcbcb">2020-ci il</th>
+                    <th style="background-color: #cbcbcb">2021-ci il</th>
+                    <th class="bg-info">2022-2023-cü il</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class="text-start">Nett əmək haqqı</th>
+                    <td>600.00 ₼</td>
+                    <td>600.00 ₼</td>
+                    <td>600.00 ₼</td>
+                  </tr>
+                  <tr>
+                    <th class="text-start">Gəlir vergisi</th>
+                    <td>0.00 ₼</td>
+                    <td>0.00 ₼</td>
+                    <td>0.00 ₼</td>
+                  </tr>
+                  <tr>
+                    <th class="text-start">Məcburi dövlət sosial sığorta haqqı</th>
+                    <td>51,50 ₼</td>
+                    <td>52,24 ₼</td>
+                    <td>53,00 ₼</td>
+                  </tr>
+                  <tr>
+                    <th class="text-start">İşsizlikdən sığorta haqqı</th>
+                    <td>3,28 ₼</td>
+                    <td>3,31 ₼</td>
+                    <td>3,35 ₼</td>
+                  </tr>
+                  <tr>
+                    <th class="text-start">İcbari tibbi sığorta haqqı</th>
+                    <td>—</td>
+                    <td>6,62 ₼</td>
+                    <td>13,40 ₼</td>
+                  </tr>
+                  <tr
+                    class="total-price"
+                    style="height: 50px; font-weight: bold"
+                  >
+                    <th class="text-start bg-success">
+                      Gross Əmək Haqqı
+                    </th>
+                    <td class="bg-success">655,03 ₼</td>
+                    <td class="bg-success">662,43 ₼</td>
+                    <td class="bg-success">670,00 ₼</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- ===== END Table ===== -->
+        </div>
+      </div>
+    </main>
+    <!-- ===== END Main ===== -->
+
+    <!-- ===== Footer ===== -->
+    <footer>
+      <div class="content">
+        <div class="top">
+          <div class="logo-details">
+            <img
+              src="./assets/img/salary-calc-icon.png"
+              alt="salary-calc-logo"
+              class="footer-logo"
+            />
+            <span class="logo_name">Salary<span>Calc</span></span>
+          </div>
+          <div class="media-icons">
+            <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="github"><i class="fab fa-github"></i></a>
+            <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+          </div>
+          <div class="line-footer"></div>
+        </div>
+
+        <div class="link-boxes">
+          <ul class="box">
+            <li class="link_name">Səhifələr</li>
+            <li><a href="#">Gross'dan Nett'ə</a></li>
+            <li><a href="#">Nett'dən Gross'a</a></li>
+            <li><a href="#">İstehsalat Təqvimi</a></li>
+          </ul>
+          <ul class="box">
+            <li class="link_name">Səhifələr</li>
+            <li><a href="#">Haqqında</a></li>
+            <li><a href="#">Əlaqə</a></li>
+            <li><a href="#">Tez-tez verilən suallar</a></li>
+          </ul>
+          <ul class="box input-box">
+            <li class="link_name">Abunə ol</li>
+            <li><input type="text" placeholder="Elektron ünvanı qeyd et" /></li>
+            <li><input type="button" value="Abunə ol" /></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom-details">
+        <div class="bottom_text">
+          <span class="copyright_text"
+            >Copyright &#169; 2023 <a href="#">SalaryCalc.</a>Bütün hüquqları
+            qorunur</span
+          >
+          <span class="policy_terms">
+            <a href="#">Privacy policy</a>
+            <a href="#">Terms & condition</a>
+          </span>
+        </div>
+      </div>
+    </footer>
+    <!-- ===== END Footer ===== -->
+
+    <!-- ===== Bootstrap JS v5.3.2 ===== -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <!-- ===== MY JS ===== -->
+    <script src="./assets/js/navbar.js"></script>
+    <script src="./assets/js/footer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name %}{{ site_name }}-dan salam!{% endblocktrans %}
+
+{% block content %}{% endblock content %}
+
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Hər hansı sual və ya yardıma ehtiyacınız varsa, dəstək komandamızla əlaqə saxlamaqdan çəkinməyin.
+
+Hörmətlə,
+{{ site_name }} komandası{% endblocktrans %}
+{% endautoescape %}

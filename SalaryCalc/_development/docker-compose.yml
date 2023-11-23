@@ -1,0 +1,20 @@
+version: "3.1"
+
+services:
+  db:
+    image: postgres:16
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: "salary_calc"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: 12345
+    volumes:
+      - ./pgdb:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

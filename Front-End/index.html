@@ -11,10 +11,10 @@
       type="image/x-icon"
     />
 
-    <!-- ===== Font Awesome v5.15.2 ===== -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    <!-- ===== Font Awesome v6.4.2 ===== -->
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
     <!-- ===== Iconscout v4.0.0 ===== -->
     <link
@@ -57,13 +57,13 @@
                 <div class="close-nav-btn"></div>
                 <ul>
                   <li class="menu-item menu-has-child-item">
-                    <a href="#" data-toggle="sub-menu">Hesablama</a>
+                    <a data-toggle="sub-menu" class="sub-menu-title">Hesablama</a>
                     <ul class="submenu">
                       <li class="menu-item">
                         <a href="index.html" class="active">Maaş</a>
                       </li>
                       <li class="menu-item">
-                        <a href="gorss-to-nett.html">Gross'dan Nett'ə</a>
+                        <a href="gross-to-nett.html">Gross'dan Nett'ə</a>
                       </li>
                       <li class="menu-item">
                         <a href="nett-to-gross.html">Nett'dən Gross'a</a>
@@ -71,10 +71,10 @@
                     </ul>
                   </li>
                   <li class="menu-item menu-has-child-item">
-                    <a href="#" data-toggle="sub-menu">Əlavə Məlumat</a>
+                    <a data-toggle="sub-menu" class="sub-menu-title">Əlavə Məlumat</a>
                     <ul class="submenu">
                       <li class="menu-item">
-                        <a href="work-calendar.html">İstehsalat Təqvimi</a>
+                        <a href="work-calendar.html">İstehsalat təqvimi</a>
                       </li>
                       <li class="menu-item">
                         <a href="faq.html">Tez-tez verilən suallar</a>
@@ -89,9 +89,9 @@
                     >
                   </li>
                   <!-- <li class="menu-item menu-has-child-item">
-                    <a href="#" data-toggle="sub-menu">İstifadəçi Adı</a>
+                    <a data-toggle="sub-menu" class="sub-menu-title">İstifadəçi Adı</a>
                     <ul class="submenu">
-                      <li class="menu-item"><a href="profil.html">Profil</a></li>
+                      <li class="menu-item"><a href="profile.html">Profil</a></li>
                       <li class="menu-item"><a href="#">Çıxış</a></li>
                     </ul>
                   </li> -->
@@ -113,14 +113,13 @@
     <!-- ===== Main ===== -->
     <main>
       <!-- ===== Form ===== -->
-      <div class="container-fluid mt-4">
+      <div class="container-fluid my-4">
         <form action="">
           <div class="border border-3 rounded bg-secondary-subtle py-3">
             <div class="row">
               <div class="col-md-6 offset-md-3 mb-3 text-center">
                 <p>
-                  İşçinin aylıq iş normasını tam işlədiyi halda əmək haqqının
-                  hesablanması.
+                  Qeyri neft-qaz və özəl sektor üzrə işçinin aylıq iş normasını tam işlədiyi halda əmək haqqının hesablanması
                 </p>
                 <hr />
               </div>
@@ -132,7 +131,7 @@
                       type="radio"
                       class="form-check-input"
                       id="group-a"
-                      name="group-name"
+                      name="group_name"
                       value="a"
                       checked
                     />
@@ -143,7 +142,7 @@
                       type="radio"
                       class="form-check-input"
                       id="group-b"
-                      name="group-name"
+                      name="group_name"
                       value="b"
                     />
                     <label class="form-check-label" for="group-b">B</label>
@@ -153,7 +152,7 @@
                       type="radio"
                       class="form-check-input"
                       id="group-c"
-                      name="group-name"
+                      name="group_name"
                       value="c"
                     />
                     <label class="form-check-label" for="group-c">C</label>
@@ -163,7 +162,7 @@
                       type="radio"
                       class="form-check-input"
                       id="group-d"
-                      name="group-name"
+                      name="group_name"
                       value="d"
                     />
                     <label class="form-check-label" for="group-d">D</label>
@@ -173,7 +172,7 @@
                       type="radio"
                       class="form-check-input"
                       id="group-g"
-                      name="group-name"
+                      name="group_name"
                       value="g"
                     />
                     <label class="form-check-label" for="group-g"
@@ -192,26 +191,27 @@
                   max="2024-12"
                   class="form-control"
                   id="year-month"
-                  name="year-month"
+                  name="year_month"
                 />
               </div>
               <div class="col-md-6 offset-md-3 mb-3">
                 <label for="extra-hour" class="form-label fw-semibold"
-                  >İstirahət Günü Əlavə Saatı</label
+                  >Əlavə iş saatı</label
                 >
                 <div class="input-group">
                   <input
                     type="number"
                     class="form-control"
                     id="extra-hour"
-                    name="extra-hour"
+                    name="extra_hour"
+                    min="0"
                   />
                   <span class="input-group-text">saat</span>
                 </div>
               </div>
               <div class="col-md-6 offset-md-3 mb-3">
                 <label for="bonus" class="form-label fw-semibold"
-                  >Mükafat Faizi</label
+                  >Mükafat faizi</label
                 >
                 <div class="input-group">
                   <input
@@ -219,6 +219,7 @@
                     class="form-control"
                     id="bonus"
                     name="bonus"
+                    min="0"
                     max="500"
                   />
                   <span class="input-group-text">%</span>
@@ -226,15 +227,16 @@
               </div>
               <div class="col-md-6 offset-md-3 mb-3">
                 <label for="monthly-salary" class="form-label fw-semibold"
-                  >Vəzifə Maaşı</label
+                  >Vəzifə maaşı</label
                 >
                 <div class="input-group">
                   <input
                     type="number"
                     class="form-control"
                     id="monthly-salary"
-                    name="monthly-salary"
+                    name="monthly_salary"
                     step="0.01"
+                    min="0"
                   />
                   <span class="input-group-text">₼</span>
                 </div>
@@ -255,7 +257,7 @@
         <div class="p-2 rounded bg-secondary-subtle">
           <div class="table-responsive salary-table">
             <table
-              class="table table-bordered table-striped table-hover text-center"
+              class="table table-bordered table-striped text-center custom-table-hover"
             >
               <thead>
                 <tr>
@@ -263,25 +265,25 @@
                   <th scope="col">İL</th>
                   <th scope="col">AY</th>
                   <th scope="col">Qrup</th>
-                  <th scope="col">Vəzifə Maaşı</th>
-                  <th scope="col">İstirahət Günü Əlavə Saatı</th>
-                  <th scope="col">Mükafat Faizi</th>
-                  <th scope="col">Saatlıq Əməkhaqqı</th>
-                  <th scope="col">Gecə Növbəsi Ödənişi</th>
+                  <th scope="col">Vəzifə maaşı</th>
+                  <th scope="col">Əlavə iş saatı</th>
+                  <th scope="col">Mükafat faizi</th>
+                  <th scope="col">Saatlıq əməkhaqqı</th>
+                  <th scope="col">Gecə növbəsi ödənişi</th>
                   <th scope="col">
-                    Növbədən Artıq Qalan Əlavə Saat Ödənişi (ikiqat)
+                    Növbədən artıq qalan əlavə saat ödənişi (ikiqat)
                   </th>
-                  <th scope="col">Bayram Saatı Ödənişi</th>
+                  <th scope="col">Bayram saatı ödənişi</th>
                   <th scope="col">
-                    İstirahət Günü Əlavə Saatı Ödənişi (ikiqat)
+                    Əlavə iş saatı ödənişi (ikiqat)
                   </th>
                   <th scope="col">Mükafat məbləği</th>
-                  <th scope="col">GROSS Maaş</th>
-                  <th scope="col">NETT Gəlir</th>
-                  <th scope="col">Gəlir Vergisi</th>
-                  <th scope="col">DSMF Ayırmaları</th>
-                  <th scope="col">İşsizlikdən Sığorta</th>
-                  <th scope="col">İcbari Tibbi Sığorta</th>
+                  <th scope="col">GROSS maaş</th>
+                  <th scope="col">NETT gəlir</th>
+                  <th scope="col">Gəlir vergisi</th>
+                  <th scope="col">Məcburi dövlət sosial sığorta haqqı</th>
+                  <th scope="col">İşsizlikdən sığorta haqqı</th>
+                  <th scope="col">İcbari tibbi sığorta haqqı</th>
                 </tr>
               </thead>
               <tbody>
@@ -289,40 +291,40 @@
                   <td data-label="№" class="tooltip-td">
                     1
                     <span class="tooltiptext"
-                      ><span>Hesablanma Tarixi:</span
-                      ><span>03/02/2023 19:08:05</span></span
+                      ><span>Hesablanma tarixi:</span
+                      ><span>03.02.2023 19:08:05</span></span
                     >
                   </td>
                   <td data-label="İL">2023</td>
                   <td data-label="AY">Fevral</td>
                   <td data-label="Qrup">B</td>
-                  <td data-label="Vəzifə Maaşı">889.00 ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı">16 saat</td>
-                  <td data-label="Mükafat Faizi">20%</td>
-                  <td data-label="Saatlıq Əməkhaqqı">5.29 ₼</td>
-                  <td data-label="Gecə Növbəsi Ödənişi">53.98 ₼</td>
+                  <td data-label="Vəzifə maaşı">889.00 ₼</td>
+                  <td data-label="Əlavə iş saatı">16 saat</td>
+                  <td data-label="Mükafat faizi">20%</td>
+                  <td data-label="Saatlıq əməkhaqqı">5.29 ₼</td>
+                  <td data-label="Gecə növbəsi ödənişi">53.98 ₼</td>
                   <td
-                    data-label="Növbədən Artıq Qalan Əlavə Saat Ödənişi (ikiqat)"
+                    data-label="Növbədən artıq qalan əlavə saat ödənişi (ikiqat)"
                   >
                     264.58 ₼
                   </td>
-                  <td data-label="Bayram Saatı Ödənişi">- ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı Ödənişi (ikiqat)">
+                  <td data-label="Bayram saatı ödənişi">- ₼</td>
+                  <td data-label="Əlavə iş saatı ödənişi (ikiqat)">
                     - ₼
                   </td>
-                  <td data-label="Mükafat Məbləği">- ₼</td>
-                  <td data-label="GROSS Maaş">1207.56 ₼</td>
-                  <td data-label="NETT Gəlir" class="nett">1070.61 ₼</td>
-                  <td data-label="Gəlir Vergisi" class="deductions">
+                  <td data-label="Mükafat məbləği">- ₼</td>
+                  <td data-label="GROSS maaş">1207.56 ₼</td>
+                  <td data-label="NETT gəlir" class="nett">1070.61 ₼</td>
+                  <td data-label="Gəlir vergisi" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="DSMF Ayırmaları" class="deductions">
+                  <td data-label="Məcburi dövlət sosial sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İşsizlikdən Sığorta" class="deductions">
+                  <td data-label="İşsizlikdən sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İcbari Tibbi Sığorta" class="deductions">
+                  <td data-label="İcbari tibbi sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
                 </tr>
@@ -330,40 +332,40 @@
                   <td data-label="№" class="tooltip-td">
                     2
                     <span class="tooltiptext"
-                      ><span>Hesablanma Tarixi:</span
-                      ><span>03/02/2023 19:08:05</span></span
+                      ><span>Hesablanma tarixi:</span
+                      ><span>03.02.2023 19:08:05</span></span
                     >
                   </td>
                   <td data-label="İL">2023</td>
                   <td data-label="AY">Fevral</td>
                   <td data-label="Qrup">B</td>
-                  <td data-label="Vəzifə Maaşı">889.00 ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı">16 saat</td>
-                  <td data-label="Mükafat Faizi">20%</td>
-                  <td data-label="Saatlıq Əməkhaqqı">5.29 ₼</td>
-                  <td data-label="Gecə Növbəsi Ödənişi">53.98 ₼</td>
+                  <td data-label="Vəzifə maaşı">889.00 ₼</td>
+                  <td data-label="Əlavə iş saatı">16 saat</td>
+                  <td data-label="Mükafat faizi">20%</td>
+                  <td data-label="Saatlıq əməkhaqqı">5.29 ₼</td>
+                  <td data-label="Gecə növbəsi ödənişi">53.98 ₼</td>
                   <td
-                    data-label="Növbədən Artıq Qalan Əlavə Saat Ödənişi (ikiqat)"
+                    data-label="Növbədən artıq qalan əlavə saat ödənişi (ikiqat)"
                   >
                     264.58 ₼
                   </td>
-                  <td data-label="Bayram Saatı Ödənişi">- ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı Ödənişi (ikiqat)">
+                  <td data-label="Bayram saatı ödənişi">- ₼</td>
+                  <td data-label="Əlavə iş saatı ödənişi (ikiqat)">
                     - ₼
                   </td>
-                  <td data-label="Mükafat Məbləği">- ₼</td>
-                  <td data-label="GROSS Maaş">1207.56 ₼</td>
-                  <td data-label="NETT Gəlir" class="nett">1070.61 ₼</td>
-                  <td data-label="Gəlir Vergisi" class="deductions">
+                  <td data-label="Mükafat məbləği">- ₼</td>
+                  <td data-label="GROSS maaş">1207.56 ₼</td>
+                  <td data-label="NETT gəlir" class="nett">1070.61 ₼</td>
+                  <td data-label="Gəlir vergisi" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="DSMF Ayırmaları" class="deductions">
+                  <td data-label="Məcburi dövlət sosial sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İşsizlikdən Sığorta" class="deductions">
+                  <td data-label="İşsizlikdən sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İcbari Tibbi Sığorta" class="deductions">
+                  <td data-label="İcbari tibbi sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
                 </tr>
@@ -371,40 +373,40 @@
                   <td data-label="№" class="tooltip-td">
                     3
                     <span class="tooltiptext"
-                      ><span>Hesablanma Tarixi:</span
-                      ><span>03/02/2023 19:08:05</span></span
+                      ><span>Hesablanma tarixi:</span
+                      ><span>03.02.2023 19:08:05</span></span
                     >
                   </td>
                   <td data-label="İL">2023</td>
                   <td data-label="AY">Fevral</td>
                   <td data-label="Qrup">B</td>
-                  <td data-label="Vəzifə Maaşı">889.00 ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı">16 saat</td>
-                  <td data-label="Mükafat Faizi">20%</td>
-                  <td data-label="Saatlıq Əməkhaqqı">5.29 ₼</td>
-                  <td data-label="Gecə Növbəsi Ödənişi">53.98 ₼</td>
+                  <td data-label="Vəzifə maaşı">889.00 ₼</td>
+                  <td data-label="Əlavə iş saatı">16 saat</td>
+                  <td data-label="Mükafat faizi">20%</td>
+                  <td data-label="Saatlıq əməkhaqqı">5.29 ₼</td>
+                  <td data-label="Gecə növbəsi ödənişi">53.98 ₼</td>
                   <td
-                    data-label="Növbədən Artıq Qalan Əlavə Saat Ödənişi (ikiqat)"
+                    data-label="Növbədən artıq qalan əlavə saat ödənişi (ikiqat)"
                   >
                     264.58 ₼
                   </td>
-                  <td data-label="Bayram Saatı Ödənişi">- ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı Ödənişi (ikiqat)">
+                  <td data-label="Bayram saatı ödənişi">- ₼</td>
+                  <td data-label="Əlavə iş saatı ödənişi (ikiqat)">
                     - ₼
                   </td>
-                  <td data-label="Mükafat Məbləği">- ₼</td>
-                  <td data-label="GROSS Maaş">1207.56 ₼</td>
-                  <td data-label="NETT Gəlir" class="nett">1070.61 ₼</td>
-                  <td data-label="Gəlir Vergisi" class="deductions">
+                  <td data-label="Mükafat məbləği">- ₼</td>
+                  <td data-label="GROSS maaş">1207.56 ₼</td>
+                  <td data-label="NETT gəlir" class="nett">1070.61 ₼</td>
+                  <td data-label="Gəlir vergisi" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="DSMF Ayırmaları" class="deductions">
+                  <td data-label="Məcburi dövlət sosial sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İşsizlikdən Sığorta" class="deductions">
+                  <td data-label="İşsizlikdən sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İcbari Tibbi Sığorta" class="deductions">
+                  <td data-label="İcbari tibbi sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
                 </tr>
@@ -412,40 +414,40 @@
                   <td data-label="№" class="tooltip-td">
                     4
                     <span class="tooltiptext"
-                      ><span>Hesablanma Tarixi:</span
-                      ><span>03/02/2023 19:08:05</span></span
+                      ><span>Hesablanma tarixi:</span
+                      ><span>03.02.2023 19:08:05</span></span
                     >
                   </td>
                   <td data-label="İL">2023</td>
                   <td data-label="AY">Fevral</td>
                   <td data-label="Qrup">B</td>
-                  <td data-label="Vəzifə Maaşı">889.00 ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı">16 saat</td>
-                  <td data-label="Mükafat Faizi">20%</td>
-                  <td data-label="Saatlıq Əməkhaqqı">5.29 ₼</td>
-                  <td data-label="Gecə Növbəsi Ödənişi">53.98 ₼</td>
+                  <td data-label="Vəzifə maaşı">889.00 ₼</td>
+                  <td data-label="Əlavə iş saatı">16 saat</td>
+                  <td data-label="Mükafat faizi">20%</td>
+                  <td data-label="Saatlıq əməkhaqqı">5.29 ₼</td>
+                  <td data-label="Gecə növbəsi ödənişi">53.98 ₼</td>
                   <td
-                    data-label="Növbədən Artıq Qalan Əlavə Saat Ödənişi (ikiqat)"
+                    data-label="Növbədən artıq qalan əlavə saat ödənişi (ikiqat)"
                   >
                     264.58 ₼
                   </td>
-                  <td data-label="Bayram Saatı Ödənişi">- ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı Ödənişi (ikiqat)">
+                  <td data-label="Bayram saatı ödənişi">- ₼</td>
+                  <td data-label="Əlavə iş saatı ödənişi (ikiqat)">
                     - ₼
                   </td>
-                  <td data-label="Mükafat Məbləği">- ₼</td>
-                  <td data-label="GROSS Maaş">1207.56 ₼</td>
-                  <td data-label="NETT Gəlir" class="nett">1070.61 ₼</td>
-                  <td data-label="Gəlir Vergisi" class="deductions">
+                  <td data-label="Mükafat məbləği">- ₼</td>
+                  <td data-label="GROSS maaş">1207.56 ₼</td>
+                  <td data-label="NETT gəlir" class="nett">1070.61 ₼</td>
+                  <td data-label="Gəlir vergisi" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="DSMF Ayırmaları" class="deductions">
+                  <td data-label="Məcburi dövlət sosial sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İşsizlikdən Sığorta" class="deductions">
+                  <td data-label="İşsizlikdən sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İcbari Tibbi Sığorta" class="deductions">
+                  <td data-label="İcbari tibbi sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
                 </tr>
@@ -453,40 +455,40 @@
                   <td data-label="№" class="tooltip-td">
                     5
                     <span class="tooltiptext"
-                      ><span>Hesablanma Tarixi:</span
-                      ><span>03/02/2023 19:08:05</span></span
+                      ><span>Hesablanma tarixi:</span
+                      ><span>03.02.2023 19:08:05</span></span
                     >
                   </td>
                   <td data-label="İL">2023</td>
                   <td data-label="AY">Fevral</td>
                   <td data-label="Qrup">B</td>
-                  <td data-label="Vəzifə Maaşı">889.00 ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı">16 saat</td>
-                  <td data-label="Mükafat Faizi">20%</td>
-                  <td data-label="Saatlıq Əməkhaqqı">5.29 ₼</td>
-                  <td data-label="Gecə Növbəsi Ödənişi">53.98 ₼</td>
+                  <td data-label="Vəzifə maaşı">889.00 ₼</td>
+                  <td data-label="Əlavə iş saatı">16 saat</td>
+                  <td data-label="Mükafat faizi">20%</td>
+                  <td data-label="Saatlıq əməkhaqqı">5.29 ₼</td>
+                  <td data-label="Gecə növbəsi ödənişi">53.98 ₼</td>
                   <td
-                    data-label="Növbədən Artıq Qalan Əlavə Saat Ödənişi (ikiqat)"
+                    data-label="Növbədən artıq qalan əlavə saat ödənişi (ikiqat)"
                   >
                     264.58 ₼
                   </td>
-                  <td data-label="Bayram Saatı Ödənişi">- ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı Ödənişi (ikiqat)">
+                  <td data-label="Bayram saatı ödənişi">- ₼</td>
+                  <td data-label="Əlavə iş saatı ödənişi (ikiqat)">
                     - ₼
                   </td>
-                  <td data-label="Mükafat Məbləği">- ₼</td>
-                  <td data-label="GROSS Maaş">1207.56 ₼</td>
-                  <td data-label="NETT Gəlir" class="nett">1070.61 ₼</td>
-                  <td data-label="Gəlir Vergisi" class="deductions">
+                  <td data-label="Mükafat məbləği">- ₼</td>
+                  <td data-label="GROSS maaş">1207.56 ₼</td>
+                  <td data-label="NETT gəlir" class="nett">1070.61 ₼</td>
+                  <td data-label="Gəlir vergisi" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="DSMF Ayırmaları" class="deductions">
+                  <td data-label="Məcburi dövlət sosial sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İşsizlikdən Sığorta" class="deductions">
+                  <td data-label="İşsizlikdən sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İcbari Tibbi Sığorta" class="deductions">
+                  <td data-label="İcbari tibbi sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
                 </tr>
@@ -494,40 +496,40 @@
                   <td data-label="№" class="tooltip-td">
                     6
                     <span class="tooltiptext"
-                      ><span>Hesablanma Tarixi:</span
-                      ><span>03/02/2023 19:08:05</span></span
+                      ><span>Hesablanma tarixi:</span
+                      ><span>03.02.2023 19:08:05</span></span
                     >
                   </td>
                   <td data-label="İL">2023</td>
                   <td data-label="AY">Fevral</td>
                   <td data-label="Qrup">B</td>
-                  <td data-label="Vəzifə Maaşı">889.00 ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı">16 saat</td>
-                  <td data-label="Mükafat Faizi">20%</td>
-                  <td data-label="Saatlıq Əməkhaqqı">5.29 ₼</td>
-                  <td data-label="Gecə Növbəsi Ödənişi">53.98 ₼</td>
+                  <td data-label="Vəzifə maaşı">889.00 ₼</td>
+                  <td data-label="Əlavə iş saatı">16 saat</td>
+                  <td data-label="Mükafat faizi">20%</td>
+                  <td data-label="Saatlıq əməkhaqqı">5.29 ₼</td>
+                  <td data-label="Gecə növbəsi ödənişi">53.98 ₼</td>
                   <td
-                    data-label="Növbədən Artıq Qalan Əlavə Saat Ödənişi (ikiqat)"
+                    data-label="Növbədən artıq qalan əlavə saat ödənişi (ikiqat)"
                   >
                     264.58 ₼
                   </td>
-                  <td data-label="Bayram Saatı Ödənişi">- ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı Ödənişi (ikiqat)">
+                  <td data-label="Bayram saatı ödənişi">- ₼</td>
+                  <td data-label="Əlavə iş saatı ödənişi (ikiqat)">
                     - ₼
                   </td>
-                  <td data-label="Mükafat Məbləği">- ₼</td>
-                  <td data-label="GROSS Maaş">1207.56 ₼</td>
-                  <td data-label="NETT Gəlir" class="nett">1070.61 ₼</td>
-                  <td data-label="Gəlir Vergisi" class="deductions">
+                  <td data-label="Mükafat məbləği">- ₼</td>
+                  <td data-label="GROSS maaş">1207.56 ₼</td>
+                  <td data-label="NETT gəlir" class="nett">1070.61 ₼</td>
+                  <td data-label="Gəlir vergisi" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="DSMF Ayırmaları" class="deductions">
+                  <td data-label="Məcburi dövlət sosial sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İşsizlikdən Sığorta" class="deductions">
+                  <td data-label="İşsizlikdən sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İcbari Tibbi Sığorta" class="deductions">
+                  <td data-label="İcbari tibbi sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
                 </tr>
@@ -535,40 +537,40 @@
                   <td data-label="№" class="tooltip-td">
                     7
                     <span class="tooltiptext"
-                      ><span>Hesablanma Tarixi:</span
-                      ><span>03/02/2023 19:08:05</span></span
+                      ><span>Hesablanma tarixi:</span
+                      ><span>03.02.2023 19:08:05</span></span
                     >
                   </td>
                   <td data-label="İL">2023</td>
                   <td data-label="AY">Fevral</td>
                   <td data-label="Qrup">B</td>
-                  <td data-label="Vəzifə Maaşı">889.00 ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı">16 saat</td>
-                  <td data-label="Mükafat Faizi">20%</td>
-                  <td data-label="Saatlıq Əməkhaqqı">5.29 ₼</td>
-                  <td data-label="Gecə Növbəsi Ödənişi">53.98 ₼</td>
+                  <td data-label="Vəzifə maaşı">889.00 ₼</td>
+                  <td data-label="Əlavə iş saatı">16 saat</td>
+                  <td data-label="Mükafat faizi">20%</td>
+                  <td data-label="Saatlıq əməkhaqqı">5.29 ₼</td>
+                  <td data-label="Gecə növbəsi ödənişi">53.98 ₼</td>
                   <td
-                    data-label="Növbədən Artıq Qalan Əlavə Saat Ödənişi (ikiqat)"
+                    data-label="Növbədən artıq qalan əlavə saat ödənişi (ikiqat)"
                   >
                     264.58 ₼
                   </td>
-                  <td data-label="Bayram Saatı Ödənişi">- ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı Ödənişi (ikiqat)">
+                  <td data-label="Bayram saatı ödənişi">- ₼</td>
+                  <td data-label="Əlavə iş saatı ödənişi (ikiqat)">
                     - ₼
                   </td>
-                  <td data-label="Mükafat Məbləği">- ₼</td>
-                  <td data-label="GROSS Maaş">1207.56 ₼</td>
-                  <td data-label="NETT Gəlir" class="nett">1070.61 ₼</td>
-                  <td data-label="Gəlir Vergisi" class="deductions">
+                  <td data-label="Mükafat məbləği">- ₼</td>
+                  <td data-label="GROSS maaş">1207.56 ₼</td>
+                  <td data-label="NETT gəlir" class="nett">1070.61 ₼</td>
+                  <td data-label="Gəlir vergisi" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="DSMF Ayırmaları" class="deductions">
+                  <td data-label="Məcburi dövlət sosial sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İşsizlikdən Sığorta" class="deductions">
+                  <td data-label="İşsizlikdən sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İcbari Tibbi Sığorta" class="deductions">
+                  <td data-label="İcbari tibbi sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
                 </tr>
@@ -576,40 +578,40 @@
                   <td data-label="№" class="tooltip-td">
                     8
                     <span class="tooltiptext"
-                      ><span>Hesablanma Tarixi:</span
-                      ><span>03/02/2023 19:08:05</span></span
+                      ><span>Hesablanma tarixi:</span
+                      ><span>03.02.2023 19:08:05</span></span
                     >
                   </td>
                   <td data-label="İL">2023</td>
                   <td data-label="AY">Fevral</td>
                   <td data-label="Qrup">B</td>
-                  <td data-label="Vəzifə Maaşı">889.00 ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı">16 saat</td>
-                  <td data-label="Mükafat Faizi">20%</td>
-                  <td data-label="Saatlıq Əməkhaqqı">5.29 ₼</td>
-                  <td data-label="Gecə Növbəsi Ödənişi">53.98 ₼</td>
+                  <td data-label="Vəzifə maaşı">889.00 ₼</td>
+                  <td data-label="Əlavə iş saatı">16 saat</td>
+                  <td data-label="Mükafat faizi">20%</td>
+                  <td data-label="Saatlıq əməkhaqqı">5.29 ₼</td>
+                  <td data-label="Gecə növbəsi ödənişi">53.98 ₼</td>
                   <td
-                    data-label="Növbədən Artıq Qalan Əlavə Saat Ödənişi (ikiqat)"
+                    data-label="Növbədən artıq qalan əlavə saat ödənişi (ikiqat)"
                   >
                     264.58 ₼
                   </td>
-                  <td data-label="Bayram Saatı Ödənişi">- ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı Ödənişi (ikiqat)">
+                  <td data-label="Bayram saatı ödənişi">- ₼</td>
+                  <td data-label="Əlavə iş saatı ödənişi (ikiqat)">
                     - ₼
                   </td>
-                  <td data-label="Mükafat Məbləği">- ₼</td>
-                  <td data-label="GROSS Maaş">1207.56 ₼</td>
-                  <td data-label="NETT Gəlir" class="nett">1070.61 ₼</td>
-                  <td data-label="Gəlir Vergisi" class="deductions">
+                  <td data-label="Mükafat məbləği">- ₼</td>
+                  <td data-label="GROSS maaş">1207.56 ₼</td>
+                  <td data-label="NETT gəlir" class="nett">1070.61 ₼</td>
+                  <td data-label="Gəlir vergisi" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="DSMF Ayırmaları" class="deductions">
+                  <td data-label="Məcburi dövlət sosial sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İşsizlikdən Sığorta" class="deductions">
+                  <td data-label="İşsizlikdən sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İcbari Tibbi Sığorta" class="deductions">
+                  <td data-label="İcbari tibbi sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
                 </tr>
@@ -617,40 +619,40 @@
                   <td data-label="№" class="tooltip-td">
                     9
                     <span class="tooltiptext"
-                      ><span>Hesablanma Tarixi:</span
-                      ><span>03/02/2023 19:08:05</span></span
+                      ><span>Hesablanma tarixi:</span
+                      ><span>03.02.2023 19:08:05</span></span
                     >
                   </td>
                   <td data-label="İL">2023</td>
                   <td data-label="AY">Fevral</td>
                   <td data-label="Qrup">B</td>
-                  <td data-label="Vəzifə Maaşı">889.00 ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı">16 saat</td>
-                  <td data-label="Mükafat Faizi">20%</td>
-                  <td data-label="Saatlıq Əməkhaqqı">5.29 ₼</td>
-                  <td data-label="Gecə Növbəsi Ödənişi">53.98 ₼</td>
+                  <td data-label="Vəzifə maaşı">889.00 ₼</td>
+                  <td data-label="Əlavə iş saatı">16 saat</td>
+                  <td data-label="Mükafat faizi">20%</td>
+                  <td data-label="Saatlıq əməkhaqqı">5.29 ₼</td>
+                  <td data-label="Gecə növbəsi ödənişi">53.98 ₼</td>
                   <td
-                    data-label="Növbədən Artıq Qalan Əlavə Saat Ödənişi (ikiqat)"
+                    data-label="Növbədən artıq qalan əlavə saat ödənişi (ikiqat)"
                   >
                     264.58 ₼
                   </td>
-                  <td data-label="Bayram Saatı Ödənişi">- ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı Ödənişi (ikiqat)">
+                  <td data-label="Bayram saatı ödənişi">- ₼</td>
+                  <td data-label="Əlavə iş saatı ödənişi (ikiqat)">
                     - ₼
                   </td>
-                  <td data-label="Mükafat Məbləği">- ₼</td>
-                  <td data-label="GROSS Maaş">1207.56 ₼</td>
-                  <td data-label="NETT Gəlir" class="nett">1070.61 ₼</td>
-                  <td data-label="Gəlir Vergisi" class="deductions">
+                  <td data-label="Mükafat məbləği">- ₼</td>
+                  <td data-label="GROSS maaş">1207.56 ₼</td>
+                  <td data-label="NETT gəlir" class="nett">1070.61 ₼</td>
+                  <td data-label="Gəlir vergisi" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="DSMF Ayırmaları" class="deductions">
+                  <td data-label="Məcburi dövlət sosial sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İşsizlikdən Sığorta" class="deductions">
+                  <td data-label="İşsizlikdən sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İcbari Tibbi Sığorta" class="deductions">
+                  <td data-label="İcbari tibbi sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
                 </tr>
@@ -658,40 +660,40 @@
                   <td data-label="№" class="tooltip-td">
                     10
                     <span class="tooltiptext"
-                      ><span>Hesablanma Tarixi:</span
-                      ><span>03/02/2023 19:08:05</span></span
+                      ><span>Hesablanma tarixi:</span
+                      ><span>03.02.2023 19:08:05</span></span
                     >
                   </td>
                   <td data-label="İL">2023</td>
                   <td data-label="AY">Fevral</td>
                   <td data-label="Qrup">B</td>
-                  <td data-label="Vəzifə Maaşı">889.00 ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı">16 saat</td>
-                  <td data-label="Mükafat Faizi">20%</td>
-                  <td data-label="Saatlıq Əməkhaqqı">5.29 ₼</td>
-                  <td data-label="Gecə Növbəsi Ödənişi">53.98 ₼</td>
+                  <td data-label="Vəzifə maaşı">889.00 ₼</td>
+                  <td data-label="Əlavə iş saatı">16 saat</td>
+                  <td data-label="Mükafat faizi">20%</td>
+                  <td data-label="Saatlıq əməkhaqqı">5.29 ₼</td>
+                  <td data-label="Gecə növbəsi ödənişi">53.98 ₼</td>
                   <td
-                    data-label="Növbədən Artıq Qalan Əlavə Saat Ödənişi (ikiqat)"
+                    data-label="Növbədən artıq qalan əlavə saat ödənişi (ikiqat)"
                   >
                     264.58 ₼
                   </td>
-                  <td data-label="Bayram Saatı Ödənişi">- ₼</td>
-                  <td data-label="İstirahət Günü Əlavə Saatı Ödənişi (ikiqat)">
+                  <td data-label="Bayram saatı ödənişi">- ₼</td>
+                  <td data-label="Əlavə iş saatı ödənişi (ikiqat)">
                     - ₼
                   </td>
-                  <td data-label="Mükafat Məbləği">- ₼</td>
-                  <td data-label="GROSS Maaş">1207.56 ₼</td>
-                  <td data-label="NETT Gəlir" class="nett">1070.61 ₼</td>
-                  <td data-label="Gəlir Vergisi" class="deductions">
+                  <td data-label="Mükafat məbləği">- ₼</td>
+                  <td data-label="GROSS maaş">1207.56 ₼</td>
+                  <td data-label="NETT gəlir" class="nett">1070.61 ₼</td>
+                  <td data-label="Gəlir vergisi" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="DSMF Ayırmaları" class="deductions">
+                  <td data-label="Məcburi dövlət sosial sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İşsizlikdən Sığorta" class="deductions">
+                  <td data-label="İşsizlikdən sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
-                  <td data-label="İcbari Tibbi Sığorta" class="deductions">
+                  <td data-label="İcbari tibbi sığorta haqqı" class="deductions">
                     -1070.61 ₼
                   </td>
                 </tr>
@@ -717,11 +719,11 @@
             <span class="logo_name">Salary<span>Calc</span></span>
           </div>
           <div class="media-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="github"><i class="fab fa-github"></i></a>
+            <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
           </div>
           <div class="line-footer"></div>
         </div>

@@ -1,0 +1,188 @@
+/* ===== Group radio ===== */
+.div-group .form-check {
+  position: relative;
+  padding-left: 30px;
+}
+
+.div-group .form-check-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.form-check-label {
+  cursor: pointer;
+}
+
+.div-group .form-check-label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #007bff;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.div-group .form-check-input:checked + .form-check-label:before {
+  background-color: #007bff;
+  transform: scale(1.2);
+}
+
+.div-group .form-check-label:hover:before {
+  border-color: #0056b3;
+}
+
+/* ===== Responsive Table ===== */
+.tooltip-td {
+  position: relative;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip-td .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: #fff;
+  font-size: 9px !important;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 110%;
+}
+
+.tooltip-td .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  bottom: 100%;
+  left: -100%;
+  margin-top: -5px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+
+.tooltip-td:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip-td:hover {
+  background-color: #00facc;
+}
+
+.salary-table table thead th {
+  background-color: #007c7c;
+  color: #fff;
+}
+
+.salary-table table th {
+  font-size: 13px;
+}
+.salary-table table td {
+  font-size: 12px;
+}
+.salary-table table .deductions {
+  color: #ff0000;
+}
+
+/* .salary-table table tbody tr:nth-child(odd) .deductions {
+  background-color: #333;
+} */
+
+.salary-table table tbody tr:nth-child(odd) .nett {
+  background-color: #9ACD32;
+}
+
+/* .salary-table table tbody tr:nth-child(even) .deductions {
+  background-color: #444;
+} */
+
+.salary-table table tbody tr:nth-child(even) .nett {
+  background-color: #a8df39;
+}
+
+@media screen and (max-width: 768px) {
+  .tooltip-td {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+
+  .tooltip-td .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 120%;
+    left: 50%;
+    margin-left: -60px;
+  }
+
+  .tooltip-td .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    right: 100%;
+    bottom: 100%;
+    left: 50%;
+    margin-top: -5px;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+  }
+
+  .tooltip-td:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  .salary-table table thead {
+    overflow: hidden;
+    position: absolute;
+    width: 0px;
+  }
+
+  /* .salary-table table tbody tr .deductions {
+    background-color: #333 !important;
+  } */
+
+  .salary-table table tbody tr .nett {
+    background-color: #9ACD32 !important;
+  }
+
+  .salary-table table tr {
+    border-top: 3px solid #000;
+    border-bottom: 3px solid #000;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .salary-table table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 11.5px;
+    text-align: right;
+  }
+
+  .salary-table table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    font-size: 9.7px;
+  }
+}

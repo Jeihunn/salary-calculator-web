@@ -1,0 +1,7 @@
+.thumbnail-img {
+  max-height: 40px;
+  max-width: 40px;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 5px;
+  border: 0.5px solid #333;
+}

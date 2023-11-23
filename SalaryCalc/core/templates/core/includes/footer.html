@@ -1,0 +1,67 @@
+{% load static %}
+
+<footer>
+  <div class="content">
+    <div class="top">
+      <div class="logo-details">
+        <img src="{% static "img/salary-calc-icon.png" %}"
+        alt="salary-calc-logo" class="footer-logo" />
+        <span class="logo_name">Salary<span>Calc</span></span>
+      </div>
+      <div class="media-icons">
+        {% if site_info_global.facebook_url %}
+        <a href="{{ site_info_global.facebook_url }}" class="facebook"><i class="fab fa-facebook-f"></i></a>
+        {% endif %}
+        {% if site_info_global.github_url %}
+        <a href="{{ site_info_global.github_url }}" class="github"><i class="fab fa-github"></i></a>
+        {% endif %}
+        {% if site_info_global.instagram_url %}
+        <a href="{{ site_info_global.instagram_url }}" class="instagram"><i class="fab fa-instagram"></i></a>
+        {% endif %}
+        {% if site_info_global.linkedin_url %}
+        <a href="{{ site_info_global.linkedin_url }}" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+        {% endif %}
+        {% if site_info_global.youtube_url %}
+        <a href="{{ site_info_global.youtube_url }}" class="youtube"><i class="fab fa-youtube"></i></a>
+        {% endif %}
+      </div>
+      <div class="line-footer"></div>
+    </div>
+
+    <div class="link-boxes">
+      <ul class="box">
+        <li class="link_name">Səhifələr</li>
+        <li><a href="{% url "core:index_view" %}">Maaş</a></li>
+        <li><a href="{% url "core:groos_to_nett_view" %}">Gross'dan Nett'ə</a></li>
+        <li><a href="{% url "core:nett_to_gross_view" %}">Nett'dən Gross'a</a></li>
+      </ul>
+      <ul class="box">
+        <li class="link_name">Səhifələr</li>
+        <li><a href="{% url "core:contact_view" %}">Əlaqə</a></li>
+        <li><a href="{% url "core:faq_view" %}">Tez-tez verilən suallar</a></li>
+        <li><a href="{% url "core:work_calendar_view" %}">İstehsalat Təqvimi</a></li>
+      </ul>
+      <ul class="box input-box">
+        <li class="link_name">Abunə ol</li>
+        <form id="subscribe-form" method="post">
+          {% csrf_token %}
+          <li><input type="email" name="email" id="subscribe-email" placeholder="Elektron ünvanı qeyd et" /></li>
+          <ul class="errorlist"></ul>
+          <li><input type="submit" value="Abunə ol" /></li>
+        </form>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom-details">
+    <div class="bottom_text">
+      <span class="copyright_text"
+        >Copyright &#169; 2023 <a href="#">SalaryCalc.</a>Bütün hüquqları
+        qorunur</span
+      >
+      <span class="policy_terms">
+        <a href="{% if site_info_global.privacy_policy_url %}{{ site_info_global.privacy_policy_url }}{% else %}#{% endif %}">Gizlilik siyasəti</a>
+        <a href="{% if site_info_global.terms_condition_url %}{{ site_info_global.terms_condition_url }}{% else %}#{% endif %}">Şərtlər & qaydalar</a>
+      </span>
+    </div>
+  </div>
+</footer>

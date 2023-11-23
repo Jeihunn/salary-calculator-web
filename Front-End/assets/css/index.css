@@ -86,29 +86,29 @@
 }
 
 .salary-table table th {
-  font-size: 11px;
+  font-size: 13px;
 }
 .salary-table table td {
-  font-size: 10px;
+  font-size: 12px;
 }
 .salary-table table .deductions {
-  color: #ff7777;
+  color: #ff0000;
 }
 
-.salary-table table tbody tr:nth-child(odd) .deductions {
+/* .salary-table table tbody tr:nth-child(odd) .deductions {
   background-color: #333;
-}
+} */
 
 .salary-table table tbody tr:nth-child(odd) .nett {
-  background-color: #ffa500;
+  background-color: #9ACD32;
 }
 
-.salary-table table tbody tr:nth-child(even) .deductions {
+/* .salary-table table tbody tr:nth-child(even) .deductions {
   background-color: #444;
-}
+} */
 
 .salary-table table tbody tr:nth-child(even) .nett {
-  background-color: #ffc266;
+  background-color: #a8df39;
 }
 
 @media screen and (max-width: 768px) {
@@ -157,12 +157,12 @@
     width: 0px;
   }
 
-  .salary-table table tbody tr .deductions {
+  /* .salary-table table tbody tr .deductions {
     background-color: #333 !important;
-  }
+  } */
 
   .salary-table table tbody tr .nett {
-    background-color: #ffa500 !important;
+    background-color: #9ACD32 !important;
   }
 
   .salary-table table tr {

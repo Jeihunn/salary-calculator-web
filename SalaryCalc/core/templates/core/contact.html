@@ -1,0 +1,129 @@
+{% extends "core/base.html" %}
+{% load static widget_tweaks tags %}
+
+{% block page_title %}
+<title>Əlaqə | SalaryCalc</title>
+{% endblock page_title %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/contact.css" %}" />
+{% endblock css %}
+
+
+{% block header_page_title %}
+<div class="page-title">
+  <h1>Əlaqə</h1>
+</div>
+{% endblock header_page_title %}
+
+
+{% block main %}
+<main>
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Bizimlə Əlaqə Qurun</h3>
+          <p class="text">
+            Sual və təklifləriniz üçün bizə rahatlıqla yazın. Sizinlə əlaqə saxlamaq üçün buradayıq!
+          </p>
+          <div class="info">
+            {% if site_info_global.email1 or site_info_global.email2 or site_info_global.email3 %}
+            <div class="information">
+              <i class="fa-regular fa-envelope"></i>
+              <span>
+                {% if site_info_global.email1 %}
+                <p>{{ site_info_global.email1 }}</p>
+                {% endif %}
+                {% if site_info_global.email2 %}
+                <p>{{ site_info_global.email2 }}</p>
+                {% endif %}
+                {% if site_info_global.email3 %}
+                <p>{{ site_info_global.email3 }}</p>
+                {% endif %}
+              </span>
+            </div>
+            {% endif %}
+            {% if site_info_global.phone_number1 or site_info_global.phone_number2 or site_info_global.phone_number3 %}
+            <div class="information">
+              <i class="fa-solid fa-phone-volume"></i>
+              <span>
+                {% if site_info_global.phone_number1 %}
+                <p>{{ site_info_global.phone_number1 }}</p>
+                {% endif %}
+                {% if site_info_global.phone_number2 %}
+                <p>{{ site_info_global.phone_number2 }}</p>
+                {% endif %}
+                {% if site_info_global.phone_number3 %}
+                <p>{{ site_info_global.phone_number3 }}</p>
+                {% endif %}
+              </span>
+            </div>
+            {% endif %}
+          </div>
+
+          {% if site_info_global.facebook_url or site_info_global.github_url or site_info_global.instagram_url or site_info_global.linkedin_url or site_info_global.youtube_url %}
+          <div class="social-media">
+            <p>Bizimlə əlaqə:</p>
+            <div class="social-icons">
+              {% if site_info_global.facebook_url %}
+              <a href="{{ site_info_global.facebook_url }}">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              {% endif %}
+              {% if site_info_global.github_url %}
+              <a href="{{ site_info_global.github_url }}">
+                <i class="fab fa-github"></i>
+              </a>
+              {% endif %}
+              {% if site_info_global.instagram_url %}
+              <a href="{{ site_info_global.instagram_url }}">
+                <i class="fab fa-instagram"></i>
+              </a>
+              {% endif %}
+              {% if site_info_global.linkedin_url %}
+              <a href="{{ site_info_global.linkedin_url }}">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              {% endif %}
+              {% if site_info_global.youtube_url %}
+              <a href="{{ site_info_global.youtube_url }}">
+                <i class="fab fa-youtube"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="contact-form">
+          <!-- ===== Contact Form ===== -->
+          <form autocomplete="off" method="post">
+            {% csrf_token %}
+            <h3 class="title">Əlaqə</h3>
+            <div class="input-container">
+              {{ form.full_name }}
+              {{ form.full_name.errors }}
+            </div>
+            <div class="input-container">
+              {{ form.email }}
+              {{ form.email.errors }}
+            </div>
+            <div class="input-container">
+              {{ form.subject }}
+              {{ form.subject.errors }}
+            </div>
+            <div class="input-container textarea">
+              {{ form.message }}
+              {{ form.message.errors }}
+            </div>
+            <input type="submit" value="Göndər" class="btn-submit" />
+          </form>
+          <!-- ===== END Contact Form ===== -->
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock main %}

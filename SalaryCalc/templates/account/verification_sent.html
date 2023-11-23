@@ -1,0 +1,26 @@
+{% extends "core/base.html" %}
+
+{% block page_title %}
+<title>E-poçt ünvanının doğrulanması | SalaryCalc</title>
+{% endblock page_title %}
+
+
+{% block main %}
+<main>
+    <div class="container text-center my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card p-3" style="min-height: 150px;">
+                    <div class="card-body">
+                        <i class="fas fa-envelope fa-5x mb-3 text-primary"></i>
+                        <h2 class="card-title">E-poçt Ünvanınızı Təsdiqləyin</h2>
+                        <p class="card-text">
+                            Doğrulama üçün sizə təsdiq e-məktubu göndərdik. Qeydiyyat prosesini başa vurmaq üçün verilmiş bağlantını izləyin. Təsdiq e-məktubunu əsas gələnlər qutunuzda görmürsünüzsə, spam qovluğunuzu yoxlayın. Bir neçə dəqiqə ərzində onu almasanız, <a href="{% url "core:contact_view" %}" class="link-primary">bizimlə əlaqə saxlayın</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock main %}

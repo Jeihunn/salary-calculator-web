@@ -1,0 +1,227 @@
+{% extends "core/base.html" %}
+{% load static tags %}
+
+{% block page_title %}
+<title>İstehsalat təqvimi | SalaryCalc</title>
+{% endblock page_title %}
+
+
+{% block header_page_title %}
+<div class="page-title">
+  <h1>İstehsalat Təqvimi</h1>
+</div>
+{% endblock header_page_title %}
+
+
+{% block main %}
+<main>
+  <div class="container-fluid my-4">
+    {% for year in years %}
+    <!-- ===== Table ===== -->
+    {% with work_calendar_data|keyvalue:year as wcd_year %}
+      <div class="p-2 mt-4 rounded bg-secondary-subtle text-center">
+        <div class="table-responsive salary-table">
+          <table
+            class="table table-bordered border-dark table-striped text-center table-work-calendar custom-table-hover"
+            style="border: 3px solid #000"
+          >
+            <thead>
+              <tr>
+                <th
+                  colspan="18"
+                  style="
+                    font-size: 40px;
+                    background-color: rgb(190, 190, 190);
+                  "
+                >
+                  {{ year }}
+                </th>
+              </tr>
+              <tr>
+                <th
+                  colspan="1"
+                  rowspan="3"
+                  style="
+                    width: 10%;
+                    font-size: 14px;
+                  "
+                >
+                  İlin ayları
+                </th>
+                <th
+                  colspan="1"
+                  rowspan="3"
+                  style="
+                    width: 10%;
+                    font-size: 14px;
+                  "
+                >
+                  İstehsalat təqviminə uyğun aylıq iş norması
+                </th>
+                <th
+                  colspan="16"
+                  style="width: 80%;"
+                >
+                  Qruplar
+                </th>
+              </tr>
+              <tr>
+                <th
+                  colspan="4"
+                  style="
+                    border-left: 3px solid #000;
+                  "
+                >
+                  A
+                </th>
+                <th
+                  colspan="4"
+                  style="
+                    border-left: 3px solid #000;
+                  "
+                >
+                  B
+                </th>
+                <th
+                  colspan="4"
+                  style="
+                    border-left: 3px solid #000;
+                  "
+                >
+                  C
+                </th>
+                <th
+                  colspan="4"
+                  style="
+                    border-left: 3px solid #000;
+                  "
+                >
+                  D
+                </th>
+              </tr>
+              <tr style="font-size: 11px">
+                <th
+                  colspan="1"
+                  style="
+                    border-left: 3px solid #000;
+                  "
+                >
+                  Ümumi iş saatı
+                </th>
+                <th colspan="1">
+                  Gündüz iş saatı
+                </th>
+                <th
+                  colspan="1"
+                >
+                  Gecə iş saatı
+                </th>
+                <th colspan="1">
+                  Bayram iş saatı
+                </th>
+                <th
+                  colspan="1"
+                  style="
+                    border-left: 3px solid #000;
+                  "
+                >
+                  Ümumi iş saatı
+                </th>
+                <th colspan="1">
+                  Gündüz iş saatı
+                </th>
+                <th
+                  colspan="1"
+                >
+                  Gecə iş saatı
+                </th>
+                <th colspan="1">
+                  Bayram iş saatı
+                </th>
+                <th
+                  colspan="1"
+                  style="
+                    border-left: 3px solid #000;
+                  "
+                >
+                  Ümumi iş saatı
+                </th>
+                <th colspan="1">
+                  Gündüz iş saatı
+                </th>
+                <th
+                  colspan="1"
+                >
+                  Gecə iş saatı
+                </th>
+                <th colspan="1">
+                  Bayram iş saatı
+                </th>
+                <th
+                  colspan="1"
+                  style="
+                    border-left: 3px solid #000;
+                  "
+                >
+                  Ümumi iş saatı
+                </th>
+                <th colspan="1">
+                  Gündüz iş saatı
+                </th>
+                <th
+                  colspan="1"
+                >
+                  Gecə iş saatı
+                </th>
+                <th colspan="1">
+                  Bayram iş saatı
+                </th>
+              </tr>
+            </thead>
+            <tbody style="font-size: 13px">
+              {% for month in months %}
+                <tr>
+                  <td>{{ month.name }}</td>
+                  {% with wcd_year|keyvalue:month.month_number as wcd_year_month %}
+                    <td>{{ wcd_year_month|keyvalue:'monthly_work_hour' }}</td>
+                    <td class="group-a" style="border-left: 3px solid #000">{{ wcd_year_month|keyvalue:'group_a_general_work_hour' }}</td>
+                    <td class="group-a">{{ wcd_year_month|keyvalue:'group_a_daytime_work_hour' }}</td>
+                    <td class="group-a">{{ wcd_year_month|keyvalue:'group_a_nighttime_work_hour' }}</td>
+                    <td class="group-a">{% if wcd_year_month|keyvalue:'group_a_holiday_work_hour' %}{{ wcd_year_month|keyvalue:'group_a_holiday_work_hour' }}{% endif %}</td>
+                    <td class="group-b" style="border-left: 3px solid #000">{{ wcd_year_month|keyvalue:'group_b_general_work_hour' }}</td>
+                    <td class="group-b">{{ wcd_year_month|keyvalue:'group_b_daytime_work_hour' }}</td>
+                    <td class="group-b">{{ wcd_year_month|keyvalue:'group_b_nighttime_work_hour' }}</td>
+                    <td class="group-b">{% if wcd_year_month|keyvalue:'group_b_holiday_work_hour' %}{{ wcd_year_month|keyvalue:'group_b_holiday_work_hour' }}{% endif %}</td>
+                    <td class="group-c" style="border-left: 3px solid #000">{{ wcd_year_month|keyvalue:'group_c_general_work_hour' }}</td>
+                    <td class="group-c">{{ wcd_year_month|keyvalue:'group_c_daytime_work_hour' }}</td>
+                    <td class="group-c">{{ wcd_year_month|keyvalue:'group_c_nighttime_work_hour' }}</td>
+                    <td class="group-c">{% if wcd_year_month|keyvalue:'group_c_holiday_work_hour' %}{{ wcd_year_month|keyvalue:'group_c_holiday_work_hour' }}{% endif %}</td>
+                    <td class="group-d" style="border-left: 3px solid #000">{{ wcd_year_month|keyvalue:'group_d_general_work_hour' }}</td>
+                    <td class="group-d">{{ wcd_year_month|keyvalue:'group_d_daytime_work_hour' }}</td>
+                    <td class="group-d">{{ wcd_year_month|keyvalue:'group_d_nighttime_work_hour' }}</td>
+                    <td class="group-d">{% if wcd_year_month|keyvalue:'group_d_holiday_work_hour' %}{{ wcd_year_month|keyvalue:'group_d_holiday_work_hour' }}{% endif %}</td>
+                  {% endwith %}
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        {% if wcd_year|keyvalue:'image' %}
+          <img
+            src="{{ wcd_year|keyvalue:'image' }}"
+            alt="istehsalat-teqvimi"
+            class="img-fluid img-thumbnail mt-4"
+          />
+        {% endif %}
+      </div>
+    {% endwith %}
+    <!-- ===== END Table ===== -->
+    {% empty %}
+    <div class="container alert alert-info" role="alert">
+      <strong>Heç bir məlumat yoxdur!</strong>
+    </div>
+    {% endfor %}
+  </div>
+</main>
+{% endblock main %}
