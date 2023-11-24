@@ -316,7 +316,7 @@ JAZZMIN_SETTINGS = {
         "identity.Blacklist": "fas fa-ban",
 
         # core APP
-        "core.Year": "fas fa-calendar-alt",  # Örneğin, takvim ikonu
+        "core.Year": "fas fa-calendar-alt",
         "core.Month": "fas fa-calendar",
         "core.Shift": "fas fa-clock",
         "core.WorkCalendar": "fas fa-calendar-check",
