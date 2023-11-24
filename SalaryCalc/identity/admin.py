@@ -14,7 +14,7 @@ User = get_user_model()
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
     list_display = ["id", "username", "email", "first_name",
-                    "last_name", "is_active", "is_staff", "is_superuser"]
+                    "last_name", "is_active", "is_staff", "is_superuser", "date_joined"]
     list_display_links = ["id", "username"]
     list_filter = ["is_active", "is_staff", "is_superuser"]
     search_fields = ["username", "email", "first_name", "last_name"]

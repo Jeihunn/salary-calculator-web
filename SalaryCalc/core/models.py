@@ -458,6 +458,10 @@ class Contact(models.Model):
     message = models.TextField(
         verbose_name=_("Mesaj")
     )
+    is_resolved = models.BooleanField(
+        verbose_name=_("Həll edildi"),
+        default=False
+    )
     created_at = models.DateTimeField(
         verbose_name=_("Yaradılma vaxtı"),
         auto_now_add=True
