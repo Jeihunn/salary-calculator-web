@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-17 00:15+0400\n"
+"POT-Creation-Date: 2023-11-24 14:08+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,17 +18,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\config\settings.py:294
+#: .\config\settings.py:304
 msgid "SAYTI ZİYARƏT ET"
 msgstr ""
 
 #: .\core\admin.py:31
 #, python-brace-format
-msgid "{count} obyektin aktivlik vəziyyəti uğurla dəyiştirildi."
+msgid "{count} obyektin aktivlik vəziyyəti uğurla dəyişdirildi."
 msgstr ""
 
 #: .\core\admin.py:36
-msgid "Seçilənlərin Aktivlik vəziyyətini dəyiştir"
+msgid "Seçilənlərin Aktivlik vəziyyətini dəyiş"
 msgstr ""
 
 #: .\core\admin.py:83
@@ -47,28 +47,37 @@ msgstr ""
 msgid "Qrup D"
 msgstr ""
 
-#: .\core\admin.py:153 .\core\models.py:412
+#: .\core\admin.py:153 .\core\models.py:413
 msgid "Sual"
 msgstr ""
 
-#: .\core\admin.py:162 .\core\models.py:415
+#: .\core\admin.py:162 .\core\models.py:416
 msgid "Cavab"
 msgstr ""
 
-#: .\core\admin.py:189
+#: .\core\admin.py:180
 #, python-brace-format
-msgid "{count} obyektin abunə statusu uğurla dəyiştirildi."
+msgid "{count} obyektin Həll edildi vəziyyəti uğurla dəyişdirildi."
 msgstr ""
 
-#: .\core\admin.py:193
-msgid "Seçilənlərin Abunə statusunu dəyiştir"
+#: .\core\admin.py:184
+msgid "Seçilənlərin Həll edildi vəziyyətini dəyiş"
 msgstr ""
 
-#: .\core\admin.py:208 .\core\models.py:512
+#: .\core\admin.py:203
+#, python-brace-format
+msgid "{count} obyektin abunə statusu uğurla dəyişdirildi."
+msgstr ""
+
+#: .\core\admin.py:207
+msgid "Seçilənlərin Abunə statusunu dəyiş"
+msgstr ""
+
+#: .\core\admin.py:222 .\core\models.py:514
 msgid "Loqo"
 msgstr ""
 
-#: .\core\admin.py:214 .\core\models.py:518
+#: .\core\admin.py:228 .\core\models.py:520
 msgid "Favicon"
 msgstr ""
 
@@ -77,237 +86,244 @@ msgstr ""
 msgid "İl və ay %(min)s və %(max)s arasında olmalıdır"
 msgstr ""
 
-#: .\core\models.py:17 .\core\models.py:34 .\core\models.py:99
-#: .\core\models.py:246 .\core\models.py:290
+#: .\core\models.py:19
+msgid ""
+"Şəklin adı '{}' ASCII olmayan simvolları ehtiva edir. Şəklin adında yalnız "
+"əsas ingilis hərfləri (A-Z, a-z), rəqəmlər və xüsusi simvollar ola bilər. "
+"Lütfən, düzgün şəkil adı daxil edin."
+msgstr ""
+
+#: .\core\models.py:24 .\core\models.py:40 .\core\models.py:103
+#: .\core\models.py:249 .\core\models.py:292
 msgid "İl"
 msgstr ""
 
-#: .\core\models.py:21 .\core\models.py:50 .\core\models.py:79
-#: .\core\models.py:158 .\core\models.py:253 .\core\models.py:393
-#: .\core\models.py:426 .\core\models.py:462 .\core\models.py:489
-#: .\core\models.py:596 .\core\models.py:619 .\identity\models.py:53
+#: .\core\models.py:28 .\core\models.py:56 .\core\models.py:84
+#: .\core\models.py:162 .\core\models.py:256 .\core\models.py:395
+#: .\core\models.py:427 .\core\models.py:466 .\core\models.py:492
+#: .\core\models.py:598 .\core\models.py:620 .\identity\models.py:53
 msgid "Yaradılma vaxtı"
 msgstr ""
 
-#: .\core\models.py:25 .\core\models.py:54 .\core\models.py:83
-#: .\core\models.py:162 .\core\models.py:257 .\core\models.py:397
-#: .\core\models.py:430 .\core\models.py:466 .\core\models.py:493
-#: .\core\models.py:600 .\core\models.py:623 .\identity\models.py:57
+#: .\core\models.py:32 .\core\models.py:60 .\core\models.py:88
+#: .\core\models.py:166 .\core\models.py:260 .\core\models.py:399
+#: .\core\models.py:431 .\core\models.py:470 .\core\models.py:496
+#: .\core\models.py:602 .\core\models.py:624 .\identity\models.py:57
 msgid "Yenilənmə vaxtı"
 msgstr ""
 
-#: .\core\models.py:35
+#: .\core\models.py:41
 msgid "İllər"
 msgstr ""
 
-#: .\core\models.py:40
+#: .\core\models.py:46
 msgid "Ay adı"
 msgstr ""
 
-#: .\core\models.py:45
+#: .\core\models.py:51
 msgid "Ay nömrəsi"
 msgstr ""
 
-#: .\core\models.py:63 .\core\models.py:103 .\core\models.py:295
+#: .\core\models.py:68 .\core\models.py:107 .\core\models.py:297
 msgid "Ay"
 msgstr ""
 
-#: .\core\models.py:64
+#: .\core\models.py:69
 msgid "Aylar"
 msgstr ""
 
-#: .\core\models.py:69
+#: .\core\models.py:74
 msgid "Növbə adı"
 msgstr ""
 
-#: .\core\models.py:74
+#: .\core\models.py:79
 msgid "Növbə dəyəri"
 msgstr ""
 
-#: .\core\models.py:92 .\core\models.py:300
+#: .\core\models.py:96 .\core\models.py:302
 msgid "Növbə"
 msgstr ""
 
-#: .\core\models.py:93
+#: .\core\models.py:97
 msgid "Növbələr"
 msgstr ""
 
-#: .\core\models.py:107
+#: .\core\models.py:111
 msgid "İstehsalat təqviminə uyğun aylıq iş norması"
 msgstr ""
 
-#: .\core\models.py:110
+#: .\core\models.py:114
 msgid "Ümumi iş saatı (A)"
 msgstr ""
 
-#: .\core\models.py:113
+#: .\core\models.py:117
 msgid "Gündüz iş saatı (A)"
 msgstr ""
 
-#: .\core\models.py:116
+#: .\core\models.py:120
 msgid "Gecə iş saatı (A)"
 msgstr ""
 
-#: .\core\models.py:119
+#: .\core\models.py:123
 msgid "Bayram iş saatı (A)"
 msgstr ""
 
-#: .\core\models.py:122
+#: .\core\models.py:126
 msgid "Ümumi iş saatı (B)"
 msgstr ""
 
-#: .\core\models.py:125
+#: .\core\models.py:129
 msgid "Gündüz iş saatı (B)"
 msgstr ""
 
-#: .\core\models.py:128
+#: .\core\models.py:132
 msgid "Gecə iş saatı (B)"
 msgstr ""
 
-#: .\core\models.py:131
+#: .\core\models.py:135
 msgid "Bayram iş saatı (B)"
 msgstr ""
 
-#: .\core\models.py:134
+#: .\core\models.py:138
 msgid "Ümumi iş saatı (C)"
 msgstr ""
 
-#: .\core\models.py:137
+#: .\core\models.py:141
 msgid "Gündüz iş saatı (C)"
 msgstr ""
 
-#: .\core\models.py:140
+#: .\core\models.py:144
 msgid "Gecə iş saatı (C)"
 msgstr ""
 
-#: .\core\models.py:143
+#: .\core\models.py:147
 msgid "Bayram iş saatı (C)"
 msgstr ""
 
-#: .\core\models.py:146
+#: .\core\models.py:150
 msgid "Ümumi iş saatı (D)"
 msgstr ""
 
-#: .\core\models.py:149
+#: .\core\models.py:153
 msgid "Gündüz iş saatı (D)"
 msgstr ""
 
-#: .\core\models.py:152
+#: .\core\models.py:156
 msgid "Gecə iş saatı (D)"
 msgstr ""
 
-#: .\core\models.py:155
+#: .\core\models.py:159
 msgid "Bayram iş saatı (D)"
 msgstr ""
 
-#: .\core\models.py:230 .\core\models.py:231
+#: .\core\models.py:234 .\core\models.py:235
 msgid ""
 "Bu il və ay üçün məlumat artıq mövcuddur. Zəhmət olmasa fərqli bir il və ya "
 "ay seçin."
 msgstr ""
 
-#: .\core\models.py:238
+#: .\core\models.py:241
 msgid "İş təqvimi"
 msgstr ""
 
-#: .\core\models.py:239
+#: .\core\models.py:242
 msgid "İş təqvimləri"
 msgstr ""
 
-#: .\core\models.py:249
+#: .\core\models.py:252
 msgid "Şəkil"
 msgstr ""
 
-#: .\core\models.py:272
+#: .\core\models.py:275
 msgid "Bu il üçün şəkil artıq mövcuddur. Zəhmət olmasa fərqli bir il seçin."
 msgstr ""
 
-#: .\core\models.py:277
+#: .\core\models.py:279
 msgid "İstehsalat təqvimi şəkili"
 msgstr ""
 
-#: .\core\models.py:278
+#: .\core\models.py:280
 msgid "İstehsalat təqvimi şəkilləri"
 msgstr ""
 
-#: .\core\models.py:285 .\identity\models.py:25
+#: .\core\models.py:287 .\identity\models.py:25
 msgid "İstifadəçi"
 msgstr ""
 
-#: .\core\models.py:304
+#: .\core\models.py:306
 msgid "Vəzifə maaşı"
 msgstr ""
 
-#: .\core\models.py:310
+#: .\core\models.py:312
 msgid "Əlavə iş saatı"
 msgstr ""
 
-#: .\core\models.py:313
+#: .\core\models.py:315
 msgid "Mükafat faizi"
 msgstr ""
 
-#: .\core\models.py:317
+#: .\core\models.py:319
 msgid "Saatlıq əməkhaqqı"
 msgstr ""
 
-#: .\core\models.py:323
+#: .\core\models.py:325
 msgid "Gecə növbəsi ödənişi"
 msgstr ""
 
-#: .\core\models.py:329
+#: .\core\models.py:331
 msgid "Növbədən artıq qalan saat ödənişi (ikiqat)"
 msgstr ""
 
-#: .\core\models.py:335
+#: .\core\models.py:337
 msgid "Bayram saatı ödənişi"
 msgstr ""
 
-#: .\core\models.py:341
+#: .\core\models.py:343
 msgid "Əlavə iş saatı ödənişi (ikiqat)"
 msgstr ""
 
-#: .\core\models.py:347
+#: .\core\models.py:349
 msgid "Mükafat məbləği"
 msgstr ""
 
-#: .\core\models.py:353
+#: .\core\models.py:355
 msgid "Gross maaş"
 msgstr ""
 
-#: .\core\models.py:359
+#: .\core\models.py:361
 msgid "Nett gəlir"
 msgstr ""
 
-#: .\core\models.py:365
+#: .\core\models.py:367
 msgid "Gəlir vergisi"
 msgstr ""
 
-#: .\core\models.py:371
+#: .\core\models.py:373
 msgid "Məcburi dövlət sosial sığorta haqqı"
 msgstr ""
 
-#: .\core\models.py:377
+#: .\core\models.py:379
 msgid "İşsizlikdən sığorta haqqı"
 msgstr ""
 
-#: .\core\models.py:383
+#: .\core\models.py:385
 msgid "İcbari tibbi sığorta haqqı"
 msgstr ""
 
-#: .\core\models.py:389 .\core\models.py:422 .\core\models.py:592
+#: .\core\models.py:391 .\core\models.py:423 .\core\models.py:594
 #: .\identity\models.py:49
 msgid "Aktiv"
 msgstr ""
 
-#: .\core\models.py:406
+#: .\core\models.py:407
 msgid "Maaş hesablaması"
 msgstr ""
 
-#: .\core\models.py:407
+#: .\core\models.py:408
 msgid "Maaş hesablamaları"
 msgstr ""
 
-#: .\core\models.py:418
+#: .\core\models.py:419
 msgid "Göstərilmə sırası"
 msgstr ""
 
@@ -323,7 +339,7 @@ msgstr ""
 msgid "Ad Soyad"
 msgstr ""
 
-#: .\core\models.py:452 .\core\models.py:481
+#: .\core\models.py:452 .\core\models.py:484
 msgid "E-Poçt"
 msgstr ""
 
@@ -335,95 +351,99 @@ msgstr ""
 msgid "Mesaj"
 msgstr ""
 
-#: .\core\models.py:475
+#: .\core\models.py:462
+msgid "Həll edildi"
+msgstr ""
+
+#: .\core\models.py:478
 msgid "Əlaqə"
 msgstr ""
 
-#: .\core\models.py:476
+#: .\core\models.py:479
 msgid "Əlaqələr"
 msgstr ""
 
-#: .\core\models.py:485
+#: .\core\models.py:488
 msgid "Abunə statusu"
 msgstr ""
 
-#: .\core\models.py:502
+#: .\core\models.py:504
 msgid "Abunə"
 msgstr ""
 
-#: .\core\models.py:503
+#: .\core\models.py:505
 msgid "Abunələr"
 msgstr ""
 
-#: .\core\models.py:508
+#: .\core\models.py:510
 msgid "Sayt adı"
 msgstr ""
 
-#: .\core\models.py:524
+#: .\core\models.py:526
 msgid "Gizlilik URL"
 msgstr ""
 
-#: .\core\models.py:529
+#: .\core\models.py:531
 msgid "Şərtlər & Qaydalar URL"
 msgstr ""
 
-#: .\core\models.py:534
+#: .\core\models.py:536
 msgid "Facebook URL"
 msgstr ""
 
-#: .\core\models.py:539
+#: .\core\models.py:541
 msgid "Instagram URL"
 msgstr ""
 
-#: .\core\models.py:544
+#: .\core\models.py:546
 msgid "Youtube URL"
 msgstr ""
 
-#: .\core\models.py:549
+#: .\core\models.py:551
 msgid "Linkedin URL"
 msgstr ""
 
-#: .\core\models.py:554
+#: .\core\models.py:556
 msgid "Github URL"
 msgstr ""
 
-#: .\core\models.py:559
+#: .\core\models.py:561
 msgid "Email 1"
 msgstr ""
 
-#: .\core\models.py:564
+#: .\core\models.py:566
 msgid "Email 2"
 msgstr ""
 
-#: .\core\models.py:569
+#: .\core\models.py:571
 msgid "Email 3"
 msgstr ""
 
-#: .\core\models.py:574
+#: .\core\models.py:576
 msgid "Telefon nömrəsi 1"
 msgstr ""
 
-#: .\core\models.py:580
+#: .\core\models.py:582
 msgid "Telefon nömrəsi 2"
 msgstr ""
 
-#: .\core\models.py:586
+#: .\core\models.py:588
 msgid "Telefon nömrəsi 3"
 msgstr ""
 
-#: .\core\models.py:609
+#: .\core\models.py:610
 msgid "Sayt məlumatı"
 msgstr ""
 
-#: .\core\models.py:610
+#: .\core\models.py:611
 msgid "Sayt məlumatları"
 msgstr ""
 
-#: .\core\models.py:615
+#: .\core\models.py:616
 msgid "Say"
 msgstr ""
 
-#: .\core\models.py:629
+#: .\core\models.py:630
 msgid "Yalnızca bir ədəd obyekt yaratmağa icazə verilir"
 msgstr ""
 
@@ -510,11 +530,11 @@ msgstr ""
 msgid "Səbəb"
 msgstr ""
 
-#: .\identity\models.py:69
+#: .\identity\models.py:68
 msgid "Qara siyahı girişi"
 msgstr ""
 
-#: .\identity\models.py:70
+#: .\identity\models.py:69
 msgid "Qara siyahı girişləri"
 msgstr ""
 
@@ -553,7 +573,7 @@ msgstr ""
 msgid ""
 "Sizə xoş gəldiniz deyirik! %(user_display)s istifadəçisi tərəfindən sizin e-"
 "poçt ünvanınızın %(site_domain)s-da hesab yaratmaq üçün istifadə edildiyini "
-"bildirmək üçün bu e-poçtu alırsınız.\n"
+"bildirmək üçün bu e-məktubu alırsınız.\n"
 "\n"
 "Məlumatın doğruluğunu təsdiq etmək üçün, zəhmət olmasa aşağıdakı linkə keçid "
 "edərək e-poçt ünvanınızı təsdiqləyin:\n"
@@ -567,7 +587,7 @@ msgstr ""
 #: .\templates\account\email\password_reset_key_message.txt:4
 msgid ""
 "Sizin və ya başqa biri tərəfindən hesabınız üçün şifrə sıfırlanması tələb "
-"olunub. Əgər şifrə sıfırlamağı siz tələb etməmisinizsə, bu məktubu gözardı "
+"olunub. Əgər şifrə sıfırlamağı siz tələb etməmisinizsə, bu e-məktubu gözardı "
 "edə bilərsiniz.\n"
 "Şifrənizi sıfırlamaq üçün aşağıdakı linkə keçid edin:\n"
 msgstr ""

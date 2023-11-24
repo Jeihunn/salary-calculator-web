@@ -28,12 +28,12 @@ def toggle_active_selected(modeladmin, request, queryset):
         obj.is_active = not obj.is_active
         obj.save()
 
-    message = _(f"{count} obyektin aktivlik vəziyyəti uğurla dəyiştirildi.")
+    message = _(f"{count} obyektin aktivlik vəziyyəti uğurla dəyişdirildi.")
     modeladmin.message_user(request, message, level=messages.SUCCESS)
 
 
 toggle_active_selected.short_description = _(
-    "Seçilənlərin Aktivlik vəziyyətini dəyiştir")
+    "Seçilənlərin Aktivlik vəziyyətini dəyiş")
 # ===== END Actions =====
 
 
@@ -164,10 +164,24 @@ class FAQAdmin(admin.ModelAdmin):
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
+    actions = ["toggle_resolved_selected"]
+    
     list_display = ["id", "full_name", "email",
-                    "subject", "created_at", "updated_at"]
+                    "subject", "is_resolved", "created_at", "updated_at"]
     list_display_links = ["id", "full_name"]
     search_fields = ["full_name", "email", "subject"]
+
+    def toggle_resolved_selected(modeladmin, request, queryset):
+        count = queryset.count()
+        for obj in queryset:
+            obj.is_resolved = not obj.is_resolved
+            obj.save()
+
+        message = _(f"{count} obyektin Həll edildi vəziyyəti uğurla dəyişdirildi.")
+        modeladmin.message_user(request, message, level=messages.SUCCESS)
+
+    toggle_resolved_selected.short_description = _(
+        "Seçilənlərin Həll edildi vəziyyətini dəyiş")
 
 
 @admin.register(Subscriber)
@@ -186,11 +200,11 @@ class SubscriberAdmin(admin.ModelAdmin):
             obj.subscription_status = not obj.subscription_status
             obj.save()
 
-        message = _(f"{count} obyektin abunə statusu uğurla dəyiştirildi.")
+        message = _(f"{count} obyektin abunə statusu uğurla dəyişdirildi.")
         modeladmin.message_user(request, message, level=messages.SUCCESS)
 
     toggle_status_selected.short_description = _(
-        "Seçilənlərin Abunə statusunu dəyiştir")
+        "Seçilənlərin Abunə statusunu dəyiş")
 
 
 @admin.register(SiteInfo)
