@@ -1,0 +1,5 @@
+User-agent:*
+Disallow: /adm1n/
+Disallow: /admin/
+
+Sitemap: https://maashesabla.info/sitemap.xml
