@@ -90,6 +90,31 @@ def index_view(request):
     user_salary_calculations = SalaryCalculation.objects.filter(
         user=request.user, is_active=True).order_by("-created_at")[:10]
 
+    # Retrieve corresponding WorkCalendar instances for each SalaryCalculation
+    for calculation in user_salary_calculations:
+        try:
+            work_calendar = WorkCalendar.objects.get(
+                year=calculation.year,
+                month=calculation.month
+            )
+            calculation.nighttime_work_hour = getattr(
+                work_calendar, f"group_{calculation.shift.value}_nighttime_work_hour", 0
+            )
+            calculation.holiday_work_hour = getattr(
+                work_calendar, f"group_{calculation.shift.value}_holiday_work_hour", 0
+            )
+
+            monthly_work_hour = getattr(work_calendar, "monthly_work_hour", 0)
+            general_work_hour = getattr(work_calendar, f"group_{calculation.shift.value}_general_work_hour", 0)
+            calculation.extra_work_hour = max(0, general_work_hour - monthly_work_hour)
+        except WorkCalendar.DoesNotExist:
+            # Handle the case where WorkCalendar does not exist for the specified year and month
+            calculation.nighttime_work_hour = None
+            calculation.holiday_work_hour = None
+            calculation.extra_work_hour = None
+        except Exception as e:
+            print(f"An error occurred: {str(e)}")
+
     context = {
         "form": form,
         "user_salary_calculations": user_salary_calculations

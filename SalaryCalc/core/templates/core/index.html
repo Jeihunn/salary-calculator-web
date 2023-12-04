@@ -150,25 +150,44 @@
                     <td data-label="Əlavə iş saatı">{{ salary_calculation.overtime }} saat</td>
                     <td data-label="Mükafat faizi">{{ salary_calculation.bonus_percent }}%</td>
                     <td data-label="Saatlıq əməkhaqqı">{{ salary_calculation.hourly_wage }} ₼</td>
-                    <td data-label="Gecə növbəsi ödənişi">
+                    <td data-label="Gecə növbəsi ödənişi" class="tooltip-td">
                       {% if salary_calculation.shift.value != "g" %}
                         {{ salary_calculation.night_work_pay }} ₼
+                        {% if salary_calculation.nighttime_work_hour != None %}
+                        <span class="tooltiptext">
+                          <span>Gecə iş saatı:</span>
+                          <span>{{ salary_calculation.nighttime_work_hour }} saat</span>
+                        </span>
+                        {% endif %}
                       {% else %}
                         —
                       {% endif %}
                     </td>
                     <td
                       data-label="Növbədən artıq qalan əlavə saat ödənişi (ikiqat)"
+                      class="tooltip-td"
                     >
                       {% if salary_calculation.shift.value != "g" %}
                         {{ salary_calculation.extra_hour_pay }} ₼
+                        {% if salary_calculation.extra_work_hour != None %}
+                        <span class="tooltiptext">
+                          <span>Növbədən artıq qalan əlavə saat:</span>
+                          <span>{{ salary_calculation.extra_work_hour }} saat</span>
+                        </span>
+                        {% endif %}
                       {% else %}
                         —
                       {% endif %}
                     </td>
-                    <td data-label="Bayram saatı ödənişi">
+                    <td data-label="Bayram saatı ödənişi" class="tooltip-td">
                       {% if salary_calculation.shift.value != "g" %}
                         {{ salary_calculation.holiday_hour_pay }} ₼
+                        {% if salary_calculation.holiday_work_hour != None %}
+                        <span class="tooltiptext">
+                          <span>Bayram iş saatı:</span>
+                          <span>{{ salary_calculation.holiday_work_hour }} saat</span>
+                        </span>
+                        {% endif %}
                       {% else %}
                         —
                       {% endif %}
