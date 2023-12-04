@@ -21,10 +21,8 @@
 
 table.custom-table-hover tbody tr:hover td {
   background-color: #dfdede;
-}
-
-.custom-admin-site-logo-class {
-  height: 50px;
+  border-top-color: #eeeeee;
+  border-bottom-color: #eeeeee;
 }
 
 @media (max-width: 576px) {
