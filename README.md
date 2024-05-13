@@ -84,3 +84,35 @@ Contributors to this project:
 
 - [Jeihunn](https://github.com/Jeihunn)
 - [Anar](https://github.com/anarmh)
+
+## 📷 Screenshots
+
+Below are the screenshots illustrating the functionality and user interface of the application.
+
+1. Signup:
+
+   ![Signup](screenshots/signup.jpg)
+
+2. Login:
+
+   ![Login](screenshots/login.jpg)
+
+3. Monthly Salary Calculation:
+
+   ![Monthly Salary Calculation](screenshots/index.jpg)
+
+4. Gross to Nett:
+
+   ![Gross to Nett](screenshots/gross-to-nett.jpg)
+
+5. Work Calendar:
+
+   ![Work Calendar](screenshots/work-calendar.jpg)
+
+6. Frequently Asked Questions (FAQ):
+
+   ![FAQ](screenshots/faq.jpg)
+
+7. Contact:
+
+   ![Contact](screenshots/contact.jpg)
