@@ -28,8 +28,7 @@ To run the project on your local machine, follow these steps:
 2. **Navigate to the project directory:**
 
     ```bash
-    cd salary-calculator-web
-    cd SalaryCalc
+    cd salary-calculator-web/SalaryCalc
     ```
 
 3. **Create and activate a virtual environment (optional):**
@@ -84,6 +83,10 @@ Contributors to this project:
 
 - [Jeihunn](https://github.com/Jeihunn)
 - [Anar](https://github.com/anarmh)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 📷 Screenshots
 
