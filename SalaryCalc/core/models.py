@@ -651,9 +651,8 @@ class AlertMessage(models.Model):
         choices=AlertType.choices,
         default=AlertType.INFO
     )
-    text = models.CharField(
-        verbose_name=_("Alert Mesajı"),
-        max_length=255
+    text = models.TextField(
+        verbose_name=_("Alert Mesajı")
     )
     is_active = models.BooleanField(
         verbose_name=_("Aktiv"),
