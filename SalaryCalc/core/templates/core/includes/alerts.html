@@ -1,0 +1,23 @@
+{% if alert_messages %}
+    {% for alert in alert_messages %}
+        {% if alert.type == 'success' %}
+            <div class="alert alert-success alert-dismissible fade show text-center m-0" role="alert">
+                <i class="fas fa-check-circle me-2"></i>
+        {% elif alert.type == 'info' %}
+            <div class="alert alert-info alert-dismissible fade show text-center m-0" role="alert">
+                <i class="fas fa-info-circle me-2"></i>
+        {% elif alert.type == 'warning' %}
+            <div class="alert alert-warning alert-dismissible fade show text-center m-0" role="alert">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+        {% elif alert.type == 'danger' %}
+            <div class="alert alert-danger alert-dismissible fade show text-center m-0" role="alert">
+                <i class="fas fa-times-circle me-2"></i>
+        {% else %}
+            <div class="alert alert-secondary alert-dismissible fade show text-center m-0" role="alert">
+                <i class="fas fa-info-circle me-2"></i>
+        {% endif %}
+                <strong>{{ alert.text }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+    {% endfor %}
+{% endif %}

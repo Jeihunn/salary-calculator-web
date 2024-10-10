@@ -1,26 +1,26 @@
+# Base image
 FROM python:3.10
-ARG DIR=/code
 
-WORKDIR $DIR
+# Set working directory
+WORKDIR /code
 
-RUN apt-get update && apt-get upgrade -y
+# Install system dependencies and clean up
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    nano \
+    gettext \
+    && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt ./
+# Install Python dependencies and uWSGI
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip install uwsgi
 
-RUN python3 -m pip install --upgrade pip
-
-RUN apt-get install nano -y
-RUN apt-get install gettext -y
-
-RUN python3 -m pip install --no-cache-dir -r requirements.txt
-
+# Copy the project files
 COPY . .
 
-# uWSGI will listen on this port
-EXPOSE 8050
-
-# Install uWSGI
-RUN pip install uwsgi
+# Expose the port
+EXPOSE 8000
 
 # Start uWSGI
 CMD ["uwsgi", "--ini", "uwsgi.ini"]

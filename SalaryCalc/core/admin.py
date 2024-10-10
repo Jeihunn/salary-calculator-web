@@ -14,7 +14,8 @@ from .models import (
     Contact,
     Subscriber,
     SiteInfo,
-    CalculationCount
+    CalculationCount,
+    AlertMessage
 )
 
 
@@ -242,3 +243,9 @@ class CalculationCountAdmin(admin.ModelAdmin):
         if CalculationCount.objects.exists():
             return False
         return super().has_add_permission(request)
+
+
+@admin.register(AlertMessage)
+class AlertMessageAdmin(admin.ModelAdmin):
+    list_display = ["id", "get_type_display", "text", "is_active", "created_at", "updated_at"]
+    list_display_links = list_display

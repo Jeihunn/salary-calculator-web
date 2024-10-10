@@ -636,3 +636,41 @@ class CalculationCount(models.Model):
     class Meta:
         verbose_name = _("Hesablama sayı")
         verbose_name_plural = _("Hesablama sayı")
+
+
+class AlertMessage(models.Model):
+    class AlertType(models.TextChoices):
+        INFO = "info", "Info"
+        SUCCESS = "success", "Success"
+        WARNING = "warning", "Warning"
+        DANGER = "danger", "Danger"
+
+    type = models.CharField(
+        verbose_name=_("Tip"),
+        max_length=10,
+        choices=AlertType.choices,
+        default=AlertType.INFO
+    )
+    text = models.CharField(
+        verbose_name=_("Alert Mesajı"),
+        max_length=255
+    )
+    is_active = models.BooleanField(
+        verbose_name=_("Aktiv"),
+        default=True
+    )
+    created_at = models.DateTimeField(
+        verbose_name=_("Yaradılma vaxtı"),
+        auto_now_add=True
+    )
+    updated_at = models.DateTimeField(
+        verbose_name=_("Yenilənmə vaxtı"),
+        auto_now=True
+    )
+
+    class Meta:
+        verbose_name = _("Alert Mesajı")
+        verbose_name_plural = _("Alert Mesajları")
+
+    def __str__(self):
+        return f"{self.get_type_display()}: {self.text}"

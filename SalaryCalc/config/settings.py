@@ -167,6 +167,7 @@ TEMPLATES = [
                 # ========== MY CONTEXT PROCESSORS ==========
                 "core.context_processors.site_info_global",
                 "core.context_processors.calculation_count_global",
+                "core.context_processors.alert_messages",
             ],
         },
     },
